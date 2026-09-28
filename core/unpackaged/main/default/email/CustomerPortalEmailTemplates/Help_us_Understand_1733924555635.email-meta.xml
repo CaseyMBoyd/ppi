@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Brief email to use when portal users have gone dormant or not very high usage</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Help us Understand</name>
+    <relatedEntityType>Contact</relatedEntityType>
+    <style>none</style>
+    <subject>Help us understand how we can serve you better</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

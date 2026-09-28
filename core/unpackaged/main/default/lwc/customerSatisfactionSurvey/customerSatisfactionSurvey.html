@@ -1,0 +1,50 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Customer Satisfaction Survey -->
+<template>
+
+    <div class="slds-align_absolute-center flex-column slds-box full-height full-width slds-is-relative">
+        <template lwc:if={hasSubmitted}>
+            <div class="slds-p-around_medium">
+                <lightning-icon icon-name="action:approval"
+                                size="medium"
+                                class="icon-brand slds-m-bottom_small">
+                </lightning-icon>
+            </div>
+            <div class="title-text slds-m-bottom_small">
+                Thank you for your feedback!
+            </div>
+            <div class="subtitle-text slds-m-bottom_small">
+                <p>Your feedback has been successfully submitted.</p>
+            </div>
+        </template>
+
+        <template lwc:else>
+            <lightning-spinner size="medium" variant="brand" if:true={isLoading}></lightning-spinner>
+            <div class="title-text slds-m-bottom_xxx-small">
+                Tell Us How We Did
+            </div>
+            <div class="subtitle-text slds-m-bottom_small">
+                <p>Are you satisfied with your order?</p>
+            </div>
+            <div class="thumb-options flex-row space-evenly slds-m-bottom_medium full-width">
+                <lightning-icon icon-name="utility:like"
+                                class={thumbsUpButtonClass}
+                                size="large"
+                                onclick={setSatisfied}></lightning-icon>
+                <lightning-icon icon-name="utility:dislike"
+                                class={thumbsDownButtonClass}
+                                size="large"
+                                onclick={setUnsatisfied}></lightning-icon>
+            </div>
+            <div class="full-width max-width">
+                <lightning-textarea label="" variant="label-hidden" onchange={handleCommentsChange} placeholder="Enter any comments">
+                </lightning-textarea>
+            </div>
+            <div class="flex-end full-width max-width slds-m-bottom_x-small">
+                <lightning-button label="Submit" variant="brand" onclick={handleSubmit}>
+                </lightning-button>
+            </div>
+        </template>
+    </div>
+</template>

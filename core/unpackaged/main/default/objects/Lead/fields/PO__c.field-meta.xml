@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PO__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check if the Lead is a PO</description>
+    <inlineHelpText>Check the box if the lead is a customer sending in a PO</inlineHelpText>
+    <label>PO?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

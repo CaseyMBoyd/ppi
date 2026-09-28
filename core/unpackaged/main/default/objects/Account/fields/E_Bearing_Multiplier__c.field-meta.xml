@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>E_Bearing_Multiplier__c</fullName>
+    <description>E Bearing part class price multiplier value</description>
+    <externalId>false</externalId>
+    <inlineHelpText>E Bearing part class price multiplier value</inlineHelpText>
+    <label>E Bearing Multiplier</label>
+    <precision>7</precision>
+    <required>false</required>
+    <scale>3</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

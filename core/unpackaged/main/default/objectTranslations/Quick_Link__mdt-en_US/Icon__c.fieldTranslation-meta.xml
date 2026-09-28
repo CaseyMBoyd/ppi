@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Enter values from this site: https://v1.lightningdesignsystem.com/icons/
+
+Utilize the convention of &quot;category:icon_name&quot;, so for instance: &quot;utility:arrowdown&quot; for an arrow pointing down. --></help>
+        <label><!-- Icon --></label>
+        <name>Icon__c</name>
+    </CustomFieldTranslation>

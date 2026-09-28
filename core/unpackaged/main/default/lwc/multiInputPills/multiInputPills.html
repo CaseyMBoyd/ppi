@@ -1,0 +1,39 @@
+<template>
+    <lightning-card title={resolvedCardTitle}>
+        <div class="slds-p-horizontal_medium slds-is-relative">
+            <template if:true={isSaving}>
+                <lightning-spinner
+                    alternative-text="Updating field values"
+                    size="small"
+                >
+                </lightning-spinner>
+            </template>
+
+            <div class="slds-form-element">
+                <!-- <label class="slds-form-element__label" for="multiInputPillsField">{resolvedInputLabel}</label> -->
+                <div class="slds-form-element__control">
+                    <input
+                        id="multiInputPillsField"
+                        class="slds-input"
+                        type="text"
+                        placeholder="Type a value and press Enter or comma"
+                        value={inputValue}
+                        oninput={handleInputChange}
+                        onkeydown={handleKeyDown}
+                        onblur={handleBlur}
+                    />
+                </div>
+            </div>
+
+            <template if:true={hasItems}>
+                <div class="slds-m-top_small">
+                    <lightning-pill-container
+                        items={pillItems}
+                        onitemremove={handleItemRemove}
+                    >
+                    </lightning-pill-container>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

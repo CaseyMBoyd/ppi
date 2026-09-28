@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;"><span style="font-family:Arial,Helvetica,sans-serif;">Hi Project Sales,<br />
+<br />
+I’m reaching out regarding Account: {{{Opportunity.Account_Name__c}}}/Project Name: {{{Opportunity.Project_Name__c}}}/ Quote #: {{{Opportunity.Quote_Number__c}}} to:</span><br />
+&nbsp;
+<ol>
+	<li><span style="font-family:Arial,Helvetica,sans-serif;">Make you aware of a project opportunity.</span></li>
+	<li><span style="font-family:Arial,Helvetica,sans-serif;">Get your input on pricing.</span></li>
+	<li><span style="font-family:Arial,Helvetica,sans-serif;">Request a quote review.</span></li>
+</ol>
+<span style="font-family:Arial,Helvetica,sans-serif;">Please let me know your thoughts. Thanks!</span><br />
+<br />
+{{{Sender.Signature}}}</body>
+</html>

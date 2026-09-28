@@ -1,0 +1,21 @@
+.picklist-cell {
+  min-height: 2rem;
+}
+
+.combobox-trigger {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  min-height: 2rem;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+
+.placeholder {
+  color: var(--slds-g-color-neutral-base-50, #747474);
+}
+
+.picklist-dropdown {
+  max-width: 18rem;
+}

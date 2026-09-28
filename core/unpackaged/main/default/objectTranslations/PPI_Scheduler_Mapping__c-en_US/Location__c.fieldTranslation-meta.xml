@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- PPI Manufacturing Location --></help>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+        <picklistValues>
+            <masterLabel>Corning Plant #1 (4)</masterLabel>
+            <translation><!-- Corning Plant #1 (4) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corning Plant #2 (5)</masterLabel>
+            <translation><!-- Corning Plant #2 (5) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corning Plant #4 (3)</masterLabel>
+            <translation><!-- Corning Plant #4 (3) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Humboldt (H)</masterLabel>
+            <translation><!-- Humboldt (H) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lenox (2)</masterLabel>
+            <translation><!-- Lenox (2) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maysville (W)</masterLabel>
+            <translation><!-- Maysville (W) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Midwest Service Center (U)</masterLabel>
+            <translation><!-- Midwest Service Center (U) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Northeast Service Center (M)</masterLabel>
+            <translation><!-- Northeast Service Center (M) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pella (1)</masterLabel>
+            <translation><!-- Pella (1) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Southeast Service Center (I)</masterLabel>
+            <translation><!-- Southeast Service Center (I) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Southwest Service Center (F)</masterLabel>
+            <translation><!-- Southwest Service Center (F) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stainless Steel Algona (A)</masterLabel>
+            <translation><!-- Stainless Steel Algona (A) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Surrey Canada (R)</masterLabel>
+            <translation><!-- Surrey Canada (R) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>West Coast Service Center (B)</masterLabel>
+            <translation><!-- West Coast Service Center (B) --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>PPI - Commerce Viewer with the ability to see all carts made while not having permission to take cart(s) to order</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>PPI - Commerce Super Viewer</label>
+    <permissionSets>PPI_Commerce_Access_Account_Switcher</permissionSets>
+    <permissionSets>PPI_Commerce_Base</permissionSets>
+    <permissionSets>PPI_Commerce_Cannot_Checkout</permissionSets>
+    <permissionSets>PPI_Commerce_View_All_Carts_w_o_Order_Capability</permissionSets>
+    <permissionSets>force__B2BBuyer</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

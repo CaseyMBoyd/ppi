@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type</fullName>
+    <inlineHelpText>Related to customer request and Lead Queue. If Idler Queue than choose Idler for type, Pulley Queue choose Pulley if for Bulk and Unit if for Unit Pulleys for type. Key Accounts Queue only- option of Mixed Type which allows for Pulley and Idlers to be on same opportunity.</inlineHelpText>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estimating_Handoff__c</fullName>
+    <inlineHelpText>Date and Time that Estimating request was sent in either Quoted Development or Quote Adjustment Stage using Send to Estimating button</inlineHelpText>
+    <label>Estimating Handoff</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

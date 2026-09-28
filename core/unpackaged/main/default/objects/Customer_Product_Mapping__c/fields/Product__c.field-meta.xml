@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Resolved PPI product. Populated exclusively by the asynchronous validation Queueable when the SKU input matches an active Product2.StockKeepingUnit. Never set directly by users.</description>
+    <label>PPI Product</label>
+    <referenceTo>Product2</referenceTo>
+    <relationshipLabel>Customer Product Mappings</relationshipLabel>
+    <relationshipName>Customer_Product_Mappings</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

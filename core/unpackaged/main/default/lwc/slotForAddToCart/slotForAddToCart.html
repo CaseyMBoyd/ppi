@@ -1,0 +1,11 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Slot For Add To Cart -->
+<template>
+    <template lwc:if={bushingsEmpty}>
+        <slot name="slotForAddToCartWithoutBushings"></slot>
+    </template>
+    <template lwc:if={bushingsExist}>
+        <c-add-to-cart-with-bushings bushings={bushings} product-id={recordId}></c-add-to-cart-with-bushings>
+    </template>
+</template>

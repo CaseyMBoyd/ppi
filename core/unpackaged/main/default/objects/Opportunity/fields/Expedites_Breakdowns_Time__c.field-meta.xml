@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expedites_Breakdowns_Time__c</fullName>
+    <externalId>false</externalId>
+    <formula>(Expedites_Breakdowns_Completed__c - Expedites_Breakdowns_Handoff__c)*24*60</formula>
+    <inlineHelpText>Tracks the difference between "Expedites\Breakdowns Handoff" and "Expedites\Breakdowns Completed" in minutes. This does not take into account business hours.</inlineHelpText>
+    <label>Expedites\Breakdowns Time</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>East_21_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>East 21</label>
+    <queue>East_21</queue>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <description>Customer Satisfaction Survey</description>
+    <isExposed>true</isExposed>
+    <masterLabel>Customer Satisfaction Survey</masterLabel>
+    <targets>
+        <target>lightningCommunity__Default</target>
+        <target>lightningCommunity__Page</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="orderNumber"
+                      type="String"
+                      label="Order Number"
+                      description="The number of the order summary created"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

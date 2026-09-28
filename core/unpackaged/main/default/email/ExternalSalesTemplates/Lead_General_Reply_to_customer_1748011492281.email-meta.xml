@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When replying to a Lead that will not be converted to Opportunity</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Lead- General Reply to customer</name>
+    <relatedEntityType>Lead</relatedEntityType>
+    <style>none</style>
+    <subject>RE:</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

@@ -1,0 +1,82 @@
+<template>
+  <lightning-card title="WebDocs File Selector">
+    <lightning-layout pull-to-boundary="small">
+      <lightning-layout-item size="12" padding="around-small">
+        <c-webdocs-file-selector-picklist
+          key-field="id"
+          data={visibleContentDocs}
+          columns={columns}
+          hide-checkbox-column
+          suppress-bottom-bar
+          onrowaction={handleRowAction}
+          onpicklistchange={handlePicklistChange}
+        ></c-webdocs-file-selector-picklist>
+      </lightning-layout-item>
+    </lightning-layout>
+    <template if:true={hasHiddenFiles}>
+      <div class="slds-p-horizontal_small slds-p-bottom_small">
+        <lightning-button
+          label={hiddenFilesButtonLabel}
+          icon-name={hiddenFilesButtonIconName}
+          onclick={handleToggleHiddenFiles}
+        ></lightning-button>
+        <template if:true={showHiddenFiles}>
+          <div
+            class="slds-text-title_caps slds-m-top_small slds-m-bottom_xx-small"
+          >
+            Hidden Files
+          </div>
+          <ul class="slds-list_vertical slds-has-dividers_bottom-space">
+            <template for:each={hiddenContentDocs} for:item="contentDoc">
+              <li
+                key={contentDoc.id}
+                class="slds-item slds-grid slds-grid_align-spread slds-grid_vertical-align-center"
+              >
+                <span class="slds-truncate" title={contentDoc.title}>
+                  {contentDoc.title}
+                </span>
+                <lightning-button-icon
+                  icon-name="utility:preview"
+                  alternative-text="Show file"
+                  title="Show file"
+                  data-id={contentDoc.id}
+                  onclick={handleShowFile}
+                ></lightning-button-icon>
+              </li>
+            </template>
+          </ul>
+        </template>
+      </div>
+    </template>
+    <lightning-layout multiple-rows>
+      <lightning-layout-item
+        size="12"
+        padding="horizontal-small"
+        class="slds-p-vertical_xx-small"
+      >
+        <lightning-button
+          variant="brand"
+          label="Upload to WebDocs"
+          onclick={handleUpload}
+          disabled={disableUpload}
+          stretch
+          icon-name="utility:upload"
+        ></lightning-button>
+      </lightning-layout-item>
+      <!-- <lightning-layout-item
+          size="12"
+          padding="horizontal-small"
+          class="slds-p-vertical_xx-small"
+        >
+          <lightning-button
+            variant="brand"
+            label="Open WebDocs"
+            onclick={handleClick}
+            stretch
+            icon-name="utility:new_window"
+          >
+          </lightning-button>
+        </lightning-layout-item> -->
+    </lightning-layout>
+  </lightning-card>
+</template>

@@ -1,0 +1,37 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+
+<!-- Rename Cart Modal -->
+<template>
+    <lightning-spinner
+            if:true={isLoading}
+            variant="brand"
+            size="medium"
+    ></lightning-spinner>
+
+    <lightning-modal-header label="Rename Cart"></lightning-modal-header>
+    <lightning-modal-body>
+        <lightning-input type="text"
+                         onchange={handleChange}
+                         label="New Cart Name"
+                         required
+                         value={_cartName}></lightning-input>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-button
+                variant="brand"
+                class="slds-m-right_medium"
+                type="button"
+                label="Cancel"
+                onclick={closeModal}
+        ></lightning-button>
+
+        <lightning-button
+                variant="brand"
+                type="button"
+                label="Save"
+                disabled={disableSave}
+                onclick={handleRenameCart}
+        ></lightning-button>
+    </lightning-modal-footer>
+</template>

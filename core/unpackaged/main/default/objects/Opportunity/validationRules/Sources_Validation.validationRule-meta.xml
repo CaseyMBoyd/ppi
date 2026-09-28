@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sources_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(
+    ISBLANK(TEXT(Sources__c)),
+    IF(
+        ISPICKVAL( PRIORVALUE(StageName) , "Quote Complete"), 
+        false,
+        IF(
+            AND(
+                ISPICKVAL( PRIORVALUE(StageName) , "Quote Adjustments"),
+                ISPICKVAL( StageName , "Closed Won")
+            ),
+            true,
+            false
+        )
+    ),
+    false)</errorConditionFormula>
+    <errorDisplayField>Sources__c</errorDisplayField>
+    <errorMessage>Sources must be filled in before proceeding to the next stage.</errorMessage>
+</ValidationRule>

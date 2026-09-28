@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">Dear Drafting Team-<br />
+<span style="font-size:12pt"><span style="line-height:normal"><span style="font-family:Calibri,sans-serif">Please review the following Drafting request from </span></span></span>{{{Sender.Name}}}<span style="font-size:12pt"><span style="line-height:normal"><span style="font-family:Calibri,sans-serif"><span style="color:#4472c4">:</span></span></span></span><br />
+<br />
+<span style="font-size:12pt"><span style="line-height:normal"><span style="font-family:Calibri,sans-serif">Order Number: </span></span></span>{{{Opportunity.Order_Number__c}}}<br />
+<span style="font-size:12pt"><span style="line-height:normal"><span style="font-family:Calibri,sans-serif">Quote Number:&nbsp;</span></span></span>{{{Opportunity.Quote_Number__c}}}<br />
+<span style="font-size:12pt"><span style="line-height:normal"><span style="font-family:Calibri,sans-serif">Customer Name:&nbsp;</span></span></span>{{{Opportunity.Account_Name__c}}}:&nbsp;{{{Opportunity.Account_City_State__c}}}, PPI Customer Number: {{{Opportunity.Account_Number__c}}}<br />
+<span style="font-size:12pt"><span style="line-height:normal"><span style="font-family:Calibri,sans-serif">Drafting Request Type: (Delete non-applicable) [Change Order, SAR Rework, CSP Print, Certified Print, Order Approval, Quote Approval, 3D Model, Engineering Review]</span></span></span><br />
+<br />
+<span style="font-size:12pt"><span style="line-height:normal"><span style="font-family:Calibri,sans-serif">Description of Request(Free-text description – please include all necessary details, dimensions, or supporting info):</span></span></span><br />
+<br />
+<span style="font-size:12pt"><span style="line-height:normal"><span style="font-family:Calibri,sans-serif">Information is stored(Delete non-applicable):&nbsp; [CRM, customer prints folder, project folder]</span></span></span><br />
+<br />
+If applicable to view the opportunity in Salesforce please click below:<br />
+<a href="https://connect-force-473.lightning.force.com/lightning/r/Opportunity/%7B%7B%7BOpportunity.Id%7D%7D%7D/view">https://connect-force-473.lightning.force.com/lightning/r/Opportunity/{{{Opportunity.Id}}}/view</a><br />
+<br />
+<span style="font-size:12pt"><span style="line-height:normal"><span style="font-family:Calibri,sans-serif">Thank you for your assistance!</span></span></span><br />
+<br />
+{{{Sender.Signature}}}</body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When needing to reply to customer and needing to include original Email</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Opportunity- General Reply to Customer</name>
+    <relatedEntityType>Opportunity</relatedEntityType>
+    <style>none</style>
+    <subject>RE:</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

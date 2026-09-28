@@ -1,0 +1,18 @@
+[
+  {
+    "quantityAvaliable": 200,
+    "quantityAvaliableToAssemble": null,
+    "warehouse": {
+      "id": "1",
+      "name": "Pella",
+      "address": {
+        "contact": null,
+        "street1": "",
+        "street2": "",
+        "city": "Pella",
+        "state": "IA",
+        "zip": 50329
+      }
+    }
+  }
+]

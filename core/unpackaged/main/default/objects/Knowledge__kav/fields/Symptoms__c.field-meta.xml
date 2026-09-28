@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Symptoms__c</fullName>
+    <description>Contains the symptoms of a troubleshooting article</description>
+    <inlineHelpText>Describe the issues as observed (errors, behavior, screenshots if applicable</inlineHelpText>
+    <label>Symptoms</label>
+    <length>32768</length>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+</CustomField>

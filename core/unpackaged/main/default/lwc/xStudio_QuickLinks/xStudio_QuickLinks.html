@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Quick Links">
+        <div class="slds-p-horizontal_small slds-p-vertical_small quick-links-container">
+            <template for:each={quickLinks} for:item="quickLink">
+                <a href={quickLink.node.URL__c.value} key={quickLink.node.MasterLabel.value} target="_blank">
+                    <div class="quick-links-item">
+                        <lightning-icon icon-name={quickLink.node.Icon__c.value}></lightning-icon>
+                        <p class="label">{quickLink.node.MasterLabel.value}</p>
+                    </div>
+                </a>
+            </template>
+        </div>
+    </lightning-card>
+</template>

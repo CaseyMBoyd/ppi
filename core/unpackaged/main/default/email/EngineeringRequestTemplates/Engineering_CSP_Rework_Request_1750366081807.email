@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">Dear Engineering Team,<br />
+<br />
+Please review the following CSP request.<br />
+<br />
+CSP Quote Number:&nbsp;{{{Opportunity.Quote_Number__c}}}<br />
+CSP Order Number:&nbsp;{{{Opportunity.Order_Number__c}}}<br />
+CSP Location: [Algona, Corning, Humboldt, Lenox, Pella, Cleveland]<br />
+CSP Type: [Tier 0, Tier 1, Tier 2]<br />
+CSP Contact Full Name:&nbsp;{{{Opportunity.Opportunity_Contact__c}}}<br />
+CSP Contact Email:&nbsp;{{{Opportunity.Opportunity_Contact_Email__c}}}<br />
+CSP Contact Phone:&nbsp;{{{Opportunity.Opportunity_Contact_Phone__c}}}<br />
+CSP Purchase Order saved to webdocs?: [Yes or No]<br />
+<br />
+CSP Notes: [Free-text description- please include any special instructions or backgroud info]<br />
+<br />
+To view the opportunity in Salesforce please click the link below:<br />
+<br />
+<a href="https://connect-force-473.lightning.force.com/lightning/r/Opportunity/%7B%7B%7BOpportunity.Id%7D%7D%7D/view">https://connect-force-473.lightning.force.com/lightning/r/Opportunity/{{{Opportunity.Id}}}/view</a><br />
+<br />
+Thank you for your assistance!<br />
+{{{Sender.Signature}}}</body>
+</html>

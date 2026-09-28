@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enforce_Account_Number__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates if carrier account number should be enforced during checkout</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Indicates if carrier account number should be enforced during checkout</inlineHelpText>
+    <label>Enforce Account Number</label>
+    <type>Checkbox</type>
+</CustomField>

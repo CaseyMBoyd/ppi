@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Default_Org_Wide_Email__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Default org-wide email address. Email address must be listed in Organization-Wide Addresses.</inlineHelpText>
+    <label>Default Org-Wide Email</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Email</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Please delete any non-applicable options in the Drafting Request Type and Information is Stored sections!</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Engineering - Drafting Request</name>
+    <relatedEntityType>Opportunity</relatedEntityType>
+    <style>none</style>
+    <subject>Drafting Request - Type: {{{Opportunity.Type}}} Quote #: {{{Opportunity.Quote_Number__c}}}:</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

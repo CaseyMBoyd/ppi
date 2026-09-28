@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Displayed_Description__c</fullName>
+    <description>Determines the description that is displayed in the Order Summary page</description>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK(Description__c), Description, Description__c)</formula>
+    <inlineHelpText>Determines the description that is displayed in the Order Summary page</inlineHelpText>
+    <label>Displayed Description</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

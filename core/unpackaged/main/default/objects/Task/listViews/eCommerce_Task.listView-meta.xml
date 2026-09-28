@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>eCommerce_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>eCommerce</label>
+    <queue>eCommerce</queue>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

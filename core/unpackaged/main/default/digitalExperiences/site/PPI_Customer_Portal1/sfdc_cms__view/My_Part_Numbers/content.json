@@ -1,0 +1,67 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "My Part Numbers",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"4e1c7c7c-1215-4f83-b384-199e40e24872\",\"columns\":[{\"UUID\":\"5387fd29-6c9b-4ec7-96e5-f87f3d7e695f\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : { },
+              "definition" : "c:customerPartNumberManager",
+              "id" : "05bf26b6-3c38-4bc0-b687-cfc7f1e33a1f",
+              "type" : "component"
+            } ],
+            "id" : "5387fd29-6c9b-4ec7-96e5-f87f3d7e695f",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "4e1c7c7c-1215-4f83-b384-199e40e24872",
+          "type" : "component"
+        } ],
+        "id" : "98093369-9480-4dac-8c8c-d56a6d9b4116",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "",
+            "description" : "",
+            "pageTitle" : "My Part Numbers",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "acc3ba54-25d0-4078-96d9-f2aa35e05833",
+          "type" : "component"
+        } ],
+        "id" : "366fe37e-a6cf-4810-916c-95ab1d41075b",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "14dc2a16-79ee-421e-8d96-3a573636843a",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "Inner",
+    "viewType" : "custom-my-part-numbers"
+  },
+  "urlName" : "my-part-numbers"
+}

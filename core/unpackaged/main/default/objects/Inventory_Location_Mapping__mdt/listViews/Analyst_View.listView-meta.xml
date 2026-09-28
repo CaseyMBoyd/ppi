@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Analyst_View</fullName>
+    <columns>MasterLabel</columns>
+    <columns>DeveloperName</columns>
+    <columns>Is_Active__c</columns>
+    <columns>Portal_Display_Name__c</columns>
+    <columns>ERP_Location_Code__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Analyst View</label>
+</ListView>

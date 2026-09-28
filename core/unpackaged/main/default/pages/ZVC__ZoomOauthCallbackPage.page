@@ -1,0 +1,146 @@
+<!--
+  @description       : 
+  @author            : winnie.tian@zoom.us
+  @group             : 
+  @last modified on  : 02-06-2025
+  @last modified by  : winnie.tian@zoom.us
+-->
+<apex:page controller="ZVC.ZoomOauthCallbackController"> 
+    <html>
+        <head>
+            <style>
+                .content-wrapper {
+                    width: 100%;
+                    height: 100vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }
+                .main-title {
+                    position:absolute; 
+                    top:200px;
+                    text-align:center; 
+                    font-size:26px;
+                    font-weight:700;
+                }
+                .sub-title {
+                    
+                }
+                .hide{
+                    visibility: hidden;
+                }
+                .result{
+                    position:absolute; 
+                    top:150px;
+                    text-align:center;
+                }
+                .errorMessage{
+                    position:absolute; 
+                    text-align:center;
+                    font-size:12px;
+                    width: 480px;
+                    height: 42px;
+                    top: 270px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="content-wrapper" id = "authContent">
+                <h2 class="main-title" id = "authorize-title">Waiting for Authorization...</h2>
+                <h2 class="main-title hide" id = "cancel-authorize-title">Canceling Authorization...</h2>
+                <h3 class="sub-title"></h3>
+                <div id = "authFailImg" class = "result hide" >
+                    <img src="{!URLFOR($Resource.svg, 'auth-fail.svg')}" style = "margin-bottom:6px;"></img>
+                    <div style = "font-size:26px;font-weight:700;" id = "authorize-fail-title"> </div>
+                </div>
+                
+                <div id = "emailNotMatchError" class = "hide errorMessage">
+                    <apex:form >
+                        <span id="emailNotMatchErrorMessage" ></span>
+                        <span>Try another Zoom login email or check your authorization method in <apex:commandLink value="Common Settings" style="font-weight:bolder;text-decoration:none;color:rgba(1, 118, 211, 1)" onClick="window.open('/lightning/n/ZVC__Zoom_Settings', '_blank');return false;"/></span> 
+                    </apex:form>
+                </div>
+                <div id="errorMessage" class = "hide errorMessage"></div>
+               
+            </div> 
+        </body>
+        <script>
+            
+            !(function() {
+                document.getElementById('authorize-title').classList.add('hide');
+                document.getElementById('cancel-authorize-title').classList.add('hide');
+                
+                var stateToken = getStateFromUrl();
+                Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.ZoomOauthCallbackController.getState}',
+                                                                stateToken,
+                                                                handlePageChange);
+                setTimeout(() => {
+                    let code = getCodeFromUrl(); 
+                    if (code) {
+                        Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.ZoomOauthCallbackController.getUserInfobyOAuthCode}',
+                                                                    code, 
+                                                                    stateToken,
+                                                                    handleSaveZoomTokenResult);
+                    }
+                }, 500)
+                
+            })();
+             function handleSaveZoomTokenResult(result, event) {
+                
+                if (result.success) {
+                    var state = result.result.state;
+                    var userInfo = result.result.userInfo;
+                    var salesforceOauthUrl = userInfo.salesforceOauthDomain + 
+                                                '/integration/salesforce/' + state.productName + '/installation/' + userInfo.id
+                                                + '?state='+ encodeURIComponent(JSON.stringify(state));
+                    var salesforceOauthWindow = window.open(salesforceOauthUrl,'_self'); 
+                    
+                    
+                } else {
+                    console.log('get token fail.');
+                    document.getElementById('authorize-fail-title').classList.remove('hide');   
+                    document.getElementById('authFailImg').classList.remove('hide'); 
+                    document.getElementById('cancel-authorize-title').classList.add('hide');
+                    document.getElementById('authorize-title').classList.add('hide');
+                    document.getElementById('authorize-fail-title').innerText = 'Authorize Failed';
+                   
+                    if(result.errorMessage.indexOf('differs')>0){
+                        document.getElementById('emailNotMatchError').classList.remove('hide');
+                        document.getElementById('emailNotMatchErrorMessage').innerText = result.errorMessage;
+                    }else{
+                        document.getElementById('errorMessage').classList.remove('hide');
+                        document.getElementById('errorMessage').innerText = result.errorMessage;
+                    }
+                }
+            }
+
+            function getCodeFromUrl(){
+                var reg = new RegExp("(^|&)" + 'code' + "=([^&]*)(&|$)"); 
+                var r = window.location.search.substr(1).match(reg);  
+                if (r != null) return unescape(r[2]); return null; 
+            }
+            function getStateFromUrl(){
+                console.log('get state');
+                var reg = new RegExp('(^|&)' + 'state' + '=([^&]*)(&|$)'); 
+                var state = window.location.search.substr(1).match(reg);  
+                console.log('state');
+                if (state != null){ return unescape(state[2]);} return null; 
+            }
+
+
+            function handlePageChange(result, event) {
+                if (result.success) {
+                    var state = result.result;
+                    if(state.cancelAuth){
+                        document.getElementById('authorize-title').classList.add('hide');
+                        document.getElementById('cancel-authorize-title').classList.remove('hide');
+                    } else{
+                        document.getElementById('authorize-title').classList.remove('hide');
+                        document.getElementById('cancel-authorize-title').classList.add('hide');
+                    }
+                }
+            }
+        </script>
+    </html>
+</apex:page>

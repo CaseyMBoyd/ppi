@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">{{{Opportunity.PO_Number__c}}}<br />
+{{{Opportunity.Quote_Number__c}}}<br />
+<br />
+Dear&nbsp;{{{Recipient.FirstName}}},&nbsp;&nbsp;<br />
+<br />
+Please find the attached approval drawings required for your order.&nbsp; Kindly review, sign, and return them at your earliest convenience so we can move forward with your PO.<br />
+<br />
+If you have any questions or would like to request changes, please don't hesitate to reach out.<br />
+<br />
+Thank you for attention to this!<br />
+<br />
+Best regards,&nbsp;<br />
+{{{Sender.Signature}}}</body>
+</html>

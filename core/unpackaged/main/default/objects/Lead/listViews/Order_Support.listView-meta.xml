@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Order_Support</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATE_CODE</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>Is_Cloned_Lead__c</columns>
+    <columns>Has_Been_Cloned__c</columns>
+    <columns>Customer_Request_Subject__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Lead_Queue__c</field>
+        <operation>equals</operation>
+        <value>Order Support</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>equals</operation>
+        <value>New</value>
+    </filters>
+    <label>Order Support</label>
+</ListView>

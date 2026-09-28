@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Overview__c</fullName>
+    <description>Explains what this procedure does and when it should be used.</description>
+    <inlineHelpText>Briefly explain what this procedure does and when it should be used.</inlineHelpText>
+    <label>Overview</label>
+    <length>32768</length>
+    <type>Html</type>
+    <visibleLines>30</visibleLines>
+</CustomField>

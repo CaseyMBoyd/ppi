@@ -1,0 +1,5 @@
+{
+  "apiName" : "My_Part_Numbers",
+  "type" : "sfdc_cms__view",
+  "path" : "views"
+}

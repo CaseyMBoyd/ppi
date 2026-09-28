@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approval_Prints_Sent__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Notes if approval prints have been sent to a customer</description>
+    <inlineHelpText>Please check when approval prints are sent to the customer</inlineHelpText>
+    <label>Approval Prints Sent</label>
+    <type>Checkbox</type>
+</CustomField>

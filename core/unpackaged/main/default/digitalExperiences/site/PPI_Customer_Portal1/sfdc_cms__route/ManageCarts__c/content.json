@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Manage Carts",
+  "contentBody" : {
+    "activeViewId" : "Manage_Carts",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-manage-carts",
+    "urlPrefix" : "manage-carts"
+  },
+  "urlName" : "manage-carts"
+}

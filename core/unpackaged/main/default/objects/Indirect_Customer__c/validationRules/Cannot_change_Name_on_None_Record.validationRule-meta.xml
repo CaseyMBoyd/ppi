@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_change_Name_on_None_Record</fullName>
+    <active>true</active>
+    <description>Unable to change the Name of the None record.</description>
+    <errorConditionFormula>AND(
+    ISCHANGED(Name),
+    PRIORVALUE(Name) = "None"
+)</errorConditionFormula>
+    <errorMessage>You cannot change the name of this record.</errorMessage>
+</ValidationRule>

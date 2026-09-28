@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_OIC_Task</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Create OIC Task</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>/lightning/o/Task/new?defaultFieldValues=Description={!URLENCODE( EmailMessage.TextBody )},Priority=Normal,Status=Open,Subject={!URLEncode("New OIC Task: " + EmailMessage.Subject)},Type={!URLEncode("OIC Task")}, OwnerId=00GRl00000Cf7BV, Initial_Contact_Date__c=TEXT(TODAY()),Related_Account__c={!EmailMessage.AccountId__c},WhoId={!EmailMessage.ContactId__c},Order_Number__c={!EmailMessage.Order__c},WhatId={!EmailMessage.OpportunityId__c},IsReminderSet=false</url>
+</WebLink>

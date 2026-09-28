@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Auto_Approve_Denial_Email</name>
+        <label>Send Auto Approve Denial Email</label>
+        <locationX>314</locationX>
+        <locationY>566</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>OpportunityRecord.Account.Salesman_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>EmailSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>EmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>OpportunityRecord.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Auto_Approved</name>
+        <label>Assign Auto Approved</label>
+        <locationX>50</locationX>
+        <locationY>242</locationY>
+        <assignmentItems>
+            <assignToReference>IsAutoApproved</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_Special_Pricing_Status</name>
+        <label>Assign Special Pricing Status</label>
+        <locationX>446</locationX>
+        <locationY>242</locationY>
+        <assignmentItems>
+            <assignToReference>OpportunityRecord.Special_Pricing_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Pending</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Special_Pricing_Status</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Is_Auto_Approved</name>
+        <label>Is Auto Approved?</label>
+        <locationX>248</locationX>
+        <locationY>134</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Special_Pricing_Status</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>1 AND ((2 AND 3) OR (4 AND 5)) AND 6</conditionLogic>
+            <conditions>
+                <leftValueReference>IsAutoApprovedWithoutOppType</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>OpportunityRecord.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pulley</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>PulleyFormula</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>OpportunityRecord.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Idler</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IdlerFormula</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>OpportunityRecord.Special_Pricing_Notes__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Auto_Approved</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Salesman_Email_Exists</name>
+        <label>Salesman Email Exists</label>
+        <locationX>446</locationX>
+        <locationY>458</locationY>
+        <defaultConnectorLabel>Email Doesn&apos;t Exist</defaultConnectorLabel>
+        <rules>
+            <name>Email_Exists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>OpportunityRecord.Account.Salesman_Email__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Auto_Approve_Denial_Email</targetReference>
+            </connector>
+            <label>Email Exists</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>DiscountPercentageToRawDecimal</name>
+        <dataType>Number</dataType>
+        <expression>IF(ISPICKVAL({!OpportunityRecord.Discount_Percentage__c}, &quot;None&quot;), 0, VALUE(LEFT(TEXT({!OpportunityRecord.Discount_Percentage__c}), LEN(TEXT({!OpportunityRecord.Discount_Percentage__c})) - 1))/100)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>EmailSubject</name>
+        <dataType>String</dataType>
+        <expression>&quot;Request for Special Pricing on Quote #&quot; + {!OpportunityRecord.Quote_Number__c}</expression>
+    </formulas>
+    <formulas>
+        <name>IdlerFormula</name>
+        <dataType>Boolean</dataType>
+        <expression>({!OpportunityRecord.Account.Idler_Multiplier__c} - ({!OpportunityRecord.Account.Idler_Multiplier__c}*{!DiscountPercentageToRawDecimal}))&gt;= 0.283</expression>
+    </formulas>
+    <formulas>
+        <name>IsAutoApprovedWithoutOppType</name>
+        <dataType>Boolean</dataType>
+        <expression>AND({!OpportunityRecord.Indirect_Customer__r.Name}=&quot;None&quot;, NOT({!OpportunityRecord.Complex_Pricing__c}), NOT({!OpportunityRecord.Freight_Agreement__c}))</expression>
+    </formulas>
+    <formulas>
+        <name>PulleyFormula</name>
+        <dataType>Boolean</dataType>
+        <expression>(IF(ISBLANK({!OpportunityRecord.Account.PulleyMultiplier__c}),0,VALUE({!OpportunityRecord.Account.PulleyMultiplier__c})) - IF(ISBLANK({!OpportunityRecord.Account.PulleyMultiplier__c}),0,VALUE({!OpportunityRecord.Account.PulleyMultiplier__c})*{!DiscountPercentageToRawDecimal}))&gt;= 0.300</expression>
+    </formulas>
+    <interviewLabel>Opportunity - Special Pricing - Check Automated Approval {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity - Special Pricing - Check Automated Approval</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Special_Pricing_Status</name>
+        <label>Update Special Pricing Status</label>
+        <locationX>446</locationX>
+        <locationY>350</locationY>
+        <connector>
+            <targetReference>Salesman_Email_Exists</targetReference>
+        </connector>
+        <inputReference>OpportunityRecord</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>122</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_Auto_Approved</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>EmailBody</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Dear {!OpportunityRecord.Account.Salesman_Text__c},
+Your request for special pricing requires additional information or a more detailed analysis. A pricing manager will be reaching out to you.  
+Thank you for being mindful with the company&apos;s resources – it&apos;s greatly appreciated!
+
+Account Information
+Name: {!OpportunityRecord.Account.Name}
+Contact: {!OpportunityRecord.Opportunity_Contact__r.Name} ({!OpportunityRecord.Opportunity_Contact__r.Email})
+City/State: {!OpportunityRecord.Account_City_State__c}
+Discount Percentage Requested: {!OpportunityRecord.Discount_Percentage__c}</text>
+    </textTemplates>
+    <variables>
+        <name>IsAutoApproved</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>OpportunityRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Opportunity</objectType>
+    </variables>
+</Flow>

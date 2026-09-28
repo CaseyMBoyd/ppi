@@ -1,0 +1,133 @@
+/* Copyright (c) 2022 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. */
+.brand-icon {
+  --sds-c-icon-color-background: var(--dxp-g-brand);
+  --slds-c-icon-color-background: var(--lwc-colorTextBrand);
+}
+
+.price-display {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.price-display .list-price {
+  color: var(--com-c-product-pricing-details-slot-2-price-label-color, var(--dxp-g-root-contrast));
+  font-size: var(--com-c-product-pricing-details-slot-2-price-label-size, var(--dxp-s-body-font-size));
+  font-weight: var(--com-c-product-pricing-details-slot-2-price-font-weight);
+  text-decoration: var(--com-c-product-pricing-details-slot-2-price-text-decoration, line-through);
+  font-style: var(--com-c-product-pricing-details-slot-2-price-font-style);
+}
+
+.add-to-cart-box {
+  padding-top: 8px;
+}
+
+.text-bolder {
+  font-weight: bolder;
+}
+.text-bold {
+  font-weight: bold;
+}
+
+.product-image {
+  min-width: 70px;
+  max-width: 70px;
+  max-height: 70px;
+  margin: 0 auto;
+}
+
+.cart-item-border {
+  border-bottom: 2px solid ;
+  border-color: #d6d2c4;
+}
+
+.quantity-width {
+  margin-left: auto;
+  display: inline-block;
+  min-width: 100px;
+}
+
+.text-area-font-size {
+  font-size: .8rem !important;
+}
+
+.spinner-overlay {
+  background: rgba(123, 123, 123, .05);
+}
+
+.field-definition {
+  font-size: .8rem;
+}
+
+.field-definition-label {
+  font-size: .8rem;
+}
+.inventory-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.inventory-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.availability-badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.badge-in-stock {
+    color: #2e7d32;
+}
+
+.badge-low-stock {
+    color: #f9a825;
+}
+
+.badge-made-to-order {
+    color: #000000;
+}
+
+.badge-unknown {
+    color: #706e6b;
+}
+
+.inventory-tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    background-color: #f3f3f3;
+    left: 0;
+    min-width: 900px;
+    max-width: 900px;
+    z-index: 9999;
+}
+
+.inventory-tooltip .slds-popover__body {
+    font-size: 12px;
+    line-height: 20px;
+    white-space: normal;
+}
+
+.inventory-tooltip.slds-nubbin_bottom-left:before,
+.inventory-tooltip.slds-nubbin_bottom-left:after {
+    background: #f3f3f3;
+    border-color: #d8dde6;
+}
+
+.inventory-tooltip,
+.inventory-tooltip .slds-popover__body,
+.inventory-tooltip strong {
+    color: #000000;
+}
+
+.boundry-cell {
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.inventory-row-item + .inventory-row-item {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}

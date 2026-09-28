@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Allows API connections using SOAP</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>PPI Use Any API Auth</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>UseAnyApiAuth</name>
+    </userPermissions>
+</PermissionSet>

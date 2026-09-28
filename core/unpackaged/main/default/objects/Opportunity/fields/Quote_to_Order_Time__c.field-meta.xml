@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_to_Order_Time__c</fullName>
+    <description>As a sales rep, I want to know the time it took from when a quote was sent to the customer to when the quote was mark as Closed - Won so I can track this metric.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Displays the difference in minutes between Initial Quote Sent Date and when the Opportunity has reached the "Closed - Won" stage. This only takes business days into account.</inlineHelpText>
+    <label>Quote to Order Time</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

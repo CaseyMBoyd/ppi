@@ -1,0 +1,26 @@
+<template>
+    <span
+        class="lead-time-anchor"
+        onmouseover={handleWarehouseMouseOver}
+        onmouseout={handleWarehouseMouseOut}
+        onfocus={handleWarehouseMouseOver}
+        onblur={handleWarehouseMouseOut}
+        tabindex="0"
+        aria-describedby="leadTimeTooltip">
+
+        <!-- The location label / badge that was previously static -->
+        <slot></slot>
+
+        <!-- SLDS Tooltip Popover — only rendered when displayTooltip is true -->
+        <template if:true={displayTooltip}>
+            <div
+                id="leadTimeTooltip"
+                role="tooltip"
+                class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left lead-time-tooltip">
+                <div class="slds-popover__body">
+                    <p class="slds-text-body_small">{contextualLeadTimeText}</p>
+                </div>
+            </div>
+        </template>
+    </span>
+</template>

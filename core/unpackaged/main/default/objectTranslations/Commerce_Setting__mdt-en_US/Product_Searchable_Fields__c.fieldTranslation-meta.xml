@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- new line separated list of product fields that are searchable --></help>
+        <label><!-- Product Searchable Fields --></label>
+        <name>Product_Searchable_Fields__c</name>
+    </CustomFieldTranslation>

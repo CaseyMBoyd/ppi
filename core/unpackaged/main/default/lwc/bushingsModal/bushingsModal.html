@@ -1,0 +1,19 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Bushings Modal -->
+<template>
+    <lightning-modal-header label={headerLabel} class="slds-text-heading_large"></lightning-modal-header>
+    <lightning-modal-body>
+        <c-bushings-selector bushings={bushings}></c-bushings-selector>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-layout pull-to-boundary="small">
+            <lightning-layout-item size="6" flexibility="auto" padding="horizontal-small">
+                <lightning-button label="Cancel" variant="brand-outline" onclick={handleCancel} stretch></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item size="6" flexibility="auto" padding="horizontal-small">
+                <lightning-button label="Add to Cart" variant="brand" onclick={handleAddToCart} stretch></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-modal-footer>
+</template>

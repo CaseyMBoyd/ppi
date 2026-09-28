@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <description>Generic error handler for debugging LWC component server actions on front end</description>
+    <isExposed>false</isExposed>
+    <masterLabel>Aura Exception Handler</masterLabel>
+</LightningComponentBundle>

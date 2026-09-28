@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Integrated__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>indicates if the order was sent to ERP successfully</description>
+    <inlineHelpText>indicates if the order was sent to ERP successfully</inlineHelpText>
+    <label>Integrated</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

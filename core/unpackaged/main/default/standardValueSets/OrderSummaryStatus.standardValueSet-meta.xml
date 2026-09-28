@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Created</fullName>
+        <default>true</default>
+        <label>Created</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Scheduled for production</fullName>
+        <default>false</default>
+        <label>Scheduled for production</label>
+    </standardValue>
+    <standardValue>
+        <fullName>On Hold</fullName>
+        <default>false</default>
+        <label>On Hold</label>
+    </standardValue>
+    <standardValue>
+        <fullName>In Production</fullName>
+        <default>false</default>
+        <label>In Production</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Produced</fullName>
+        <default>false</default>
+        <label>Produced</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Waiting for shipping instructions</fullName>
+        <default>false</default>
+        <label>Waiting for shipping instructions</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Shipped</fullName>
+        <default>false</default>
+        <label>Shipped</label>
+    </standardValue>
+</StandardValueSet>

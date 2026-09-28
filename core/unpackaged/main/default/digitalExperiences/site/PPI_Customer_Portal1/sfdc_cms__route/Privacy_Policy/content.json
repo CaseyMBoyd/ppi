@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Privacy Policy (1)",
+  "contentBody" : {
+    "activeViewId" : "privacy_policy_1",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "privacy-policy",
+    "urlPrefix" : "privacy-policy-1"
+  },
+  "urlName" : "privacy-policy-1"
+}

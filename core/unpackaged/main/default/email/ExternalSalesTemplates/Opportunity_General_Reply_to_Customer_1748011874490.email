@@ -1,0 +1,14 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">Hello&nbsp;{{{Recipient.FirstName}}}<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+{{{Opportunity.Email_Content__c}}}</body>
+</html>

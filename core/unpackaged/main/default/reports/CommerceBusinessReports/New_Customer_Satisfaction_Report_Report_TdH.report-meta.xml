@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Customer_Satisfaction__c$Name</field>
+    </columns>
+    <columns>
+        <field>Customer_Satisfaction__c$Contact__c</field>
+    </columns>
+    <columns>
+        <field>Customer_Satisfaction__c$Order__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Customer_Satisfaction__c$Satisfied__c</field>
+    </columns>
+    <columns>
+        <field>Customer_Satisfaction__c$Comments__c</field>
+    </columns>
+    <format>Tabular</format>
+    <name>Customer Satisfaction Survey Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Customer_Satisfaction_Report__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Customer_Satisfaction__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

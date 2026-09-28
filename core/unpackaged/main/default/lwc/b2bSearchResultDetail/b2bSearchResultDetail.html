@@ -1,0 +1,176 @@
+<!-- Copyright (c) 2022 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Search Result Detail B2B -->
+<template>
+  <lightning-spinner if:true={isLoading} variant="brand"></lightning-spinner>
+  <lightning-layout multiple-rows>
+    <lightning-layout-item flexibility="auto" size="12" large-device-size="6" class="slds-align-top">
+      <div class="slds-grid">
+        <figure class="commerce_cart-item_item slds-m-right_small">
+          <a class="commerce_cart-item_item" tabindex="-1" onclick={goToPDP}>
+            <img
+              class="commerce_cart-item_item product-image"
+              src={product.imageUrl}
+              alt={product.fields.Name}
+            />
+          </a>
+        </figure>
+        <section>
+          <div class="slds-text-heading_small text-bolder">
+            <a onclick={goToPDP} tabindex="-1"> {product.fields.Name} </a>
+          </div>
+          <div class="slds-m-top_x-small inventory-row">
+
+            <lightning-icon icon-name="custom:custom57" size="xx-small" class="brand-icon inventory-icon">
+            </lightning-icon>
+
+            <div class="inventory-wrapper">
+              <span
+            class={availabilityBadgeClass}
+            onmouseover={handleTooltipMouseOver}
+            onmouseout={handleTooltipMouseOut}>
+            {availabilityLabel}
+        </span>
+              <template if:true={showInventoryTooltip}>
+                <section class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left inventory-tooltip"
+                  role="tooltip">
+                  <div class="slds-popover__body">
+                    <!--<p>
+                      <strong>Total Qty:</strong> {availableQuantity}
+                    </p>
+                    <template if:true={warehouses}>
+                      <template for:each={warehouses} for:item="warehouse">
+                        <p key={warehouse.warehouseName}>
+                          <strong>{warehouse.warehouseName}</strong>:
+                          {warehouse.quantity}
+                        </p>
+                      </template>
+                    </template>-->
+
+                    <div class="slds-grid slds-border_bottom slds-p-bottom_xx-small inventory-header">
+                      <div class="slds-col slds-size_5-of-12">
+                        <strong>Warehouse</strong>
+                      </div>
+
+                      <div class="slds-col slds-size_2-of-12">
+                        <strong>Quantity</strong>
+                      </div>
+
+                      <div class="slds-col slds-size_5-of-12">
+                        <strong>Lead Time</strong>
+                      </div>
+                    </div>
+                    <template if:true={warehouses}>
+                      <template for:each={warehouses} for:item="warehouse">
+
+                        <div key={warehouse.warehouseName} class="slds-grid inventory-row-item">
+
+                          <div class="slds-col slds-size_5-of-12 boundry-cell">
+                            {warehouse.warehouseName}
+                          </div>
+
+                          <div class="slds-col slds-size_2-of-12">
+                            {warehouse.quantity}
+                          </div>
+
+                          <div class="slds-col slds-size_5-of-12 boundry-cell">
+                            {warehouse.contextualLeadTimeText}
+                          </div>
+
+                        </div>
+
+                      </template>
+                    </template>
+                    <div class="slds-grid slds-border_top slds-m-top_xx-small">
+                      <div class="slds-col slds-size_5-of-12">
+                        <strong>Total Quantity</strong>
+                      </div>
+
+                      <div class="slds-col slds-size_2-of-12">
+                        <strong>{availableQuantity}</strong>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </template>
+            </div>
+          </div>
+          <div>
+            <span class="field-definition-label text-bold">
+              PPI Part Number:&nbsp;
+            </span>
+            <span class="field-definition">
+              {product.fields.StockKeepingUnit}
+            </span>
+          </div>
+          <div lwc:if={customerPartNumber}>
+            <span class="field-definition-label text-bold">
+              Customer Part Number:&nbsp;
+            </span>
+            <span class="field-definition">
+              {customerPartNumber}
+            </span>
+          </div>
+          <div lwc:if={product.fields.Description}>
+            <span class="field-definition-label text-bold">
+              Description:&nbsp;
+            </span>
+            <span class="field-definition">
+              {product.fields.Description}
+              <template lwc:if={product.fields.Pretty_Description__c}>
+                <br />
+                {product.fields.Pretty_Description__c}
+              </template>
+            </span>
+          </div>
+          <div lwc:if={product.fields.Weight__c}>
+            <span class="field-definition-label text-bold">
+              Weight LB:&nbsp;
+            </span>
+            <span class="field-definition"> {product.fields.Weight__c} </span>
+          </div>
+        </section>
+      </div>
+    </lightning-layout-item>
+    <lightning-layout-item size="12" large-device-size="4" alignment-bump="left" class="slds-text-align_right">
+      <div class="price-display slds-align-middle" lwc:if={showPricing}>
+        <span class="slds-m-right_xx-small">
+          <lightning-formatted-number
+            value={product.prices.unitPrice}
+            format-style="currency"
+            currency-code={product.currencyIsoCode}
+          >
+          </lightning-formatted-number>
+        </span>
+        <span lwc:if={showStrikethrough}>
+          <lightning-formatted-number
+            value={product.prices.listPrice}
+            format-style="currency"
+            currency-code={product.currencyIsoCode}
+            class="list-price">
+          </lightning-formatted-number>
+        </span>
+      </div>
+      <div class="price-display slds-align-middle" lwc:elseif={showContact}>
+        <span>Contact For Pricing</span>
+      </div>
+      <div class="price-display slds-align-middle" lwc:else>
+        <span>Checking For Pricing...</span>
+      </div>
+      <div class="slds-m-vertical_small slds-grid slds-grid_vertical-align-center slds-float_right add-to-cart-box">
+        <c-product-quantity-selector value={quantity} label="QTY:" onvaluechanged={updateQty}>
+        </c-product-quantity-selector>
+        <lightning-button label="Add&nbsp;to&nbsp;Cart" variant="brand"
+          class="slds-show_inline-block slds-m-left_medium" onclick={addToCartAction}></lightning-button>
+      </div>
+    </lightning-layout-item>
+
+    <lightning-layout-item flexibility="auto" size="10" large-device-size="4"
+      class="slds-align-top slds-text-align_right">
+      <lightning-layout multiple-rows vertical-align="start">
+        <lightning-layout-item size="12" large-device-size="6">
+        </lightning-layout-item>
+      </lightning-layout>
+    </lightning-layout-item>
+  </lightning-layout>
+</template>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Estimating</fullName>
+        <default>false</default>
+        <label>Estimating</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Expedites\Breakdowns</fullName>
+        <default>false</default>
+        <label>Expedites\Breakdowns</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Call</fullName>
+        <default>false</default>
+        <label>Call</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Meeting</fullName>
+        <default>false</default>
+        <label>Meeting</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Email</fullName>
+        <default>false</default>
+        <label>Email</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Task Complete Notification</fullName>
+        <default>false</default>
+        <label>Task Complete Notification</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Mixed Opportunity Special Pricing Request</fullName>
+        <default>false</default>
+        <label>Mixed Opportunity Special Pricing Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>OIC Task</fullName>
+        <default>false</default>
+        <label>OIC Task</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Email Reply Notification</fullName>
+        <default>false</default>
+        <label>Email Reply Notification</label>
+    </standardValue>
+</StandardValueSet>

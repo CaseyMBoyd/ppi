@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">
+<p>Hello&nbsp;{{{Recipient.FirstName}}}</p>
+
+<p>Thank you for your recent order!</p>
+
+<p>We are currently reviewing your order for the <strong>Drive Pulley Assembly</strong>. Before we can finalize our production prints, we need to verify one important detail: the <strong>Direction of Rotation (DOR)</strong> — clockwise or counterclockwise.</p>
+
+<p>Since this is a drive pulley with directional herringbone grooving in the lagging, confirming the DOR is critical. For your reference, please review the detail below that explains DOR in more detail:<br />
+<br />
+*DOR Pic is present in Live*</p>
+
+<p>Please confirm the DOR at your earliest convenience. We will proceed with building the pulley, but the shaft will remain on hold until we receive your confirmation.</p>
+
+<p>Thank you in advance for your prompt response!</p>
+
+<p>Best regards,<br />
+{{{Sender.Signature}}}</p>
+</body>
+</html>

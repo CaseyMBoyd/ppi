@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">Dear&nbsp;{{{Recipient.FirstName}}}<br />
+<br />
+Thank you for reaching out to PPI with your request.&nbsp; We appreciate the opportunity to support your needs and are eager to provide you with a quote.<br />
+<br />
+Please note that the information you provided is proprietary to another customer.&nbsp; In order to proceed, we kindly ask that you supply the following dimensional details:
+<ul>
+	<li>Diameter</li>
+	<li>Face Width</li>
+	<li>Bore Size</li>
+	<li>Applicable Specifications
+	<ul>
+		<li>Lagging</li>
+		<li>Shafting</li>
+		<li>Bearings</li>
+	</ul>
+	</li>
+</ul>
+Once we receive this information, we will proceed with creating a quote based on the details provided.<br />
+&nbsp;<br />
+Thank you again for choosing PPI. We look forward to your response.<br />
+<br />
+Best regards,<br />
+{{{Sender.Signature}}}<br />
+<br />
+{{{Opportunity.Email_Content__c}}}</body>
+</html>

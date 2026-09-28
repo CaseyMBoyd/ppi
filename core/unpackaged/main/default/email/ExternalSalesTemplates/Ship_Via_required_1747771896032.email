@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">Dear&nbsp;{{{Recipient.FirstName}}},&nbsp;<br />
+<br />
+Your order is ready to ship. To proceed, please advise the shipping method and carrier preference. You may choose from the following options:
+<ul>
+	<li><strong>Collect</strong></li>
+	<li><strong>Prepaid Third Party</strong>&nbsp;(please include billing address)</li>
+	<li><strong>PPI Selects</strong>&nbsp;(Prepaid and Add to Invoice)</li>
+	<li><strong>Submit a BOL</strong>&nbsp;(if preferred)</li>
+</ul>
+<strong>Weights &amp; Dimensions</strong>: [insert details]<br />
+<br />
+<strong>Ship from Location</strong>: [insert location here]<br />
+<br />
+Please let us know your preference at your earliest convenience so we can arrange shipment promptly.<br />
+<br />
+Thank you,<br />
+{{{Sender.Signature}}}</body>
+</html>

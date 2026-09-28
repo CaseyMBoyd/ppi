@@ -1,0 +1,37 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<template>
+    <lightning-spinner if:true={isLoading} variant="brand" size="large"></lightning-spinner>
+    <div>
+        <lightning-layout>
+            <lightning-layout-item size=1 class="slds-m-left_small slds-align-middle slds-m-right_small filter-text">
+                Filter by:
+            </lightning-layout-item>
+            <lightning-layout-item size=2 class="slds-p-right_small">
+                <lightning-input type="date" label="From Date" value={startDate} onchange={handleFromDateChange}></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size=2 class="slds-p-right_small">
+                <lightning-input type="date" label="End Date" value={endDate} onchange={handleEndDateChange}></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size=2 class="slds-p-right_small">
+                <lightning-input type="text" label="PO Number" value={poNumber} onchange={handlePoNumberChange}></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size=2 class="slds-p-right_small slds-m-left_small slds-align-middle slds-p-top_xx-small">
+                <lightning-button variant="brand" label="Apply" onclick={handleApplyFilters} class="slds-p-right_small"></lightning-button>
+                <lightning-button variant="base" label="Reset" onclick={handleResetFilters} class="slds-p-right_small"></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item size=3 class="slds-m-left_small slds-align-middle ql-align-right slds-p-right_small">
+                <lightning-combobox options={sortingOptions} value={sortDirection} class="slds-cell-wrap slds-text combobox" dropdown-alignment="bottom-left" onchange={handleSortDirectionChange}></lightning-combobox>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+    <div>
+        <p class="slds-item_label slds-m-left_small">{ordersListSize} items</p>
+        <template for:each={orders} for:item="order">
+            <c-order-position key={order.Id} order={order}></c-order-position>
+        </template>
+    </div>
+    <div class="slds-align_absolute-center" lwc:if={showShowMore}>
+        <lightning-button variant="base" label="Show More" onclick={handleShowMore}></lightning-button>
+    </div>
+</template>

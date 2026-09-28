@@ -1,0 +1,75 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- My Account Team -->
+<template>
+    <lightning-layout pull-to-boundary="small">
+        <lightning-layout-item size="6" flexibility="auto" padding="horizontal-small">
+            <article class="slds-card">
+                <div class="slds-card__header slds-grid">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__body">
+                            <h2 class="slds-card__header-title">
+                                <a href="#" class="slds-card__header-link slds-truncate slds-p-left_small slds-p-top_small slds-p-right_small">
+                                    <b>Outside Sales Rep</b>
+                                </a>
+                            </h2>
+                        </div>
+                    </header>
+                </div>
+                <div class="slds-card__body slds-card__body_inner">
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item size="12" flexibility="auto" padding="horizontal-small" class="slds-p-bottom_small">
+                            <strong>Name</strong>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" flexibility="auto" padding="horizontal-small" class="slds-p-bottom_small">
+                            <div class="text-value">{accountTeamInfo.Salesman_Text__c}</div>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" flexibility="auto" padding="horizontal-small" class="slds-p-bottom_small">
+                            <strong>Email</strong>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" flexibility="auto" padding="horizontal-small" class="slds-p-bottom_small">
+                            <div class="text-value">{accountTeamInfo.Salesman_Email__c}</div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+            </article>
+        </lightning-layout-item>
+        <lightning-layout-item size="6" flexibility="auto" padding="horizontal-small">
+            <article class="slds-card">
+                <div class="slds-card__header slds-grid">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__body">
+                            <h2 class="slds-card__header-title">
+                                <a href="#" class="slds-card__header-link slds-truncate slds-p-left_small slds-p-top_small slds-p-right_small">
+                                    <b>Inside Sales Rep</b>
+                                </a>
+                            </h2>
+                        </div>
+                    </header>
+                </div>
+                <div class="slds-card__body slds-card__body_inner">
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item size="12" flexibility="auto" padding="horizontal-small" class="slds-p-bottom_small">
+                            <strong>Name</strong>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" flexibility="auto" padding="horizontal-small" class="slds-p-bottom_small">
+                            <div class="text-value">{accountTeamInfo.Territory_Text__c}</div>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" flexibility="auto" padding="horizontal-small" class="slds-p-bottom_small">
+                            <strong>Email</strong>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" flexibility="auto" padding="horizontal-small" class="slds-p-bottom_small">
+                            <div class="text-value">{accountTeamInfo.Territory_Email__c}</div>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" flexibility="auto" padding="horizontal-small" class="slds-p-bottom_small">
+                            <strong>Phone Number</strong>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" flexibility="auto" padding="horizontal-small" class="slds-p-bottom_small">
+                            <div class="text-value">1.800.247.1228</div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+            </article>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

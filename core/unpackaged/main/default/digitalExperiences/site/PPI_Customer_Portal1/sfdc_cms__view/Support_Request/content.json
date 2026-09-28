@@ -1,0 +1,196 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "New User Request",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"3939da24-6110-40cc-aae2-64554ebde3cf\",\"columns\":[{\"UUID\":\"3b17e8d8-2b06-4c94-a774-c4c79daa68f3\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "activeTabBorderHighlightWeight" : "2px",
+                "activeTabTextEmphasis" : "{\"bold\":true}",
+                "activeTabTextStyle" : "{\"textStyle\":\"paragraph1\",\"headingTag\":\"p\"}",
+                "borderColor" : "",
+                "borderRadius" : "0px",
+                "borderWeight" : "0px",
+                "dxpStyle" : { },
+                "enableOverflowMenu" : false,
+                "imageFit" : "cover",
+                "imagePosition" : "center center",
+                "overflowIconColor" : "rgb(116,116,116)",
+                "overflowIconStyle" : "down-arrow",
+                "overflowMenuLabel" : "More",
+                "tabAlignment" : "left",
+                "tabBorderColor" : "",
+                "tabBorderRadius" : "0px",
+                "tabBorderWeight" : "0px",
+                "tabHoverBorderHighlightWeight" : "1px",
+                "tabLayout" : "horizontal",
+                "tabPadding" : "12px",
+                "tabTextStyle" : "{\"textStyle\":\"paragraph1\",\"headingTag\":\"p\"}",
+                "tabsetConfig" : "{\"UUID\":\"4b2f37c5-80f9-478d-b8d4-4d20af78513c\",\"activeTab\":null,\"useOverflowMenu\":null,\"tabs\":[{\"UUID\":\"4ac95fd2-c899-4574-9761-760aef699e16\",\"tabName\":\"New User Request\",\"tabKey\":\"tab1\",\"locked\":false,\"allowGuestUser\":false},{\"UUID\":\"11b34873-1fef-430d-9cf1-590b66e0fc44\",\"tabName\":\"Support Request\",\"tabKey\":\"tab2\",\"locked\":false,\"allowGuestUser\":false}]}",
+                "width" : "100%"
+              },
+              "children" : [ {
+                "children" : [ {
+                  "attributes" : {
+                    "dxpStyle" : { }
+                  },
+                  "definition" : "c:currentEffectiveAccount",
+                  "id" : "72109101-1c28-4616-a71b-79bb7839ee56",
+                  "type" : "component"
+                }, {
+                  "attributes" : {
+                    "borderColor" : "rgb(255, 255, 255)",
+                    "buttonAlignment" : "left",
+                    "buttonSize" : "standard",
+                    "buttonText" : "Submit Request",
+                    "customFieldOneConfig" : "{\"fieldInputType\":\"Text\",\"fieldMaxLength\":null,\"fieldApiName\":null,\"isFieldInputTypeEditable\":true}",
+                    "customFieldOneLabel" : "New User Role",
+                    "customFieldOnePlaceholder" : "Enter Role of User at Company",
+                    "customFieldThreeConfig" : "{\"fieldInputType\":\"Text\",\"isFieldInputTypeEditable\":true,\"fieldMaxLength\":null,\"fieldApiName\":\"\"}",
+                    "customFieldThreeLabel" : "Custom Field Label",
+                    "customFieldThreePlaceholder" : "Custom Field Placeholder",
+                    "customFieldTwoConfig" : "{\"fieldInputType\":\"Text\",\"fieldMaxLength\":32000,\"fieldApiName\":\"Description\",\"isFieldInputTypeEditable\":true}",
+                    "customFieldTwoLabel" : "Notes",
+                    "customFieldTwoPlaceholder" : "Enter any additional information",
+                    "descriptionFieldConfig" : "{\"fieldInputType\":\"Text\",\"fieldMaxLength\":null,\"fieldApiName\":null,\"isFieldInputTypeEditable\":false}",
+                    "descriptionLabel" : "Notes",
+                    "descriptionPlaceholder" : "Enter Notes",
+                    "dxpStyle" : { },
+                    "emailFieldConfig" : "{\"fieldInputType\":\"Email\",\"isFieldInputTypeEditable\":false,\"fieldMaxLength\":null,\"fieldApiName\":\"SuppliedEmail\"}",
+                    "emailLabel" : "Email",
+                    "emailPlaceholder" : "Enter New User's Email Address",
+                    "fullNameFieldConfig" : "{\"fieldInputType\":\"Text\",\"fieldMaxLength\":80,\"fieldApiName\":\"SuppliedName\",\"isFieldInputTypeEditable\":false}",
+                    "fullNameLabel" : "Full Name",
+                    "fullNamePlaceholder" : "Enter New User's Name",
+                    "isCustomFieldOneRequired" : true,
+                    "isCustomFieldThreeRequired" : false,
+                    "isCustomFieldTwoRequired" : false,
+                    "isDescriptionRequired" : false,
+                    "isEmailRequired" : true,
+                    "isFullNameRequired" : true,
+                    "isPhoneRequired" : false,
+                    "isSubjectRequired" : false,
+                    "phoneFieldConfig" : "{\"fieldInputType\":\"Phone\",\"isFieldInputTypeEditable\":false,\"fieldMaxLength\":null,\"fieldApiName\":\"SuppliedPhone\"}",
+                    "phoneLabel" : "Phone",
+                    "phonePlaceholder" : "Enter New User's Phone Number",
+                    "position" : "left",
+                    "showCustomFieldOne" : true,
+                    "showCustomFieldThree" : false,
+                    "showCustomFieldTwo" : true,
+                    "showDescription" : false,
+                    "showEmail" : true,
+                    "showFormLabels" : true,
+                    "showFullName" : true,
+                    "showPhone" : true,
+                    "showSubject" : false,
+                    "showSubtitle" : false,
+                    "showTitle" : true,
+                    "subjectFieldConfig" : "{\"fieldInputType\":\"Text\",\"isFieldInputTypeEditable\":false,\"fieldMaxLength\":null,\"fieldApiName\":\"Subject\"}",
+                    "subjectLabel" : "Subject",
+                    "subjectPlaceholder" : "",
+                    "submitActionCustomErrorMessage" : "Looks like something went wrong.",
+                    "submitActionSuccessInlineMessage" : "Thank you!",
+                    "submitActionSuccessInlineMessageFontSize" : "small",
+                    "submitActionSuccessInlineMessagePosition" : "left",
+                    "submitActionType" : "inline",
+                    "subtitle" : "",
+                    "title" : "New User Request",
+                    "width" : 25
+                  },
+                  "definition" : "dxp_form:contactSupportForm",
+                  "id" : "021bd6e4-f823-490f-ad1b-8095cda0fa61",
+                  "type" : "component"
+                } ],
+                "id" : "4ac95fd2-c899-4574-9761-760aef699e16",
+                "name" : "tab1",
+                "title" : "New User Request",
+                "type" : "region"
+              }, {
+                "children" : [ {
+                  "attributes" : {
+                    "backgroundColor" : "",
+                    "dxpStyle" : { },
+                    "isLinkable" : false,
+                    "linkAssistiveText" : "",
+                    "paddingHorizontal" : "none",
+                    "paddingVertical" : "none",
+                    "text" : "Help Form",
+                    "textAlign" : "left",
+                    "textDecoration" : "{}",
+                    "textDisplayInfo" : "{\"textStyle\":\"heading-large\",\"headingTag\":\"h2\"}"
+                  },
+                  "definition" : "dxp_base:textBlock",
+                  "id" : "c1cd5b3a-521d-490f-a167-38aefa93f5ca",
+                  "type" : "component"
+                }, {
+                  "attributes" : {
+                    "dxpStyle" : { },
+                    "flowName" : "{\"flowName\":\"Help_Form\",\"flowLabel\":\"Help Form\"}"
+                  },
+                  "customCssClasses" : "help-form",
+                  "definition" : "dxp_flow:flow",
+                  "id" : "938fadb3-5fc1-46dc-944a-df2f92ade5c5",
+                  "type" : "component"
+                } ],
+                "id" : "11b34873-1fef-430d-9cf1-590b66e0fc44",
+                "name" : "tab2",
+                "title" : "Support Request",
+                "type" : "region"
+              } ],
+              "definition" : "dxp_layout:tabs",
+              "id" : "4b2f37c5-80f9-478d-b8d4-4d20af78513c",
+              "type" : "component"
+            } ],
+            "id" : "3b17e8d8-2b06-4c94-a774-c4c79daa68f3",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "3939da24-6110-40cc-aae2-64554ebde3cf",
+          "type" : "component"
+        } ],
+        "id" : "d35d4478-d012-492b-86b9-ba38fc184454",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "",
+            "description" : "",
+            "dxpStyle" : { },
+            "pageTitle" : "New User Request",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "3eea0fbf-d2e1-441c-b5a8-d068988969b4",
+          "type" : "component"
+        } ],
+        "id" : "2c4029b2-61dd-40ed-9f2a-edf221d02b7d",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "a25eb09d-7977-4cdc-b161-82e4c6837da5",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "MyAccount",
+    "viewType" : "custom-support-request"
+  },
+  "urlName" : "new-user-request"
+}

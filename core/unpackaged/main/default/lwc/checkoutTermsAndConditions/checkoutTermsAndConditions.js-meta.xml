@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Terms and Conditions</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+                    label="Checked by Default"
+                    name="checkedByDefault"
+                    type="Boolean"
+                    default="false"/>
+            <property
+                    label="Error Message"
+                    name="error"
+                    type="String"
+                    default="Please click the checkbox to accept the terms and conditions"/>
+            <property
+                    label="Privacy Policy Site Url"
+                    name="privacyPolicyUrl"
+                    type="String"
+                    default="privacy-policy"/>
+            <property
+                    label="Terms and Conditions Site Url"
+                    name="termsAndConditionsUrl"
+                    type="String"
+                    default="terms-and-conditions"/>
+            <property
+                    label="Website Policy Site Url"
+                    name="websitePolicyUrl"
+                    type="String"
+                    default="website-policy"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

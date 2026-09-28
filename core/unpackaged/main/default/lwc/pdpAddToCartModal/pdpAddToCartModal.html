@@ -1,0 +1,18 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+
+<!-- Pdp Add To Cart Modal -->
+<template>
+    <lightning-modal-header label={headerLabel} class="slds-text-heading_large"></lightning-modal-header>
+    <lightning-modal-body>
+        <lightning-layout>
+            <lightning-layout-item size=5 flexibility="auto" class="slds-align_absolute-center">
+                <lightning-button label="Continue Shopping" variant="brand-outline" onclick={handleContinue} class="slds-align_absolute-center"></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item size=5 flexibility="auto" class="slds-align_absolute-center">
+                <lightning-button label="View Cart" variant="brand" onclick={handleGoToCart} class="slds-align_absolute-center"></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-modal-body>
+    <lightning-modal-footer></lightning-modal-footer>
+</template>

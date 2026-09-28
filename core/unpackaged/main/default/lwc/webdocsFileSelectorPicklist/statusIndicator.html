@@ -1,0 +1,26 @@
+<template>
+  <lightning-icon
+    icon-name="utility:success"
+    alternative-text="Success!"
+    variant="success"
+    title="success variant"
+    size="x-small"
+    lwc:if={typeAttributes.success}
+  ></lightning-icon>
+  <lightning-icon
+    icon-name="utility:warning"
+    alternative-text="Warning!"
+    variant="warning"
+    title="warning variant"
+    size="x-small"
+    lwc:if={typeAttributes.warning}
+  ></lightning-icon>
+  <lightning-icon
+    icon-name="utility:error"
+    alternative-text="Error!"
+    variant="error"
+    title="error variant"
+    size="x-small"
+    lwc:if={typeAttributes.error}
+  ></lightning-icon>
+</template>

@@ -1,0 +1,200 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Search",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : {
+              "margin" : {
+                "bottom" : "",
+                "left" : "",
+                "right" : "",
+                "top" : "20px"
+              }
+            },
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"f1d3df4a-1ae3-492c-94dc-92ab0a27ba13\",\"columns\":[{\"UUID\":\"85134b5c-9769-41cd-920d-408d261bf363\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":null}]}"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "divider" : "chevron",
+                "dxpStyle" : { },
+                "hideOnMobile" : false,
+                "maxDepthOnMobile" : "3",
+                "showHomeLink" : true,
+                "showLastItemAsLink" : false,
+                "textSize" : "small"
+              },
+              "definition" : "commerce_builder:breadcrumbs",
+              "id" : "bf5f9162-3713-4acc-a61b-744365cc889c",
+              "type" : "component"
+            } ],
+            "id" : "85134b5c-9769-41cd-920d-408d261bf363",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "f1d3df4a-1ae3-492c-94dc-92ab0a27ba13",
+          "type" : "component"
+        }, {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"ae634b56-de15-427c-9eff-ea26d67993dc\",\"columns\":[{\"UUID\":\"0c789429-1173-4aa5-ab36-21188008c349\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":null}]}"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "dxpStyle" : { },
+                "recordId" : "{!recordId}",
+                "searchPayload" : "{!Search}",
+                "term" : "{!term}"
+              },
+              "children" : [ {
+                "id" : "09e68a61-5ef7-4383-8dea-34b08ac0eaef",
+                "name" : "Content-Region",
+                "title" : "Content-Region",
+                "type" : "region"
+              }, {
+                "children" : [ {
+                  "attributes" : {
+                    "dxpStyle" : { },
+                    "headingTextAlign" : "left",
+                    "headingTextDecoration" : "{}",
+                    "headingTextDisplayInfo" : "{\"textStyle\":\"heading-medium\",\"headingTag\":\"h3\",\"enableOverride\":false}",
+                    "linkSpacing" : "x-small",
+                    "linkTextAlign" : "left",
+                    "maxDepth" : "1",
+                    "paddingHorizontal" : "none",
+                    "paddingVertical" : "none",
+                    "searchResults" : "{!Search.Results}",
+                    "showFacetCounts" : false,
+                    "showFilters" : "{!Search.ClientState.showFilters}",
+                    "sortRuleId" : "{!Search.SortRules.currentSortRuleId}",
+                    "sortRules" : "{!Search.SortRules.rules}",
+                    "textDecoration" : "{}",
+                    "textDisplayInfo" : "{\"textStyle\":\"heading-medium\",\"headingTag\":\"h3\",\"enableOverride\":false}"
+                  },
+                  "definition" : "commerce_builder:searchFilters",
+                  "id" : "df9b150e-f56f-41ab-a5d0-dbfe335b20a1",
+                  "type" : "component"
+                } ],
+                "id" : "f9c0e956-92ce-4c24-8390-17b6cb2282db",
+                "name" : "Filters-Region",
+                "title" : "Filters-Region",
+                "type" : "region"
+              }, {
+                "children" : [ {
+                  "attributes" : {
+                    "dxpStyle" : { },
+                    "sortRuleId" : "{!Search.SortRules.currentSortRuleId}",
+                    "sortRules" : "{!Search.SortRules.rules}"
+                  },
+                  "children" : [ {
+                    "children" : [ {
+                      "attributes" : {
+                        "backgroundColor" : "",
+                        "dxpStyle" : { },
+                        "isLinkable" : false,
+                        "linkAssistiveText" : "",
+                        "paddingHorizontal" : "small",
+                        "paddingVertical" : "none",
+                        "text" : "{!Label.B2B_Search_Results.sortBy}",
+                        "textAlign" : "right",
+                        "textDecoration" : "{}",
+                        "textDisplayInfo" : "{\"headingTag\": \"p\", \"textStyle\": \"body-regular\"}"
+                      },
+                      "definition" : "dxp_base:textBlock",
+                      "id" : "06187401-0e04-4612-9dd7-f2cadea9d0eb",
+                      "type" : "component"
+                    } ],
+                    "id" : "31cf5885-388a-436b-b6e5-217aabfc97ec",
+                    "name" : "sortMenuLabel",
+                    "title" : "sortMenuLabel",
+                    "type" : "region"
+                  } ],
+                  "customCssClasses" : "slds-float_right",
+                  "definition" : "commerce_builder:searchSortMenu",
+                  "id" : "b4c87593-c49f-42ec-8962-a3f7397af40e",
+                  "type" : "component"
+                } ],
+                "id" : "2e4fb37d-73b5-46c2-ace3-3369b9b1c131",
+                "name" : "Sort-Region",
+                "title" : "Sort-Region",
+                "type" : "region"
+              }, {
+                "children" : [ {
+                  "attributes" : {
+                    "dxpStyle" : { },
+                    "richTextValue" : "<div style=\"display: flex; flex-direction: column; align-items: center; text-align: center; height: 50vh; justify-content: center;\">\n\t<h1 class=\"slds-text-heading_large\" style=\"margin-bottom: 20px; font-weight: bold;\">We're Sorry</h1>\n\t<p class=\"slds-text-heading_small\" style=\"margin-bottom: 5px;\">We can’t seem to find any products that match your search.</p>\n\t<p class=\"slds-text-heading_small\">Try a new search using fewer words</p>\n\t<div style=\"background: url({!Site.basePath}/assets/images/empty-search.svg) center no-repeat; background-size: contain; margin-top:25px; height: 200px; width: 50%;\"></div>\n</div>"
+                  },
+                  "definition" : "community_builder:htmlEditor",
+                  "id" : "7565db7a-4736-49ac-b758-ed50bdf64c54",
+                  "type" : "component"
+                } ],
+                "id" : "bd42dfb9-a7ce-4c24-a872-afce05cd7396",
+                "name" : "No-Results-Region",
+                "title" : "No-Results-Region",
+                "type" : "region"
+              } ],
+              "definition" : "c:b2bSearchResults",
+              "id" : "df9f47de-fd76-4bd4-a2c3-343d2550819e",
+              "type" : "component"
+            } ],
+            "id" : "0c789429-1173-4aa5-ab36-21188008c349",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "ae634b56-de15-427c-9eff-ea26d67993dc",
+          "type" : "component"
+        } ],
+        "id" : "fa3ba710-f171-429a-a83d-27fc909ff62c",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "dxpStyle" : { },
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "973c3a91-4c28-45fe-b978-b9f6c461a2c5",
+          "type" : "component"
+        } ],
+        "id" : "dd1e62df-6ec7-456d-9bcb-cb16f412fa8e",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "a77ab300-127a-4c05-a1a0-247416646c71",
+      "type" : "component"
+    },
+    "dataProviders" : [ {
+      "definition" : "sfdc_cms__commerceSearchDataProvider",
+      "sfdcExpressionKey" : "Search",
+      "attributes" : {
+        "searchTerm" : "{!Route.term}",
+        "categoryId" : "{!Route.recordId}"
+      }
+    } ],
+    "themeLayoutType" : "Inner",
+    "viewType" : "global-search"
+  },
+  "urlName" : "search"
+}

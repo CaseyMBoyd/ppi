@@ -1,0 +1,55 @@
+<template>
+  <!-- Manage Carts -->
+  <lightning-spinner
+    if:true={isLoading}
+    size="medium"
+    variant="brand"
+  ></lightning-spinner>
+
+  <lightning-card>
+    <h1 class="slds-page-header__title" slot="title">{cardTitle}</h1>
+
+    <div class="flex-row" slot="actions">
+
+      <lightning-button lwc:if={selectedFilter} label="Clear" onclick={clearFilter}></lightning-button>
+      <lightning-combobox lwc:if={showCartOwnerFilter}
+                          label=""
+                          class="slds-m-horizontal_small clear-bottom-margin"
+                          variant="label-hidden"
+                          value={currentOwnerFilter}
+                          placeholder="Filter by Cart Owner"
+                          options={cartOwners}
+                          onchange={handleFilterChange}>
+      </lightning-combobox>
+
+      <lightning-button-group>
+        <lightning-button
+          label="New Cart"
+          onclick={openNewCartModal}
+        ></lightning-button>
+
+        <lightning-button
+          variant="neutral"
+          class="slds-m-left_x-small"
+          onclick={deleteCarts}
+          disabled={disableDelete}
+          slot="actions"
+          label="Delete Carts"
+        ></lightning-button>
+      </lightning-button-group>
+    </div>
+
+    <div class="slds-m-vertical_medium slds-border_top">
+      <lightning-datatable
+        key-field="Id"
+        data={displayedCarts}
+        columns={columns}
+        onrowselection={handleSelection}
+        onrowaction={handleRowActions}
+        onsave={handleCartNameChange}
+        draft-values={draftValues}
+        hide-checkbox-column
+      ></lightning-datatable>
+    </div>
+  </lightning-card>
+</template>

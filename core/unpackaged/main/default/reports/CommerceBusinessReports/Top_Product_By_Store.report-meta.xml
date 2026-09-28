@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>RowCount</calculatedFormula>
+        <datatype>number</datatype>
+        <description>Number Of Orders</description>
+        <developerName>FORMULA1</developerName>
+        <downGroupingContext>Order.OrderItems$Product2</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Number Of Orders</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <columns>
+        <field>Order.OrderItems$Id</field>
+    </columns>
+    <columns>
+        <field>Order$OrderNumber</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Order.OrderItems$TotalLineAmount</field>
+    </columns>
+    <description>Which products are ordered the most?</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Order.OrderItems$Product2</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Top Products Sold</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Commerce_Order_Products__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Order$ActivatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

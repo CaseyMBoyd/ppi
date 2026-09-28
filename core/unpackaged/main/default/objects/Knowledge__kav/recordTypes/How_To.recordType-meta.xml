@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>How_To</fullName>
+    <active>true</active>
+    <description>Internal procedural and step-by-step instructions</description>
+    <label>How-To</label>
+    <picklistValues>
+        <picklist>Affected_Area__c</picklist>
+        <values>
+            <fullName>Account %2F Access</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cart</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Checkout</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ERP Integration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invoicing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Portal %2F User Interface</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pricing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shipping</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

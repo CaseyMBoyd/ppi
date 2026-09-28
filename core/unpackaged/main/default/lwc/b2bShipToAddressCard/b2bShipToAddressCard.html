@@ -1,0 +1,49 @@
+<template>
+    <div class="slds-card slds-p-around_medium">
+        <section class="slds-modal slds-fade-in-open" role="dialog" tabindex="-1" aria-modal="true"
+            aria-labelledby="modal-heading">
+            <div class="slds-modal__container">
+                <template if:true={isLoading}>
+                    <div class="loader-overlay">
+                        <lightning-spinner alternative-text="Loading..." size="medium">
+                        </lightning-spinner>
+                    </div>
+                </template>
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick={handleCancel}>
+                        <lightning-icon icon-name="utility:close" size="small" alternative-text="Close">
+                        </lightning-icon>
+                    </button>
+                    <h2 id="modal-heading" class="slds-modal__title">
+                        Edit Address
+                    </h2>
+                </header>
+                <div class="slds-modal__content modal-content">
+                    <lightning-record-edit-form record-id={recordId} object-api-name="ContactPointAddress"
+                        onsuccess={handleSaveSuccess} onerror={handleSaveError}>
+                        <div class="slds-p-around_medium">
+                            <lightning-input-field field-name="Name" required></lightning-input-field>
+                            <lightning-input-field field-name="Street" required></lightning-input-field>
+                            <lightning-input-field field-name="City" required></lightning-input-field>
+                            <lightning-input-field field-name="State" required></lightning-input-field>
+                            <lightning-input-field field-name="PostalCode" required></lightning-input-field>
+                            <lightning-input-field field-name="Country" required></lightning-input-field>
+                            <lightning-input-field field-name="IsDefault"></lightning-input-field>
+                        </div>
+                        <footer class="slds-modal__footer">
+                            <div class="slds-grid slds-grid_align-end">
+                                <lightning-button type="submit" variant="brand" label="Save">
+                                </lightning-button>
+                                <lightning-button variant="neutral" label="Cancel" class="slds-m-left_small"
+                                    onclick={handleCancel}>
+                                </lightning-button>
+                            </div>
+                        </footer>
+                    </lightning-record-edit-form>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+</template>

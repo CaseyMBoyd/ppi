@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">
+<p>Hello&nbsp;{{{Recipient.FirstName}}},</p>
+
+<p>I’m reaching out to follow up on the approval prints sent for your order. The drums for this order have been built, and the bearings are on hand. We are currently waiting to verify the shaft information, which is why the approval prints were sent.</p>
+
+<p>Keeping orders open for an extended period creates challenges for our internal production and accounting teams. To help move this order forward, we typically recommend shipping the completed pulleys and removing the shafts from the order if the needed information remains outstanding.</p>
+
+<p>We will continue to hold the order as is for a short time, but if the shaft details are not received soon, we may need to proceed by shipping the pulleys and canceling the shafts. Once the necessary shaft information is available, a new order can be placed to produce and ship the shafts.</p>
+
+<p>We appreciate your attention to this matter and look forward to hearing from you.</p>
+
+<p>Thank you,<br />
+{{{Sender.Signature}}}</p>
+</body>
+</html>

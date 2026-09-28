@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Logger Scenario Rule</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Logger Scenario Rules</value>
+    </caseValues>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Logger Scenario Rule Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Log Management Overrides --></label>
+            <section>Log Management Overrides</section>
+        </sections>
+        <sections>
+            <label><!-- Logger Engine Overrides --></label>
+            <section>Logger Engine Overrides</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

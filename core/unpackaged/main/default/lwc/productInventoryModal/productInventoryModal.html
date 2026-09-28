@@ -1,0 +1,16 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Product Inventory Modal -->
+<template>
+  <lightning-modal-body>
+    <c-product-inventory record-id={recordId}></c-product-inventory>
+  </lightning-modal-body>
+  <lightning-modal-footer>
+    <lightning-button
+      variant="brand"
+      label="Done"
+      title="Done"
+      onclick={handleClose}
+    ></lightning-button>
+  </lightning-modal-footer>
+</template>

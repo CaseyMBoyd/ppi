@@ -1,0 +1,20 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<apex:component id="emailImage" controller="EmailImageController" access="global">
+    <apex:attribute assignTo="{!communityName}"
+                    name="comName"
+                    type="String"
+                    description="Community Name"
+    />
+    <apex:attribute assignTo="{!imageName}"
+                    name="imgName"
+                    type="String"
+                    description="Name of the image to be displayed"
+    />
+    <apex:attribute assignTo="{!alternativeText}"
+                    name="altText"
+                    type="String"
+                    description="Community Name"/>
+
+    <img width="125" height="59" src="{!ImageUrl}" alt="{!alternativeText}"/>
+</apex:component>

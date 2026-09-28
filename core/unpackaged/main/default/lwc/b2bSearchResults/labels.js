@@ -1,0 +1,20 @@
+/* Copyright (c) 2021 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. */
+export default {
+  addToCart: "Add To Cart",
+  category: "Category",
+  clearAll: "Clear All",
+  filters: "Filters",
+  SKU: "SKU",
+  sortBy: "Sort By",
+  sortOptions: "Sort Options",
+  sortDefault: "Default",
+  sortNameAsc: "Sort Name (Ascending)",
+  sortNameDesc: "Sort Name (Descending)",
+  sortProductCodeAsc: "Sort Product Code (Ascending)",
+  sortProductCodeDesc: "Sort Product Code (Descending)",
+  addToCartSuccessMessage: "Successfully added to Cart",
+  addToCartErrorMessage: "There was an error adding your products to Cart",
+  viewingProductsThatFitYourTruck: "Viewing Products That Fit Your Truck",
+  changeVehicle: "Change Vehicle",
+  pricingDisclaimer: "Pricing will vary based on truck bed size, product selection, and optional upgrades. If purchasing through an authorized Dealer, installation charges may apply.",
+}

@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">
+<p>Hello&nbsp;{{{Recipient.FirstName}}},</p>
+
+<p>Thank you for your order!</p>
+
+<p>We are currently reviewing the details and need a bit more information before we can begin production. Specifically, we need the&nbsp;<strong>bearing housing center dimensions</strong>&nbsp;to ensure proper assembly of the pulley.<br />
+<br />
+*BC pic will be here in Live*<br />
+<br />
+Please note that SAF bearings use a split pillow block design, which makes the initial placement of the shaft and bearings especially important. Once installed, these components are difficult and labor-intensive to adjust.</p>
+
+<p>To keep your order on track, please provide the required dimensions at your earliest convenience so we can finalize the production print and move forward with manufacturing.</p>
+
+<p>Thank you for your prompt attention to this matter.</p>
+
+<p>Best regards,<br />
+{{{Sender.Signature}}}</p>
+</body>
+</html>

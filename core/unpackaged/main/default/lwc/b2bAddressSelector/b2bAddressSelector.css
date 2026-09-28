@@ -1,0 +1,28 @@
+.remove-gap .slds-form-element {
+    margin-top: -25px;
+}
+
+.default-badge {
+    background: #e5e5e5;
+    color: #000;
+    padding: .25rem .75rem;
+    border-radius: 999px;
+    font-size: .75rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.modal-content {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.loader-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}

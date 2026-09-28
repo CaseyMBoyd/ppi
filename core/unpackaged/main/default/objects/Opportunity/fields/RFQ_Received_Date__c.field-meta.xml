@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RFQ_Received_Date__c</fullName>
+    <description>As a sales user, I want to track when a request for a quote was submitted so that I can report on metrics around this time frame.</description>
+    <inlineHelpText>Date and time that opportunity was converted from Lead by Sales Ops team member. Once converted the request is to be processed in as effecient and timely manner as possible.</inlineHelpText>
+    <label>RFQ Received Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

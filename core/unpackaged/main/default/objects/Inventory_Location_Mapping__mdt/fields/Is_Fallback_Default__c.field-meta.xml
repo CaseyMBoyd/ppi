@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Fallback_Default__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Marks the master fallback record. When no active mapping matches an ERP code, the Portal Display Name of this record is used as the base label (e.g. "Location Pending").</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Fallback Default</label>
+    <type>Checkbox</type>
+</CustomField>

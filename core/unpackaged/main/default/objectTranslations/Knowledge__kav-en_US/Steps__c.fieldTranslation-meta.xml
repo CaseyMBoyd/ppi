@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Provide clear, numbered, step-by-step instructions --></help>
+        <label><!-- Steps --></label>
+        <name>Steps__c</name>
+    </CustomFieldTranslation>

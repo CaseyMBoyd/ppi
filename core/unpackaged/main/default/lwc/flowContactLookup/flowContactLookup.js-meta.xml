@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="flowContactLookup">
+    <apiVersion>62.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Contact Lookup (Account-Related)</masterLabel>
+    <description>Lookup that lets a user pick a single Contact related to a given Account via AccountContactRelation.</description>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property
+                name="accountId"
+                label="Account Id"
+                type="String"
+                role="inputOnly"
+                description="Id of the Account whose related contacts should be searchable. Pass the recordId output of the Account_Lookup component." />
+            <property
+                name="label"
+                label="Field Label"
+                type="String"
+                role="inputOnly"
+                default="Contact" />
+            <property
+                name="placeholder"
+                label="Placeholder"
+                type="String"
+                role="inputOnly"
+                default="Search contacts..." />
+            <property
+                name="selectedContactId"
+                label="Selected Contact Id"
+                type="String"
+                description="Id of the contact the user selected." />
+            <property
+                name="selectedContactName"
+                label="Selected Contact Name"
+                type="String"
+                role="outputOnly"
+                description="Name of the contact the user selected." />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

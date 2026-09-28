@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Drill and Tap</name>
+    <relatedEntityType>Account</relatedEntityType>
+    <style>none</style>
+    <subject>Action Required: Drill And Tap information for shaft on order</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

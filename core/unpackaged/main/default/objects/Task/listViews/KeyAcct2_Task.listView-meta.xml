@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KeyAcct2_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>KeyAcct2</label>
+    <queue>KeyAcct2</queue>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

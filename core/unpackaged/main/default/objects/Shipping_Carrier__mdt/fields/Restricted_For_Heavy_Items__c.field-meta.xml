@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restricted_For_Heavy_Items__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Marks a carrier as unavailable when any individual cart item weighs 140 lbs or more and the delivery method is Collect or 3rd Party Bill To Address (CRM-4423).</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>If checked, this carrier is disabled in checkout for individual items over 140 lbs under Collect / 3rd Party Bill To Address.</inlineHelpText>
+    <label>Restricted For Heavy Items</label>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_to_ISA_Same_Day_Queue</name>
+        <label>Assign to ISA Same Day Queue</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Lead_Queue__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>ISA Same Day</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_to_Sales_14_Queue</name>
+        <label>Assign to Sales 14 Queue</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Lead_Queue__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Central 14</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_to_Sales_16_Queue</name>
+        <label>Assign to Sales 16 Queue</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Lead_Queue__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Central 16</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Set_Lead_Queue</name>
+        <label>Set Lead Queue</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Lead_Queue__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>f_TargetLeadQueue</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Set_Lead_Queue_to_ISA_Same_Day</name>
+        <label>Set Lead Queue to ISA Same Day</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Lead_Queue__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>ISA Same Day</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Set_Lead_to_KeyAcct1</name>
+        <label>Set Lead to KeyAcct1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Lead_Queue__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>KeyAcct1</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Set_Lead_to_KeyAcct2</name>
+        <label>Set Lead to KeyAcct2</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Lead_Queue__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>KeyAcct2</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Has_Target_Value</name>
+        <label>Has Target Value?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Assign_to_ISA_Same_Day_Queue</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Match</defaultConnectorLabel>
+        <rules>
+            <name>HasValue</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>f_TargetLeadQueue</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Lead_Queue</targetReference>
+            </connector>
+            <label>HasValue</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Key_Account_Split</name>
+        <label>Key Account Split</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Territory_is_23</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Related_Account.territory__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>23.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Lead_to_KeyAcct2</targetReference>
+            </connector>
+            <label>Territory is 23</label>
+        </rules>
+        <rules>
+            <name>Territory_is_7</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Related_Account.territory__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>7.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Lead_to_KeyAcct1</targetReference>
+            </connector>
+            <label>Territory is 7</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Lead_Queue_Switch</name>
+        <label>Lead Queue Switch</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Not Pulley or Idler Daily</defaultConnectorLabel>
+        <rules>
+            <name>Pulley_Or_Idler_Queue</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Lead_Queue__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pulley Daily</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Lead_Queue__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Idler Daily</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Needs_ISA_Same_Day_Queue</targetReference>
+            </connector>
+            <label>Pulley Or Idler Daily Queue</label>
+        </rules>
+        <rules>
+            <name>Key_Accounts_Queue</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Lead_Queue__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Key Accounts</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Related_Account</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Related_Account.territory__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Key_Account_Split</targetReference>
+            </connector>
+            <label>Key Accounts Queue</label>
+        </rules>
+        <rules>
+            <name>Sales_21_Switch</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Lead_Queue__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>East 21</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Related_Account</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Related_Account.territory__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Related_Account.territory__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>16.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_to_Sales_16_Queue</targetReference>
+            </connector>
+            <label>Sales 21 Switch</label>
+        </rules>
+        <rules>
+            <name>Sales_16_Switch</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Lead_Queue__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Central 16</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Related_Account</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Related_Account.territory__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Related_Account.territory__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>14.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_to_Sales_14_Queue</targetReference>
+            </connector>
+            <label>Sales 16 Switch</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Needs_ISA_Same_Day_Queue</name>
+        <label>Needs ISA Same Day Queue?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Has_Target_Value</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Has Territory</defaultConnectorLabel>
+        <rules>
+            <name>Route_to_ISA_Same_Day_Queue</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Related_Account.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Related_Account.territory__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Lead_Queue_to_ISA_Same_Day</targetReference>
+            </connector>
+            <label>Route to ISA Same Day Queue</label>
+        </rules>
+    </decisions>
+    <description>New version based on Lead queue as a picklist instead of a member of the SF Queue Object.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>f_TargetLeadQueue</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+  {!Get_Related_Account.territory__c},
+  35, &quot;West 35&quot;,
+  26, &quot;West 26&quot;,
+  15, &quot;West 15&quot;,
+   3, &quot;Central 3&quot;,
+   9, &quot;Central 9&quot;,
+  16, &quot;Central 16&quot;,
+  14, &quot;Central 14&quot;,
+  24, &quot;Central 24&quot;,
+   4, &quot;East 4&quot;,
+  21, &quot;East 21&quot;,
+  11, &quot;East 11&quot;,
+  33, &quot;East 33&quot;,
+  NULL
+)</expression>
+    </formulas>
+    <interviewLabel>Lead - Auto Assign to Territory Queue {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead - Auto Assign to Territory Queue</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Related_Account</name>
+        <label>Get Related Account</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Lead_Queue_Switch</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Account__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <sortField>Id</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Related_Account</targetReference>
+        </connector>
+        <object>Lead</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

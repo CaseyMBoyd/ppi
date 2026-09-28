@@ -1,0 +1,76 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Checkout Ship Date -->
+<template>
+  <lightning-spinner lwc:if={isLoading} variant="brand"></lightning-spinner>
+  <lightning-layout>
+    <lightning-layout-item>
+      <lightning-input
+        type="radio"
+        label="standard"
+        variant="label-hidden"
+        data-key="standard"
+        data-value={labels.standardLabel}
+        onchange={handleRadioButtonChange}
+        disabled={isSummary}
+        checked={values.standard}
+      ></lightning-input>
+    </lightning-layout-item>
+    <lightning-layout-item> {labels.standardLabel} </lightning-layout-item>
+  </lightning-layout>
+  <lightning-layout>
+    <lightning-layout-item size="6" large-device-size="3">
+      <lightning-input
+        type="radio"
+        label={labels.noLaterThenLabel}
+        variant="standard"
+        data-key="noLater"
+        data-value={labels.noLaterThenLabel}
+        onchange={handleRadioButtonChange}
+        class="slds-grid_vertical-align-center"
+        disabled={isSummary}
+        checked={values.noLater}
+      ></lightning-input>
+    </lightning-layout-item>
+    <lightning-layout-item size="6" large-device-size="9">
+      <div style="max-width: 200px">
+        <c-date-picker
+          min-date={today}
+          max-date={maxDate}
+          onchange={handleDateChange}
+          show-before-day={handleBlackoutDaysCallback}
+          disabled={blockNoLaterThenCalendar}
+          required={requiredDateForNoLaterDate}
+        >
+        </c-date-picker>
+      </div>
+    </lightning-layout-item>
+  </lightning-layout>
+  <lightning-layout vertical-align="center">
+    <lightning-layout-item size="6" large-device-size="3">
+      <lightning-input
+        type="radio"
+        label={labels.doNotShipBeforeLabel}
+        variant="standard"
+        data-key="noBefore"
+        data-value={labels.doNotShipBeforeLabel}
+        onchange={handleRadioButtonChange}
+        disabled={isSummary}
+        checked={values.noBefore}
+      ></lightning-input>
+    </lightning-layout-item>
+    <lightning-layout-item size="6" large-device-size="9">
+      <div style="max-width: 200px">
+        <c-date-picker
+          min-date={today}
+          max-date={maxDate}
+          onchange={handleDateChange}
+          disabled={blockNoShipBeforeCalendar}
+          show-before-day={handleBlackoutDaysCallback}
+          required={requiredDateForNoShipBeforeDate}
+        >
+        </c-date-picker>
+      </div>
+    </lightning-layout-item>
+  </lightning-layout>
+</template>

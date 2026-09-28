@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;"><span style="font-family:Arial,Helvetica,sans-serif;">Dear Unit handling team,<br />
+<br />
+Please quote the following request.</span>
+<ul>
+	<li><span style="font-family:Arial,Helvetica,sans-serif;">Quote Number: {{{Opportunity.Quote_Number__c}}}</span></li>
+	<li><span style="font-family:Arial,Helvetica,sans-serif;">Pricing Level:&nbsp;</span></li>
+	<li><span style="font-family:Arial,Helvetica,sans-serif;">Special Instructions:</span></li>
+</ul>
+<span style="font-family:Arial,Helvetica,sans-serif;">Original customer request:</span><br />
+{{{Opportunity.Email_Content__c}}}<br />
+<br />
+<br />
+<span style="font-family:Arial,Helvetica,sans-serif;">If you need any further details to proceed, please advise.<br />
+<br />
+Thank you for your assistance!</span><br />
+<br />
+{{{Sender.Signature}}}</body>
+</html>

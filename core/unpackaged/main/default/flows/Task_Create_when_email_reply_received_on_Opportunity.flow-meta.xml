@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Is_Opportunity</name>
+        <label>Is Opportunity</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>No - Do Nothing</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Opp</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Opportunity.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>subjectDoesNotContain</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Follow_Up_Task</targetReference>
+            </connector>
+            <label>Yes - Opp</label>
+        </rules>
+    </decisions>
+    <description>Cleaned up links in email body.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>BodyForTask</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  IF(
+    NOT(ISBLANK({!$Record.TextBody})),
+    {!$Record.TextBody},
+    /* Clean up common HTML constructs -&gt; line breaks and spaces */
+    SUBSTITUTE(
+      SUBSTITUTE(
+        SUBSTITUTE(
+          SUBSTITUTE(
+            SUBSTITUTE(
+              SUBSTITUTE(
+                SUBSTITUTE(
+                  SUBSTITUTE(
+                    SUBSTITUTE(
+                      SUBSTITUTE(
+                        SUBSTITUTE(
+                          SUBSTITUTE(
+                            SUBSTITUTE(
+                              SUBSTITUTE(
+                                SUBSTITUTE(
+                                  SUBSTITUTE(
+                                    SUBSTITUTE(
+                                      SUBSTITUTE(
+                                        SUBSTITUTE(
+                                          SUBSTITUTE(
+                                            SUBSTITUTE(
+                                              SUBSTITUTE(
+                                                SUBSTITUTE(
+                                                  SUBSTITUTE(
+                                                    SUBSTITUTE(
+                                                      SUBSTITUTE(
+                                                        SUBSTITUTE(
+                                                          SUBSTITUTE(
+                                                            SUBSTITUTE(
+                                                              SUBSTITUTE(
+                                                                SUBSTITUTE({!$Record.HtmlBody}, &quot;&lt;br/&gt;&quot;, &quot;\n&quot;),
+                                                              &quot;&lt;br&gt;&quot;, &quot;\n&quot;),
+                                                            &quot;&lt;br /&gt;&quot;, &quot;\n&quot;),
+                                                          &quot;&lt;/p&gt;&quot;, &quot;\n\n&quot;),
+                                                        &quot;&lt;p&gt;&quot;, &quot;&quot;),
+                                                      &quot;&lt;/div&gt;&quot;, &quot;\n&quot;),
+                                                    &quot;&lt;div&gt;&quot;, &quot;&quot;),
+                                                  &quot;&lt;/li&gt;&quot;, &quot;\n&quot;),
+                                                &quot;&lt;li&gt;&quot;, &quot; • &quot;),
+                                              &quot;&lt;/ul&gt;&quot;, &quot;\n&quot;),
+                                            &quot;&lt;ol&gt;&quot;, &quot;\n&quot;),
+                                          &quot;&lt;/ol&gt;&quot;, &quot;\n&quot;),
+                                        &quot;&lt;hr&gt;&quot;, &quot;\n----------------\n&quot;),
+                                      &quot;&amp;nbsp;&quot;, &quot; &quot;),
+                                    &quot;&amp;amp;&quot;, &quot;&amp;&quot;),
+                                  &quot;&amp;lt;&quot;, &quot;&lt;&quot;),
+                                &quot;&amp;gt;&quot;, &quot;&gt;&quot;),
+                              &quot;&lt;strong&gt;&quot;, &quot;&quot;),
+                            &quot;&lt;/strong&gt;&quot;, &quot;&quot;),
+                          &quot;&lt;em&gt;&quot;, &quot;&quot;),
+                        &quot;&lt;/em&gt;&quot;, &quot;&quot;),
+                      &quot;&lt;b&gt;&quot;, &quot;&quot;),
+                    &quot;&lt;/b&gt;&quot;, &quot;&quot;),
+                  &quot;&lt;i&gt;&quot;, &quot;&quot;),
+                &quot;&lt;/i&gt;&quot;, &quot;&quot;),
+              &quot;&lt;u&gt;&quot;, &quot;&quot;),
+            &quot;&lt;/u&gt;&quot;, &quot;&quot;),
+          &quot;&lt;span&gt;&quot;, &quot;&quot;),
+        &quot;&lt;/span&gt;&quot;, &quot;&quot;),
+      &quot;&lt;!--&quot;, &quot;&quot;),  /* crude removal start */
+    &quot;--&gt;&quot;, &quot;&quot;)       /* crude removal end */
+  ),
+  32000
+)</expression>
+    </formulas>
+    <formulas>
+        <name>BodyPlain</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE(
+  SUBSTITUTE(
+    IF(
+      NOT(ISBLANK({!$Record.TextBody})),
+      /* TextBody: strip link schemes, trackers, angle brackets */
+      SUBSTITUTE(
+        SUBSTITUTE(
+          SUBSTITUTE(
+            SUBSTITUTE(
+              SUBSTITUTE(
+                SUBSTITUTE(
+                  SUBSTITUTE(
+                    SUBSTITUTE(
+                      {!$Record.TextBody},
+                      &quot;http://&quot;, &quot;&quot;
+                    ),
+                    &quot;https://&quot;, &quot;&quot;
+                  ),
+                  &quot;mailto:&quot;, &quot;&quot;
+                ),
+                &quot;tel:&quot;, &quot;&quot;
+              ),
+              &quot;cid:image&quot;, &quot;&quot;
+            ),
+            &quot;us.content.exclaimer.net&quot;, &quot;&quot;
+          ),
+          &quot;&lt;&quot;, &quot;&quot;
+        ),
+        &quot;&gt;&quot;, &quot;&quot;
+      ),
+      /* HtmlBody: convert breaks -&gt; newlines, then same scrubs */
+      SUBSTITUTE(
+        SUBSTITUTE(
+          SUBSTITUTE(
+            SUBSTITUTE(
+              SUBSTITUTE(
+                SUBSTITUTE(
+                  SUBSTITUTE(
+                    SUBSTITUTE(
+                      SUBSTITUTE(
+                        SUBSTITUTE(
+                          SUBSTITUTE(
+                            {!$Record.HtmlBody},
+                            &quot;&lt;br /&gt;&quot;, &quot;\n&quot;
+                          ),
+                          &quot;&lt;br&gt;&quot;, &quot;\n&quot;
+                        ),
+                        &quot;&lt;/p&gt;&quot;, &quot;\n\n&quot;
+                      ),
+                      &quot;&lt;p&gt;&quot;, &quot;&quot;
+                    ),
+                    &quot;&lt;/div&gt;&quot;, &quot;\n&quot;
+                  ),
+                  &quot;&lt;div&gt;&quot;, &quot;&quot;
+                ),
+                &quot;&amp;nbsp;&quot;, &quot; &quot;
+              ),
+              &quot;http://&quot;, &quot;&quot;
+            ),
+            &quot;https://&quot;, &quot;&quot;
+          ),
+          &quot;mailto:&quot;, &quot;&quot;
+        ),
+        &quot;tel:&quot;, &quot;&quot;
+      )
+      /* After initial clean, strip remaining patterns &amp; brackets */
+    ),
+    &quot;  &quot;, &quot; &quot;
+  ),
+  &quot;  &quot;, &quot; &quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ReplyFirstNLines</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  {!BodyPlain},
+  CASE(
+    /* Count newlines, capped at N (N = 6 here) */
+    MIN(
+      6,
+      LEN({!BodyPlain}) - LEN(SUBSTITUTE({!BodyPlain}, &quot;\n&quot;, &quot;&quot;))
+    ),
+    0, LEN({!BodyPlain}),
+    1, FIND(&quot;\n&quot;, {!BodyPlain}),
+    2, FIND(&quot;\n&quot;, {!BodyPlain}, FIND(&quot;\n&quot;, {!BodyPlain}) + 1),
+    3, FIND(&quot;\n&quot;, {!BodyPlain}, FIND(&quot;\n&quot;, {!BodyPlain}, FIND(&quot;\n&quot;, {!BodyPlain}) + 1) + 1),
+    4, FIND(&quot;\n&quot;, {!BodyPlain}, FIND(&quot;\n&quot;, {!BodyPlain}, FIND(&quot;\n&quot;, {!BodyPlain}, FIND(&quot;\n&quot;, {!BodyPlain}) + 1) + 1) + 1),
+    5, FIND(&quot;\n&quot;, {!BodyPlain}, FIND(&quot;\n&quot;, {!BodyPlain}, FIND(&quot;\n&quot;, {!BodyPlain}, FIND(&quot;\n&quot;, {!BodyPlain}, FIND(&quot;\n&quot;, {!BodyPlain}) + 1) + 1) + 1) + 1),
+    6, FIND(&quot;\n&quot;, {!BodyPlain}, FIND(&quot;\n&quot;, {!BodyPlain}, FIND(&quot;\n&quot;, {!BodyPlain}, FIND(&quot;\n&quot;, {!BodyPlain}, FIND(&quot;\n&quot;, {!BodyPlain}, FIND(&quot;\n&quot;, {!BodyPlain}) + 1) + 1) + 1) + 1) + 1),
+    LEN({!BodyPlain})
+  ) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>subjectDoesNotContain</name>
+        <dataType>Boolean</dataType>
+        <expression>NOT(CONTAINS({!$Record.Subject}, &apos;Ticket Resolved&apos;))</expression>
+    </formulas>
+    <interviewLabel>Task - Create when email reply received on Opportunity {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Task - Create when email reply received on Opportunity</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_Follow_Up_Task</name>
+        <label>Create Follow Up Task</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>CallObject</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <elementReference>ReplyFirstNLines</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>Get_Opportunity.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Priority</field>
+            <value>
+                <stringValue>Normal</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Open</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <stringValue>Response to Email Received from {!$Record.FromName} for Opportunity: {!Get_Opportunity.Name}</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type</field>
+            <value>
+                <stringValue>Email Reply Notification</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>Get_Opportunity.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Opportunity</name>
+        <label>Get Opportunity</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_Opportunity</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.RelatedToId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Opportunity</object>
+        <sortField>Id</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Opportunity</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Incoming</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>RelatedToId</field>
+            <operator>StartsWith</operator>
+            <value>
+                <stringValue>006</stringValue>
+            </value>
+        </filters>
+        <object>EmailMessage</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

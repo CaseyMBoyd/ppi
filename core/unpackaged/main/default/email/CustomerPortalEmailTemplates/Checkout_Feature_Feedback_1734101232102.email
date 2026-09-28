@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">&nbsp;
+<p>&nbsp;</p>
+
+<p>Dear {{{Recipient.FirstName}}},</p>
+
+<p>I hope this message finds you well. We noticed that the checkout feature in our customer portal has not yet been widely used by you or your team. Your input is invaluable to us, and we want to ensure the feature meets your needs effectively.</p>
+
+<p>To help us improve your experience, could you kindly share any feedback or challenges you've encountered that may be preventing you from using the checkout feature?</p>
+
+<p>To make it easier, we've included a short survey below:</p>
+
+<ol>
+	<li>
+	<p><strong>Ease of Use</strong></p>
+
+	<ul>
+		<li>Is the checkout process intuitive and user-friendly?</li>
+		<li><input disabled="disabled" type="checkbox" /> Very Easy</li>
+		<li><input disabled="disabled" type="checkbox" /> Somewhat Easy</li>
+		<li><input disabled="disabled" type="checkbox" /> Neutral</li>
+		<li><input disabled="disabled" type="checkbox" /> Somewhat Difficult</li>
+		<li><input disabled="disabled" type="checkbox" /> Very Difficult</li>
+	</ul>
+	</li>
+	<li>
+	<p><strong>Technical Performance</strong></p>
+
+	<ul>
+		<li>Have you experienced any technical issues while attempting to use the checkout feature?</li>
+		<li><input disabled="disabled" type="checkbox" /> Yes (please specify below)</li>
+		<li><input disabled="disabled" type="checkbox" /> No</li>
+	</ul>
+	</li>
+	<li>
+	<p><strong>Additional Feedback</strong></p>
+
+	<ul>
+		<li>Is there anything else preventing you from using the checkout feature? Please share any suggestions or concerns:<br />
+		&nbsp;</li>
+	</ul>
+	</li>
+</ol>
+
+<p>Your feedback will help us identify areas for improvement and ensure the portal serves your needs better.</p>
+
+<p>Thank you for your time and valuable insights!</p>
+
+<p>Best regards,<br />
+Sandy Tyrrel<br />
+Business Analyst</p>
+</body>
+</html>

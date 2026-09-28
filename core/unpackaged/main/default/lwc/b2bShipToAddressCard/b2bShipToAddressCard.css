@@ -1,0 +1,14 @@
+.modal-content {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.loader-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}

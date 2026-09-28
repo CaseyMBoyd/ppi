@@ -1,0 +1,42 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Dropdown Input -->
+<template>
+  <div class={searchClass}>
+    <label for="input">
+      <abbr lwc:if={required} class="slds-required">*</abbr>
+      {label}
+    </label>
+    <input
+      class="slds-input slds-m-top_xxx-small"
+      id="input"
+      type="text"
+      value={selected}
+      disabled={disabled}
+      placeholder={placeholder}
+      onblur={handleInputChange}
+    />
+    <div
+      lwc:if={showError}
+      class="slds-has-error slds-required slds-form-element__help"
+      part="help-text"
+    >
+      {validityErrorMessage}
+    </div>
+    <div class="dropdown">
+      <!-- CRM-4423: uses displayOptions; adds data-disabled, dynamic class, and per-option tooltip -->
+      <div
+        for:each={displayOptions}
+        for:item="option"
+        key={option.value}
+        data-value={option.value}
+        data-disabled={option.disabledAttr}
+        onmousedown={handleOptionClicked}
+        class={option.itemClass}
+        title={option.disabledTooltip}
+      >
+        {option.label}
+      </div>
+    </div>
+  </div>
+</template>

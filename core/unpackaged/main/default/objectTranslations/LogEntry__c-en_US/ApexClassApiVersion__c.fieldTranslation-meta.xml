@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- The API version for this class. Every class has an API version specified at creation. --></help>
+        <label><!-- Apex Class API Version --></label>
+        <name>ApexClassApiVersion__c</name>
+        <picklistValues>
+            <masterLabel>v60.0 - Spring '24 Release</masterLabel>
+            <translation><!-- v60.0 - Spring &apos;24 Release --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>v61.0 - Summer '24 Release</masterLabel>
+            <translation><!-- v61.0 - Summer &apos;24 Release --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

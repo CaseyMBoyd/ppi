@@ -1,0 +1,71 @@
+<!-- Copyright (c) 2023 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<template>
+  <lightning-spinner
+    if:true={isLoading}
+    variant="brand"
+    size="medium"
+  ></lightning-spinner>
+
+  <template lwc:if={cartPage}>
+    <lightning-card title="Cart Switcher">
+      <div slot="actions">
+        <c-cart-switcher-buttons></c-cart-switcher-buttons>
+      </div>
+
+      <div class="slds-var-p-horizontal_medium">
+        <template if:false={isError}>
+          <div class="slds-m-bottom_medium">
+            <lightning-combobox
+              name="current-cart"
+              label="Current Cart"
+              value={currentActiveCart.Id}
+              placeholder="Select Cart"
+              options={cartOptions}
+              onchange={makeCartPrimary}
+            ></lightning-combobox>
+            <div class="slds-m-top_small"></div>
+          </div>
+        </template>
+
+        <template if:true={isError}>
+          <div class="slds-text-color_error">Error loading carts.</div>
+        </template>
+      </div>
+    </lightning-card>
+  </template>
+
+  <template lwc:else>
+    <template if:false={isError}>
+      <div class="flex-row clear-margin">
+        <lightning-icon class="slds-m-right_small" icon-name="utility:cart" size="x-small"></lightning-icon>
+        <lightning-combobox
+                name="current-cart"
+                class="slds-m-right_small"
+                label=""
+                value={currentActiveCart.Id}
+                variant="label-hidden"
+                placeholder="Select Cart"
+                options={cartOptions}
+                onchange={makeCartPrimary}
+        ></lightning-combobox>
+        <lightning-button-menu icon-name="utility:customer" alternative-text="Cart Actions" class="">
+          <lightning-menu-item
+                  value="newCarts"
+                  label="New Cart"
+                  onclick={openNewCartModal}
+          ></lightning-menu-item>
+          <lightning-menu-item
+                  value="manageCarts"
+                  label="Manage Carts"
+                  onclick={manageCarts}
+          ></lightning-menu-item>
+        </lightning-button-menu>
+      </div>
+    </template>
+
+    <template if:true={isError}>
+      <div class="slds-text-color_error">Error loading carts.</div>
+    </template>
+  </template>
+</template>

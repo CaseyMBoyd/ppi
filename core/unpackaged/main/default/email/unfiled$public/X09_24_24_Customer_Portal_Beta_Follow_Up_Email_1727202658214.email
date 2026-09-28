@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">Dear {{{Recipient.FirstName}}},<br />
+<br />
+I hope this message finds you well. I’d like to schedule a meeting to gather your valuable feedback on your experience with the PPI Customer Portal. Please come prepared with any thoughts or suggestions you may have based on your time using the portal.<br />
+<br />
+I’m available to meet on the following dates and times (Central Time):<br />
+<br />
+- Monday, September 30: 8:00 AM – 11:30 AM&nbsp;<br />
+- Tuesday, October 1: 8:00 AM – 11:30 AM&nbsp;<br />
+- Wednesday, October 2: 8:00 AM – 11:30 AM<br />
+<br />
+If none of these options work for you, please feel free to propose some alternative dates and times that fit your schedule.<br />
+<br />
+I look forward to our discussion and appreciate your insights!<br />
+<br />
+Best regards,<br />
+&nbsp;<br />
+Ian D. Moore<br />
+Senior Digital Customer Experience Manager<br />
+Precision Pulley and Idler<img src="https://connect-force-473.my.salesforce.com/servlet/servlet.ImageServer?oid=00DU9000004GxEj&amp;esid=018Rl00000HpXeW&amp;from=int" style="max-width: 430.35px;" /><img src="https://connect-force-473.my.salesforce.com/servlet/servlet.ImageServer?oid=00DU9000004GxEj&amp;esid=018Rl00000HpNyW&amp;from=int" style="max-width: 430.35px;" /></body>
+</html>

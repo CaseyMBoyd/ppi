@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Generic_Product_External_Id__c</fullName>
+    <description>External Id of a generic product that will be used when legacy order is loaded from ERP if its External ID is not found in SF</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>External Id of a generic product that will be used when legacy order is loaded from ERP if its External ID is not found in SF</inlineHelpText>
+    <label>Generic Product External Id</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

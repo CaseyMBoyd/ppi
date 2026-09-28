@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignmentRule>
+        <fullName>Support Request</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <assignedTo>Support_Request</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>CreatedBy.Profile.Name == "PPI Customer Portal Profile" || ISPICKVAL(Type, "New User Request") || CreatedBy.Profile.Name == "PPI Customer Portal User"</formula>
+            <template>unfiled$public/SUPPORTNewassignmentnotificationSAMPLE</template>
+        </ruleEntry>
+    </assignmentRule>
+</AssignmentRules>

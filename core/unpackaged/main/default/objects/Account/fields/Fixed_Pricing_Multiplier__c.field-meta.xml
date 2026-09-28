@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fixed_Pricing_Multiplier__c</fullName>
+    <description>This multiplier is used for any product that has a fixed price and multiplier for EVERY customer.  Example: Roll Guards</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Multiplier for fixed price items.</inlineHelpText>
+    <label>Fixed Pricing Multiplier</label>
+    <precision>7</precision>
+    <required>false</required>
+    <scale>3</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowTest xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flowApiName>Lead_Mark_Canada_Accounts</flowApiName>
+    <label>TEST New Lead for 02 Account</label>
+    <testPoints>
+        <elementApiName>Start</elementApiName>
+        <isUseMockOutput>false</isUseMockOutput>
+        <parameters>
+            <leftValueReference>$Record</leftValueReference>
+            <type>InputTriggeringRecordInitial</type>
+            <value>
+                <sobjectValue>{&quot;Account__c&quot;:&quot;001Rl00000EaRVdIAN&quot;,&quot;Canada_Account__c&quot;:false,&quot;Company&quot;:&quot;BDI CANADA - 116409&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;CountryCode&quot;:&quot;US&quot;,&quot;Customer_Request_Subject__c&quot;:&quot;test&quot;,&quot;DoNotCall&quot;:false,&quot;Email&quot;:&quot;test@test.com&quot;,&quot;Email_Content__c&quot;:&quot;&lt;p&gt;test&lt;/p&gt;&quot;,&quot;FirstName&quot;:&quot;test&quot;,&quot;HasOptedOutOfEmail&quot;:false,&quot;HasOptedOutOfFax&quot;:false,&quot;Has_Been_Cloned__c&quot;:false,&quot;IsUnreadByOwner&quot;:false,&quot;Is_Cloned_Lead__c&quot;:false,&quot;LastName&quot;:&quot;moore&quot;,&quot;LeadSource&quot;:&quot;Phone&quot;,&quot;Lead_Queue__c&quot;:&quot;Key Accounts&quot;,&quot;OwnerId&quot;:&quot;005Hp00000hZWtAIAW&quot;,&quot;PO__c&quot;:false,&quot;Status&quot;:&quot;New&quot;,&quot;Type__c&quot;:&quot;Pulley&quot;,&quot;ZVC__IsCreatedByZoomApp__c&quot;:false}</sobjectValue>
+            </value>
+        </parameters>
+    </testPoints>
+    <testPoints>
+        <assertions>
+            <conditions>
+                <leftValueReference>$Record.Account__r.External_ID_No_Comma__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <errorMessage>No matching record</errorMessage>
+        </assertions>
+        <elementApiName>Finish</elementApiName>
+        <isUseMockOutput>false</isUseMockOutput>
+    </testPoints>
+    <testType>WithAssertion</testType>
+</FlowTest>

@@ -1,0 +1,10 @@
+Case {!Case.CaseNumber} submitted by {!Case.Contact} with {!Case.Account} is assigned to you!
+
+Case #: {!Case.CaseNumber}
+Date/Time Opened: {!Case.CreatedDate}
+Status: {!Case.Status}
+Account: {!Case.Account}
+Subject: {!Case.Subject}
+Description: {!Case.Description}
+
+{!Case.Link}

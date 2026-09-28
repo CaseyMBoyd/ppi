@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">
+<p>Dear&nbsp;{{{Recipient.FirstName}}},</p>
+
+<p>We’re reaching out to let you know that ongoing delays in receiving key materials from our suppliers will unfortunately impact the timeline of your order. Despite our best efforts to avoid disruption, a delay is now expected.</p>
+
+<p>We fully understand the importance of on-time delivery and want to assure you that our team is actively working to resolve the issue as quickly as possible. We're in close contact with our suppliers and exploring all available options to expedite materials and reduce the impact on your schedule.</p>
+
+<p>We will follow up with updated delivery details as soon as they are available and remain committed to keeping you informed every step of the way.</p>
+
+<p>Thank you for your patience and continued partnership. If you have any questions or concerns, please don’t hesitate to reach out.</p>
+
+<p>Best regards,<br />
+{{{Sender.Signature}}}</p>
+</body>
+</html>

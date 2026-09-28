@@ -1,0 +1,18 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+
+<!-- Pdp Add To Cart Button With Qty Selector -->
+<template>
+    <div class="quantity-selector-container">
+        <div class="slds-color__text_gray-8">
+            PRODUCT QTY
+        </div>
+        <c-quantity-selector onchange={handleQtyChange} class="slds-m-right_large"></c-quantity-selector>
+        <lightning-button onclick={addToCartAction}
+                          variant="brand"
+                          disabled={buttonDisabled}
+                          label="Add to Cart"
+                          class="button">
+        </lightning-button>
+    </div>
+</template>

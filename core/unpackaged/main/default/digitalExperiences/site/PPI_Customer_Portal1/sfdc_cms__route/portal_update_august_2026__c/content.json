@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "portal-update-august-2026",
+  "contentBody" : {
+    "activeViewId" : "portal_update_august_2026",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "lightningOut2",
+    "urlPrefix" : "portal-update-august-2026"
+  },
+  "urlName" : "portal-update-august-2026"
+}

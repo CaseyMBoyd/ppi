@@ -1,0 +1,121 @@
+<template>
+    <div class={formElementClass}>
+        <label class="slds-form-element__label" for="contact-lookup-search">
+            {label}
+        </label>
+        <div class="slds-form-element__control">
+            <div class={comboboxClass} aria-expanded={showDropdown} aria-haspopup="listbox" role="combobox">
+                <!-- Selected pill (single-select) -->
+                <template if:true={hasSelection}>
+                    <div
+                        class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_left-right"
+                        role="none"
+                    >
+                        <span class="slds-icon_container slds-icon-standard-contact slds-combobox__input-entity-icon">
+                            <lightning-icon icon-name="standard:contact" size="x-small" alternative-text="Contact"></lightning-icon>
+                        </span>
+                        <input
+                            type="text"
+                            class="slds-input slds-combobox__input slds-combobox__input-value"
+                            id="contact-lookup-selected"
+                            readonly
+                            value={selectedContactName}
+                            title={selectedContactName}
+                        />
+                        <button
+                            type="button"
+                            class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                            title="Clear selection"
+                            onclick={handleClear}
+                        >
+                            <lightning-icon icon-name="utility:close" size="x-small" alternative-text="Clear"></lightning-icon>
+                            <span class="slds-assistive-text">Clear selection</span>
+                        </button>
+                    </div>
+                </template>
+
+                <!-- Search input (no selection) -->
+                <template if:false={hasSelection}>
+                    <div
+                        class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"
+                        role="none"
+                    >
+                        <input
+                            type="text"
+                            class="slds-input slds-combobox__input"
+                            id="contact-lookup-search"
+                            aria-autocomplete="list"
+                            aria-controls="contact-lookup-listbox"
+                            autocomplete="off"
+                            placeholder={computedPlaceholder}
+                            disabled={disabledInput}
+                            value={searchTerm}
+                            oninput={handleInput}
+                            onfocus={handleFocus}
+                            onblur={handleBlur}
+                        />
+                        <span class="slds-icon_container slds-input__icon slds-input__icon_right">
+                            <template if:true={loading}>
+                                <lightning-spinner alternative-text="Loading" size="x-small" variant="brand"></lightning-spinner>
+                            </template>
+                            <template if:false={loading}>
+                                <lightning-icon icon-name="utility:search" size="x-small" alternative-text="Search"></lightning-icon>
+                            </template>
+                        </span>
+                    </div>
+                </template>
+
+                <!-- Dropdown -->
+                <template if:true={showDropdown}>
+                    <div
+                        id="contact-lookup-listbox"
+                        class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid"
+                        role="listbox"
+                    >
+                        <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                            <template for:each={results} for:item="result">
+                                <li
+                                    key={result.id}
+                                    role="presentation"
+                                    class="slds-listbox__item"
+                                >
+                                    <div
+                                        data-id={result.id}
+                                        onmousedown={handleSelect}
+                                        class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                        role="option"
+                                    >
+                                        <span class="slds-media__figure slds-listbox__option-icon">
+                                            <lightning-icon icon-name="standard:contact" size="small" alternative-text="Contact"></lightning-icon>
+                                        </span>
+                                        <span class="slds-media__body">
+                                            <span class="slds-listbox__option-text slds-listbox__option-text_entity">{result.name}</span>
+                                            <template if:true={result.subtitle}>
+                                                <span class="slds-listbox__option-meta slds-listbox__option-meta_entity">{result.subtitle}</span>
+                                            </template>
+                                        </span>
+                                    </div>
+                                </li>
+                            </template>
+                            <template if:true={showNoResults}>
+                                <li role="presentation" class="slds-listbox__item">
+                                    <div class="slds-media slds-listbox__option slds-listbox__option_entity" role="option">
+                                        <span class="slds-media__body">
+                                            <span class="slds-listbox__option-text slds-listbox__option-text_entity">
+                                                No related contacts found.
+                                            </span>
+                                        </span>
+                                    </div>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </template>
+            </div>
+
+            <template if:true={errorMessage}>
+                <div class="slds-form-element__help" role="alert">{errorMessage}</div>
+            </template>
+        </div>
+    </div>
+</template>

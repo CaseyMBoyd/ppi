@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Waiting_On__c</fullName>
+    <inlineHelpText>Please select who you are waiting on to complete this task.</inlineHelpText>
+    <label>Waiting On</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Waiting_On</valueSetName>
+    </valueSet>
+    <visibleLines>7</visibleLines>
+</CustomField>

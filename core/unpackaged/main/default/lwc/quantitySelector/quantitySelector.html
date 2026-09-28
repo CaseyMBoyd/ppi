@@ -1,0 +1,33 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Quantity Selector -->
+<template>
+  <div class="qty-input">
+    <button
+      data-action="decrement"
+      onclick={handleChange}
+      disabled={disableDecrement}
+      type="button"
+    >
+      &mdash;
+    </button>
+    <input
+      class="product-qty"
+      type="number"
+      name="product-qty"
+      onblur={handleChange}
+      value={_qty}
+      min={minQty}
+      max={maxQty}
+    />
+
+    <button
+      onclick={handleChange}
+      data-action="increment"
+      disabled={disableIncrement}
+      type="button"
+    >
+      &plus;
+    </button>
+  </div>
+</template>

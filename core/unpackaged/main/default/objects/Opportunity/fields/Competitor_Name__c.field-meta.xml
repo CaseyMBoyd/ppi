@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competitor_Name__c</fullName>
+    <label>Competitor Name</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>None</label>
+            </value>
+            <value>
+                <fullName>Superior</fullName>
+                <default>false</default>
+                <label>Superior</label>
+            </value>
+            <value>
+                <fullName>Martin</fullName>
+                <default>false</default>
+                <label>Martin</label>
+            </value>
+            <value>
+                <fullName>Luff</fullName>
+                <default>false</default>
+                <label>Luff</label>
+            </value>
+            <value>
+                <fullName>Douglas (Rulmeca)</fullName>
+                <default>false</default>
+                <label>Douglas (Rulmeca)</label>
+            </value>
+            <value>
+                <fullName>FMC (Syntron)</fullName>
+                <default>false</default>
+                <label>FMC (Syntron)</label>
+            </value>
+            <value>
+                <fullName>Prok</fullName>
+                <default>false</default>
+                <label>Prok</label>
+            </value>
+            <value>
+                <fullName>Mine Duty Idler</fullName>
+                <default>false</default>
+                <label>Mine Duty Idler</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_Expired_Automation_Check</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(AND(ISPICKVAL( StageName , 'Closed Expired'),  $Profile.Name != 'System Administrator'),!IsVRBypassed__c,false)</errorConditionFormula>
+    <errorMessage>The Closed Expired stage can only be set by automation or administrators.</errorMessage>
+</ValidationRule>

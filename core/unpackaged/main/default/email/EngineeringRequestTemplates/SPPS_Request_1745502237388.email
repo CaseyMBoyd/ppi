@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">Dear Engineering Team,<br />
+<br />
+Please review the following SPPS request:<br />
+<br />
+{{{Opportunity.Quote_Number__c}}}<br />
+{{{Opportunity.Account_Name__c}}}<br />
+{{{Opportunity.Priority__c}}}<br />
+Category: (Delete non-applicable) [Structure, Live Shaft, Conveyor Covers, Stainless, Takeup Frames, Roller, or Frame]<br />
+<br />
+Description of Request: (Free text description-please include all necessary details)<br />
+<br />
+To view the opportunity in Salesforce please click the link below:<br />
+<br />
+<a href="https://connect-force-473.lightning.force.com/lightning/r/Opportunity/%7B%7B%7BOpportunity.Id%7D%7D%7D/view">https://connect-force-473.lightning.force.com/lightning/r/Opportunity/{{{Opportunity.Id}}}/view</a><br />
+<br />
+<br />
+<br />
+Thank you for your assistance!<br />
+<br />
+{{{Sender.Signature}}}<br />
+&nbsp;</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;"><br />
+SAR Team,<br />
+<br />
+Please see PO #{{{Opportunity.PO_Number__c}}} for CSP Rework.<br />
+<br />
+Quote #:&nbsp;{{{Opportunity.Quote_Number__c}}}<br />
+<br />
+PO has been saved.<br />
+<br />
+Thank you!<br />
+{{{Sender.Signature}}}</body>
+</html>

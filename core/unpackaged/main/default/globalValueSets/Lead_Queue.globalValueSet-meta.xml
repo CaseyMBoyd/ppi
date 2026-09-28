@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Pulley Daily</fullName>
+        <default>false</default>
+        <label>Pulley Daily</label>
+    </customValue>
+    <customValue>
+        <fullName>Idler Daily</fullName>
+        <default>false</default>
+        <label>Idler Daily</label>
+    </customValue>
+    <customValue>
+        <fullName>Pulley Project</fullName>
+        <default>false</default>
+        <label>Pulley Project</label>
+    </customValue>
+    <customValue>
+        <fullName>Idler Project</fullName>
+        <default>false</default>
+        <label>Idler Project</label>
+    </customValue>
+    <customValue>
+        <fullName>Order Support</fullName>
+        <default>false</default>
+        <label>Order Support</label>
+    </customValue>
+    <customValue>
+        <fullName>Inside Sales Temp Inbox</fullName>
+        <default>false</default>
+        <label>Inside Sales Temp Inbox</label>
+    </customValue>
+    <customValue>
+        <fullName>ISA Same Day</fullName>
+        <default>false</default>
+        <label>ISA Same Day</label>
+    </customValue>
+    <customValue>
+        <fullName>West 35</fullName>
+        <default>false</default>
+        <label>West 35</label>
+    </customValue>
+    <customValue>
+        <fullName>West 26</fullName>
+        <default>false</default>
+        <label>West 26</label>
+    </customValue>
+    <customValue>
+        <fullName>West 15</fullName>
+        <default>false</default>
+        <label>West 15</label>
+    </customValue>
+    <customValue>
+        <fullName>Central 3</fullName>
+        <default>false</default>
+        <label>Central 3</label>
+    </customValue>
+    <customValue>
+        <fullName>Central 9</fullName>
+        <default>false</default>
+        <label>Central 9</label>
+    </customValue>
+    <customValue>
+        <fullName>Central 16</fullName>
+        <default>false</default>
+        <label>Central 16</label>
+    </customValue>
+    <customValue>
+        <fullName>Central 14</fullName>
+        <default>false</default>
+        <label>Central 14</label>
+    </customValue>
+    <customValue>
+        <fullName>Central 24</fullName>
+        <default>false</default>
+        <label>Central 24</label>
+    </customValue>
+    <customValue>
+        <fullName>East 4</fullName>
+        <default>false</default>
+        <label>East 4</label>
+    </customValue>
+    <customValue>
+        <fullName>East 21</fullName>
+        <default>false</default>
+        <label>East 21</label>
+    </customValue>
+    <customValue>
+        <fullName>East 11</fullName>
+        <default>false</default>
+        <label>East 11</label>
+    </customValue>
+    <customValue>
+        <fullName>East 33</fullName>
+        <default>false</default>
+        <label>East 33</label>
+    </customValue>
+    <customValue>
+        <fullName>KeyAcct1</fullName>
+        <default>false</default>
+        <label>KeyAcct1</label>
+    </customValue>
+    <customValue>
+        <fullName>KeyAcct2</fullName>
+        <default>false</default>
+        <label>KeyAcct2</label>
+    </customValue>
+    <customValue>
+        <fullName>Floater</fullName>
+        <default>false</default>
+        <label>Floater</label>
+    </customValue>
+    <customValue>
+        <fullName>eCommerce</fullName>
+        <default>false</default>
+        <label>eCommerce</label>
+    </customValue>
+    <customValue>
+        <fullName>OIC Queue</fullName>
+        <default>false</default>
+        <label>OIC Queue</label>
+    </customValue>
+    <customValue>
+        <fullName>Key Accounts</fullName>
+        <default>false</default>
+        <label>Key Accounts</label>
+    </customValue>
+    <masterLabel>Lead Queue</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

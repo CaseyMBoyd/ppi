@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Canada_Account__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates if the account associated with a lead is a -02 account</description>
+    <inlineHelpText>Check if customer is -02 Account.</inlineHelpText>
+    <label>Canada Account?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

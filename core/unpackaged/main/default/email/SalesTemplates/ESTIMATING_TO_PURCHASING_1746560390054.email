@@ -1,0 +1,14 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;"><span style="font-family:Arial,Helvetica,sans-serif;">Dear Purchasing,<br />
+<br />
+Please provide cost and lead time for your respective items on Quote #{{{Opportunity.Quote_Number__c}}}.<br />
+<br />
+<strong>Note to Sender</strong>:&nbsp; If applicable, please indicate whether this request is for an opportunity closing soon or one scheduled further out.<br />
+<br />
+Thank you for your assistance!</span><br />
+<br />
+{{{Sender.Signature}}}</body>
+</html>

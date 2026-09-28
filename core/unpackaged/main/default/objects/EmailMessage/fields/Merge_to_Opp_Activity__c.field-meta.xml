@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Merge_to_Opp_Activity__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>Merge to Opp Activity</label>
+    <type>Checkbox</type>
+</CustomField>

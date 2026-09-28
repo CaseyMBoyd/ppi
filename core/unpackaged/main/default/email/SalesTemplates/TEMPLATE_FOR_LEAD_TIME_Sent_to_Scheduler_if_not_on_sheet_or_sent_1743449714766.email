@@ -1,0 +1,12 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;"><span style="font-family:Arial,Helvetica,sans-serif;">Dear Scheduler,<br />
+<br />
+Please provide lead time for your respective items on Quote #{{{Opportunity.Quote_Number__c}}}.<br />
+<br />
+Thank you for your assistance!</span><br />
+<br />
+{{{Sender.Signature}}}</body>
+</html>

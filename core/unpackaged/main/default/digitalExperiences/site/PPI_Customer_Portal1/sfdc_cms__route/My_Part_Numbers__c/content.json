@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "My Part Numbers",
+  "contentBody" : {
+    "activeViewId" : "My_Part_Numbers",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-my-part-numbers",
+    "urlPrefix" : "my-part-numbers"
+  },
+  "urlName" : "my-part-numbers"
+}

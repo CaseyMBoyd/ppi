@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Opportunity_Special_Pricing_Status</name>
+        <label>Assign Opportunity Special Pricing Status</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignmentItems>
+            <assignToReference>OpportunityRecord.Special_Pricing_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Approved</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Opportunity_Special_Pricing_Status</targetReference>
+        </connector>
+    </assignments>
+    <environments>Default</environments>
+    <formulas>
+        <name>DiscountPercentageToRawDecimal</name>
+        <dataType>Number</dataType>
+        <expression>IF(ISPICKVAL({!OpportunityRecord.Discount_Percentage__c}, &quot;None&quot;), 0, VALUE(LEFT(TEXT({!OpportunityRecord.Discount_Percentage__c}), LEN(TEXT({!OpportunityRecord.Discount_Percentage__c})) - 1))/100)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>EmailSubject</name>
+        <dataType>String</dataType>
+        <expression>&quot;Request for Special Pricing on Quote #&quot; + {!OpportunityRecord.Quote_Number__c}</expression>
+    </formulas>
+    <formulas>
+        <name>IdlerCalc</name>
+        <dataType>Number</dataType>
+        <expression>IF({!OpportunityRecord.Account.Idler_Multiplier__c} - {!DiscountPercentageToRawDecimal} &gt; 0, ({!OpportunityRecord.Account.Idler_Multiplier__c} - ({!OpportunityRecord.Account.Idler_Multiplier__c}*{!DiscountPercentageToRawDecimal})), 0)</expression>
+        <scale>3</scale>
+    </formulas>
+    <formulas>
+        <name>PulleyCalc</name>
+        <dataType>Number</dataType>
+        <expression>IF(IF(ISBLANK({!OpportunityRecord.Account.PulleyMultiplier__c}),0,VALUE({!OpportunityRecord.Account.PulleyMultiplier__c})) - {!DiscountPercentageToRawDecimal} &gt; 0, IF(ISBLANK({!OpportunityRecord.Account.PulleyMultiplier__c}),0,VALUE({!OpportunityRecord.Account.PulleyMultiplier__c})) - (IF(ISBLANK({!OpportunityRecord.Account.PulleyMultiplier__c}),0,VALUE({!OpportunityRecord.Account.PulleyMultiplier__c}))*{!DiscountPercentageToRawDecimal}), 0)</expression>
+        <scale>3</scale>
+    </formulas>
+    <formulas>
+        <name>TaskBody</name>
+        <dataType>String</dataType>
+        <expression>IF(ISPICKVAL({!OpportunityRecord.Type},&quot;Pulley&quot;),&quot;Discount Multiplier: &quot; + TEXT({!PulleyCalc}),&quot;Discount Multiplier: &quot; + TEXT({!IdlerCalc})) &amp; &quot;  ---Make sure to add OTP to quote comments before sending quote to customer!&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>TaskSubject</name>
+        <dataType>String</dataType>
+        <expression>&quot;Special Pricing Approved - Update Quote &quot; + {!OpportunityRecord.Quote_Number__c}</expression>
+    </formulas>
+    <interviewLabel>Opportunity - Special Pricing - Auto Approved {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity - Special Pricing - Auto Approved</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_Task_for_Submitter</name>
+        <label>Create Task for Submitter</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <elementReference>TaskBody</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>OpportunityRecord.Special_Pricing_Submitter__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>TaskSubject</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>OpportunityRecord.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordUpdates>
+        <name>Update_Opportunity_Special_Pricing_Status</name>
+        <label>Update Opportunity Special Pricing Status</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <connector>
+            <targetReference>Create_Task_for_Submitter</targetReference>
+        </connector>
+        <inputReference>OpportunityRecord</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Assign_Opportunity_Special_Pricing_Status</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>EmailBody</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Dear {!OpportunityRecord.Account.Salesman_Text__c},
+Your request for special pricing has been approved. A task to update pricing has been sent to inside sales. 
+Thank you for being mindful with the company&apos;s resources – it&apos;s greatly appreciated!
+
+Account Information
+Name: {!OpportunityRecord.Account.Name}
+Contact: {!OpportunityRecord.Opportunity_Contact__r.Name} ({!OpportunityRecord.Opportunity_Contact__r.Email})
+City/State: {!OpportunityRecord.Account_City_State__c}
+Discount Percentage Requested: {!OpportunityRecord.Discount_Percentage__c}</text>
+    </textTemplates>
+    <variables>
+        <name>OpportunityRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Opportunity</objectType>
+    </variables>
+    <variables>
+        <name>submitter</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

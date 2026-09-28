@@ -1,0 +1,1 @@
+{"total_records":1,"attendees":[{"email":"testEmail@163.com","session_attendance":[{"session_id":"testSessionId","session_name":"test","duration_spent_in_session":10,"live_streaming_view_duration":10,"session_attendance":"attended"}]}]}

@@ -1,0 +1,152 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<apex:component id="b2bCommerceEmailStyles" access="global">
+    <meta name="viewport" content="width=device-width" /><!-- IMPORTANT -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <style>
+        /* -------------------------------------
+                        GLOBAL
+                ------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            font-family: "Arial", Helvetica, sans-serif;
+        }
+
+        .fields-section {
+            color: rgb(17, 61, 45);
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .collapse {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: none;
+            width: 100% !important;
+            height: 100%;
+            background-color: rgb(17, 61, 45);
+        }
+
+        /* -------------------------------------
+                        ELEMENTS
+                ------------------------------------- */
+
+        .qty-col,
+        .total-col {
+            text-align: center;
+        }
+
+        .product-list:first-child td.beginning {
+            border-top: 0;
+        }
+
+        .product-list td.beginning {
+            border-top: 1px solid #cbcbcb;
+        }
+
+        /* -------------------------------------
+                        HEADER
+                ------------------------------------- */
+
+        .header.container table td.logo {
+            padding: 15px;
+        }
+        .header.container table td.label {
+            padding: 15px;
+            padding-left: 0px;
+        }
+
+        /* -------------------------------------
+                        BODY
+                ------------------------------------- */
+
+        .body-wrap {
+            width: 100%;
+        }
+
+        /* -------------------------------------
+                        FOOTER
+                ------------------------------------- */
+        .footer-wrap .container td.content p {
+            border-top: 1px solid rgb(215, 215, 215);
+            padding-top: 15px;
+        }
+        .footer-wrap .container td.content p {
+            font-weight: bold;
+        }
+
+        a.btn {
+            background-color: rgb(17, 61, 45);
+            border: none;
+            border-radius: 4px;
+            color: white;
+            padding: 12px 16px;
+        }
+
+        /* -------------------------------------
+                        TYPOGRAPHY
+                ------------------------------------- */
+
+        body,
+        table {
+            font-size: 14px;
+        }
+
+        /* ---------------------------------------------------
+                        RESPONSIVENESS
+                ------------------------------------------------------ */
+
+        /* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone */
+        .container {
+            display: block !important;
+            margin: 0 auto !important; /* makes it centered */
+            clear: both !important;
+        }
+
+        /* This should also be a block element, so that it will fill 100% of the .container */
+        .content {
+            padding: 15px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Let's make sure tables in the content area are 100% wide */
+
+        /* Be sure to place a .clear element after each set of columns, just to be safe */
+        .clear {
+            display: block;
+            clear: both;
+        }
+
+        /* -------------------------------------------
+                        PHONE
+                        For clients that support media queries.
+                -------------------------------------------- */
+        @media only screen and (max-width: 600px) {
+            a[class="btn"] {
+                display: block !important;
+                margin-bottom: 10px !important;
+                background-image: none !important;
+                margin-right: 0 !important;
+            }
+
+            div[class="column"] {
+                width: auto !important;
+                float: none !important;
+            }
+        }
+    </style>
+</apex:component>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expedite_Charge_Amount__c</fullName>
+    <description>The fee added to quote or order to accommodate quicker than standard delivery</description>
+    <inlineHelpText>The fee added to quote or order to accommodate quicker than standard delivery</inlineHelpText>
+    <label>Expedite Charge Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

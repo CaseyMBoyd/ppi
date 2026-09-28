@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Searchable_Fields__c</fullName>
+    <description>new line separated list of product fields that are searchable</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>new line separated list of product fields that are searchable</inlineHelpText>
+    <label>Product Searchable Fields</label>
+    <length>32768</length>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

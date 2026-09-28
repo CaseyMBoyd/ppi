@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Log Entry Data Mask Rule</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Log Entry Data Mask Rules</value>
+    </caseValues>
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Log Entry Data Mask Rule Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Rule Details --></label>
+            <section>Rule Details</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

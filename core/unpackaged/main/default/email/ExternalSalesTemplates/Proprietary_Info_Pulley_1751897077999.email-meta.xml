@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Use this template when request is for product that is proprietary. Contact will need to provide details for quote</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Proprietary Info- Pulley</name>
+    <relatedEntityType>Opportunity</relatedEntityType>
+    <style>none</style>
+    <subject>Additional Information Required for quoting Pulleys</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllOrders</fullName>
+    <columns>ORDERS.ORDER_NUMBER</columns>
+    <columns>PPI_Order_Number__c</columns>
+    <columns>SALES.ACCOUNT.NAME</columns>
+    <columns>ORDERS.TOTAL_AMOUNT</columns>
+    <columns>ORDERS.EFFECTIVE_DATE</columns>
+    <columns>ORDERS.STATUS</columns>
+    <columns>External_Id__c</columns>
+    <columns>Order_Submitted_By__c</columns>
+    <columns>ORDER.PO_NUMBER</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Order_Submitted_By__c</field>
+        <operation>notEqual</operation>
+        <value>API XA Integration</value>
+    </filters>
+    <filters>
+        <field>Order_Submitted_By__c</field>
+        <operation>notEqual</operation>
+        <value>FF Test Buyer</value>
+    </filters>
+    <filters>
+        <field>Order_Submitted_By__c</field>
+        <operation>notEqual</operation>
+        <value>PPI Testing PPI</value>
+    </filters>
+    <filters>
+        <field>SALES.ACCOUNT.NAME</field>
+        <operation>notEqual</operation>
+        <value>PPI Portal Testing</value>
+    </filters>
+    <label>All Orders</label>
+</ListView>

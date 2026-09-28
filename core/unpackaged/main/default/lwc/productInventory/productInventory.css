@@ -1,0 +1,14 @@
+/* Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. */
+:host {
+    --sds-c-icon-color-background: var(--dxp-g-brand);
+    --slds-c-icon-color-background: var(--lwc-colorTextBrand);
+}
+
+.loading-container lightning-spinner {
+    background: transparent;
+}
+
+.loading-container {
+    min-width: 2.5rem;
+    max-width: 2.5rem;
+}

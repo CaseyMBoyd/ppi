@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WebDocs_Hidden__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Stores whether this file is hidden in the WebDocs file selector.</description>
+    <inlineHelpText>Hidden in the WebDocs file selector.</inlineHelpText>
+    <label>WebDocs Hidden</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

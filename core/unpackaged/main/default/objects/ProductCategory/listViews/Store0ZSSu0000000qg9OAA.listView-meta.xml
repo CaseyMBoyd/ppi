@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Store0ZSSu0000000qg9OAA</fullName>
+    <columns>Name</columns>
+    <columns>IsNavigational</columns>
+    <columns>Low_Stock_Threshold__c</columns>
+    <columns>ParentCategory</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Catalog</field>
+        <operation>equals</operation>
+        <value>PPI E-Commerce Catalog</value>
+    </filters>
+    <label>PPI Customer Portal Categories</label>
+</ListView>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enable_Customer_Part_Numbers__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Account-level toggle controlling visibility of the Customer Part Number feature in the B2B portal. When false, all related UI (My Part Numbers page, storefront displays, search translation) is hidden for users of this account. Requested by PPI (Ian Moore) to control feature rollout per customer.</description>
+    <label>Enable Customer Part Numbers</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,30 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Order Confirmation -->
+<template>
+  <div class="slds-box slds-text-align_center">
+    <div class="slds-m-around_x-large">
+      <lightning-icon
+        class="order-confirmation-icon slds-icon_container_circle slds-icon-action-approval slds-icon_container"
+        icon-name="action:approval"
+      ></lightning-icon>
+    </div>
+    <h1 class="slds-text-heading_large slds-p-bottom_small header-text">
+      {headerText}
+    </h1>
+    <p lwc:if={displayConfirmationNumber} class="order-confirmation-number">
+      {confirmationNumberText}&nbsp;{orderNumber}
+    </p>
+    <p class="slds-p-vertical_small">
+      {bodyText}&nbsp;
+      <span lwc:if={territoryName}> {formattedTerritoryText} </span>
+    </p>
+    <div class="slds-p-bottom_medium slds-m-horizontal_xx-large">
+      <a
+        class="my-brand slds-button slds-button_brand slds-medium-size_1-of-3"
+        href={basePath}
+        >{continueShoppingButtonText}</a
+      >
+    </div>
+  </div>
+</template>

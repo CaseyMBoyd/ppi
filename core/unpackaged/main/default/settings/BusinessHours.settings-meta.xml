@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessHoursSettings xmlns="http://soap.sforce.com/2006/04/metadata">
+    <businessHours>
+        <active>true</active>
+        <default>true</default>
+        <fridayEndTime>17:00:00.000Z</fridayEndTime>
+        <fridayStartTime>07:00:00.000Z</fridayStartTime>
+        <mondayEndTime>17:00:00.000Z</mondayEndTime>
+        <mondayStartTime>07:00:00.000Z</mondayStartTime>
+        <name>Default</name>
+        <thursdayEndTime>17:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>07:00:00.000Z</thursdayStartTime>
+        <timeZoneId>America/Chicago</timeZoneId>
+        <tuesdayEndTime>17:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>07:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>17:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>07:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <holidays>
+        <activityDate>2025-07-04</activityDate>
+        <isRecurring>false</isRecurring>
+        <name>4th of July</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-07-05</activityDate>
+        <businessHours>Default</businessHours>
+        <description>Flex day for 5th of July for 2024 Only</description>
+        <isRecurring>false</isRecurring>
+        <name>5th of July</name>
+    </holidays>
+    <holidays>
+        <activityDate>2025-12-25</activityDate>
+        <isRecurring>false</isRecurring>
+        <name>Christmas</name>
+    </holidays>
+    <holidays>
+        <activityDate>2025-12-24</activityDate>
+        <isRecurring>false</isRecurring>
+        <name>Christmas</name>
+    </holidays>
+    <holidays>
+        <activityDate>2025-04-18</activityDate>
+        <isRecurring>false</isRecurring>
+        <name>Good Friday</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-03-29</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-03-29</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-03-31</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-03-31</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-04-07</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-04-07</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-04-21</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-04-21</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-04-28</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-04-28</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-05-05</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-05-05</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-05-12</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-05-12</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-05-19</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-05-19</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-05-26</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-05-26</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-05-27</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-05-27</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-06-02</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-06-02</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-06-09</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-06-09</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-06-16</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-06-16</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-06-23</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-06-23</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-06-30</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-06-30</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-07-04</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-07-04</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-07-07</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-07-07</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-07-14</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-07-14</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-07-21</activityDate>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-07-21</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-07-28</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-07-28</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-08-04</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-08-04</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-08-11</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-08-11</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-08-18</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-08-18</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-08-25</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-08-25</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-09-01</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-09-01</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-09-02</activityDate>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-09-02</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-09-08</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-09-08</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-09-15</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-09-15</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-09-22</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-09-22</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-09-29</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-09-29</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-10-06</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-10-06</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-10-13</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-10-13</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-10-20</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-10-20</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-11-28</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-11-28</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-11-29</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-11-29</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-12-24</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-12-24</name>
+    </holidays>
+    <holidays>
+        <activityDate>2024-12-25</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Holiday: 2024-12-25</name>
+    </holidays>
+    <holidays>
+        <activityDate>2025-09-01</activityDate>
+        <isRecurring>false</isRecurring>
+        <name>Labor Day</name>
+    </holidays>
+    <holidays>
+        <activityDate>2025-05-26</activityDate>
+        <isRecurring>false</isRecurring>
+        <name>Memorial Day</name>
+    </holidays>
+    <holidays>
+        <activityDate>2025-01-01</activityDate>
+        <businessHours>Default</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>New Years Day</name>
+    </holidays>
+    <holidays>
+        <activityDate>2025-11-27</activityDate>
+        <isRecurring>false</isRecurring>
+        <name>Thanksgiving</name>
+    </holidays>
+    <holidays>
+        <activityDate>2025-11-28</activityDate>
+        <isRecurring>false</isRecurring>
+        <name>Thanksgiving</name>
+    </holidays>
+</BusinessHoursSettings>

@@ -1,0 +1,5 @@
+{
+  "apiName" : "Website_Policy",
+  "type" : "sfdc_cms__view",
+  "path" : "views"
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cloned_From_Lead_Name__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>This is the Original Lead Name this Lead was cloned from</inlineHelpText>
+    <label>Cloned From Lead Name</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

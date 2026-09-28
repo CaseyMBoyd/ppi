@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Setting Up Additional Users</name>
+    <style>none</style>
+    <subject>Setting Up Additional Users for your company in the Customer Portal</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

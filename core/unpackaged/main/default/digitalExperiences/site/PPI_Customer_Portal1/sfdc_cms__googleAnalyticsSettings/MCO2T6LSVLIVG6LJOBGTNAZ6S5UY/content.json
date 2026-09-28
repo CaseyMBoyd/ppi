@@ -1,0 +1,8 @@
+{
+  "type" : "sfdc_cms__googleAnalyticsSettings",
+  "title" : "googleAnalyticsSettings",
+  "contentBody" : {
+    "apiKey" : "G-2GWLM5YPKP"
+  },
+  "urlName" : "googleanalyticssettings"
+}

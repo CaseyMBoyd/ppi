@@ -1,0 +1,48 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">Dear&nbsp;{{{Recipient.FirstName}}},<br />
+&nbsp;
+<p>Thank you for agreeing to participate as a BETA tester for the PPI Customer Portal. We are thrilled to have you join us on this journey, and we look forward to your valuable feedback.</p>
+
+<p>To get started, please provide the names, phone numbers, and email addresses of the individuals in your company who will require Portal access. The Portal offers several user roles, each designed to support different levels of interaction:</p>
+
+<ul>
+	<li>
+	<p><strong>Commerce Buyer Manager</strong>: Can create and activate buyer accounts, reset passwords, and view all carts created by buyers within the organization.</p>
+	</li>
+	<li>
+	<p><strong>Commerce Buyer</strong>: Has access to browse the store, create carts, view their carts only, and purchase products through the cart functionality.</p>
+	</li>
+	<li>
+	<p><strong>Commerce Viewer</strong>: Can view product details, pricing, and order-related documentation, as well as create saved carts. However, this role does not include the ability to complete the checkout process. This is ideal for team members who need access to pricing, cart management, and documentation but are not responsible for finalizing purchases.</p>
+	</li>
+</ul>
+
+<p>Please let us know which role is appropriate for each of your users.<br />
+We need for each of your users to have separate sign in's so if any issues arise we are able to tie it back to the user.&nbsp; The sign in is their email address with password they set up.&nbsp;&nbsp;<br />
+<br />
+I would like to set up a time on Zoom as a training session. If none of the following times work for you than please advise on date and time and I will check my schedule.<br />
+<br />
+We have the following times available:<br />
+November 14<br />
+9:00-10:00CDT<br />
+10:30-11:30 CDT<br />
+<br />
+November 15<br />
+9:00-10:00CDT<br />
+1:30-2:30 CDT<br />
+<br />
+November 18<br />
+10:30-11:30 CDT<br />
+<br />
+I look forward to hearing from you!<br />
+<br />
+Thank you,<br />
+<br />
+Sandy Tyrrel<br />
+Business Analyst</p>
+<br />
+&nbsp;</body>
+</html>

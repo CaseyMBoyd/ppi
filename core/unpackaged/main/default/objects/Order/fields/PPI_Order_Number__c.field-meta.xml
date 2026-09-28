@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PPI_Order_Number__c</fullName>
+    <description>The PPI Order number that returns once an order is integrated back to PPI systems.</description>
+    <externalId>false</externalId>
+    <formula>BLANKVALUE(LEFT(External_Id__c,6), "")</formula>
+    <inlineHelpText>This is the PPI Order Number</inlineHelpText>
+    <label>PPI Order Number</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

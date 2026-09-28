@@ -1,0 +1,163 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Cart Item -->
+<template>
+  <lightning-spinner
+    if:true={isLoading}
+    variant="brand"
+    class="spinner-overlay"
+    size="medium"
+  >
+  </lightning-spinner>
+
+  <div lwc:if={normalizedItem} class="slds-p-vertical_medium">
+    <lightning-layout vertical-align="stretch" multiple-rows>
+      <lightning-layout-item
+        flexibility="auto"
+        size="2"
+        class="slds-align-middle"
+      >
+        <figure class="commerce_cart-item_item slds-m-right_small">
+          <a
+            class="commerce_cart-item_item"
+            tabindex="-1"
+            data-id={normalizedItem.productId}
+            onclick={goToPDP}
+          >
+            <img
+              class="commerce_cart-item_item product-image"
+              src={normalizedItem.ProductDetails.thumbnailImage.url}
+              alt={normalizedItem.ProductDetails.thumbnailImage.alternativeText}
+            />
+          </a>
+        </figure>
+      </lightning-layout-item>
+      <lightning-layout-item
+        flexibility="auto"
+        size="10"
+        large-device-size="6"
+        class="slds-align-top"
+      >
+        <div class="slds-text-heading_small text-bolder">
+          <a data-id={normalizedItem.productId} onclick={goToPDP} tabindex="-1">
+            {normalizedItem.name}
+          </a>
+        </div>
+        <div>
+          <span class="field-definition-label text-bold"> PPI Part Number:&nbsp; </span>
+          <span class="field-definition">
+            {normalizedItem.ProductDetails.sku}
+          </span>
+        </div>
+        <div lwc:if={normalizedItem.customerPartNumber}>
+          <span class="field-definition-label text-bold"> Customer Part Number:&nbsp; </span>
+          <span class="field-definition">
+            {normalizedItem.customerPartNumber}
+          </span>
+        </div>
+        <div lwc:if={normalizedItem.ProductDetails.fields.Description}>
+          <span class="field-definition-label text-bold">
+            Description:&nbsp;
+          </span>
+          <span class="field-definition">
+            {normalizedItem.ProductDetails.fields.Description}
+          </span>
+        </div>
+        <div lwc:if={normalizedItem.ProductDetails.fields.Weight__c}>
+          <span class="field-definition-label text-bold">
+            Weight LB:&nbsp;
+          </span>
+          <span class="field-definition">
+            {normalizedItem.ProductDetails.fields.Weight__c}
+          </span>
+        </div>
+        <div lwc:if={normalizedItem.hasDiscount}>
+          <lightning-badge
+            label={normalizedItem.savedAmountLabel}
+          ></lightning-badge>
+        </div>
+
+        <div class="slds-m-vertical_small slds-grid slds-grid_vertical-align-center">
+          <c-product-quantity-selector
+            value={quantity}
+            label="QTY:"
+            onvaluechanged={updateQty}
+          >
+          </c-product-quantity-selector>
+          <lightning-button
+            label="Delete"
+            variant="base"
+            class="slds-show_inline-block slds-m-left_medium"
+            onclick={deleteLine}
+          ></lightning-button>
+        </div>
+      </lightning-layout-item>
+
+      <lightning-layout-item
+        flexibility="auto"
+        size="10"
+        large-device-size="4"
+        class="slds-align-top slds-text-align_right"
+      >
+        <lightning-layout multiple-rows vertical-align="start">
+          <lightning-layout-item size="12" large-device-size="6">
+            <lightning-formatted-number
+              value={normalizedItem.unitAdjustedPrice}
+              format-style="currency"
+              currency-code={normalizedItem.currencyIsoCode}
+            >
+            </lightning-formatted-number>
+            <span
+              lwc:if={normalizedItem.ProductDetails.fields.QuantityUnitOfMeasure}
+            >
+              /{normalizedItem.ProductDetails.fields.QuantityUnitOfMeasure}
+            </span>
+            <span lwc:else> /item </span>
+          </lightning-layout-item>
+          <lightning-layout-item size="12" large-device-size="6"
+            ><div class="text-bold">
+              <lightning-formatted-number
+                value={normalizedItem.price}
+                format-style="currency"
+                currency-code={normalizedItem.currencyIsoCode}
+              >
+              </lightning-formatted-number>
+            </div>
+            <div
+              if:true={normalizedItem.hasDiscount}
+              style="text-decoration: line-through; color: lightgray"
+            >
+              <lightning-formatted-number
+                value={normalizedItem.listPrice}
+                format-style="currency"
+                currency-code={normalizedItem.currencyIsoCode}
+              >
+              </lightning-formatted-number>
+            </div>
+          </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout
+          multiple-rows
+          vertical-align="center"
+          horizontal-align="end"
+          class="quantity slds-m-top_medium"
+        >
+          <lightning-layout-item size="12">
+            <div class="text-area-font-size">
+              <lightning-textarea
+                name="Customer Order Line Notes"
+                placeholder="Line Item Tag"
+                label="Customer Order Line Notes"
+                variant="label-hidden"
+                onblur={updateLineNotes}
+                value={normalizedItem.notes}
+                class="slds-m-top_small"
+                max-length={notesMaxLength}
+              ></lightning-textarea>
+            </div>
+          </lightning-layout-item>
+        </lightning-layout>
+      </lightning-layout-item>
+    </lightning-layout>
+  </div>
+</template>

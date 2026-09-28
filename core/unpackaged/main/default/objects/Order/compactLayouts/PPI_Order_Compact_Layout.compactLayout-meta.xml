@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PPI_Order_Compact_Layout</fullName>
+    <fields>OrderNumber</fields>
+    <fields>PPI_Order_Number__c</fields>
+    <fields>AccountId</fields>
+    <fields>EffectiveDate</fields>
+    <fields>Status</fields>
+    <fields>TotalAmount</fields>
+    <label>PPI Order Compact Layout</label>
+</CompactLayout>

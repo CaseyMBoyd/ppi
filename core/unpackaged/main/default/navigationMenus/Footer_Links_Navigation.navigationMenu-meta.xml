@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NavigationMenu xmlns="http://soap.sforce.com/2006/04/metadata">
+    <container>PPI Customer Portal</container>
+    <containerType>Network</containerType>
+    <label>Footer Links Navigation</label>
+    <navigationMenuItem>
+        <label>PRIVACY POLICY</label>
+        <position>1</position>
+        <publiclyAvailable>true</publiclyAvailable>
+        <target>/privacy-policy</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>TERMS AND CONDITIONS</label>
+        <position>2</position>
+        <publiclyAvailable>true</publiclyAvailable>
+        <target>/terms-and-conditions</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+</NavigationMenu>

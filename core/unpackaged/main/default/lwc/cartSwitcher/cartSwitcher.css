@@ -1,0 +1,11 @@
+/* Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. */
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.clear-margin .slds-form-element {
+    margin-bottom: 0 !important;
+}

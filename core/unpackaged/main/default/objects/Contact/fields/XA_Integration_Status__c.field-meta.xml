@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>XA_Integration_Status__c</fullName>
+    <description>integration status received from XA when contact create call was made</description>
+    <inlineHelpText>integration status received from XA when contact create call was made</inlineHelpText>
+    <label>XA Integration Status</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

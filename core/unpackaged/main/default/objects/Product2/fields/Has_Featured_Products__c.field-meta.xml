@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Has_Featured_Products__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checkbox indicating if a product has featured products associated.</description>
+    <inlineHelpText>Checkbox indicating if a product has featured products associated.</inlineHelpText>
+    <label>Has Featured Products</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

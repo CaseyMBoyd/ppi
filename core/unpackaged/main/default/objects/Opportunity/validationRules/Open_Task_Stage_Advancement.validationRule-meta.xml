@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Open_Task_Stage_Advancement</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF( !IsVRBypassed__c , AND(ISCHANGED(StageName),OR( ISPICKVAL(PRIORVALUE(StageName) , 'Quote Development'),ISPICKVAL( PRIORVALUE(StageName) , 'Quote Adjustments')),  Open_Tasks__c &gt; 0), false)</errorConditionFormula>
+    <errorMessage>All tasks must be completed at this stage before changing to a different stage.</errorMessage>
+</ValidationRule>

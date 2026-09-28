@@ -1,0 +1,17 @@
+{
+  "canFulfill": false,
+  "fulfillmentWarehouses": [
+    {
+      "id": "1",
+      "name": "Pella",
+      "address": {
+        "contact": "John Doe",
+        "street1": "300 SE 14th St.",
+        "street2": "",
+        "city": "Pella",
+        "state": "IA",
+        "zip": "94301"
+      }
+    }
+  ]
+}

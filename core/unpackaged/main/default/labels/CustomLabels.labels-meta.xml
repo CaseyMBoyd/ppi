@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Checkout_DoNotShipBeforeLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Checkout Not Ship Before Date Label</shortDescription>
+        <value>Do not ship before</value>
+    </labels>
+    <labels>
+        <fullName>Checkout_NoLaterThenLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Checkout No later Than Ship Date Label</shortDescription>
+        <value>No later than</value>
+    </labels>
+    <labels>
+        <fullName>Checkout_StandardLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Checkout Standard Ship Date Label</shortDescription>
+        <value>Standard</value>
+    </labels>
+</CustomLabels>

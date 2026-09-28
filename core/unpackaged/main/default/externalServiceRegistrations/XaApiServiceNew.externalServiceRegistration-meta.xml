@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExternalServiceRegistration xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>XaApiServiceNew</label>
+    <namedCredentialReference>XA_API</namedCredentialReference>
+    <operations>
+        <active>true</active>
+        <name>getordersalesforceinvoicebyexternalid</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>getitempricingbyitemnumberandcustomernumber</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>getorderinvoicebyordernumberandorderdate</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>postavailabletoassemble</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>putcontactbycustomernumberandemail</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>getcustomerbycustomernumber</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>putorder</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>postitempricingbycustomernumber</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>getiteminventorybyitemnumber</name>
+    </operations>
+    <registrationProviderType>Custom</registrationProviderType>
+    <schema>openapi: 3.0.0
+info:
+  title: Precision Pulley &amp; Idler Open API
+  description: |-
+    This is a general Open API to expose data and endpoints to do business with Precision Pulley &amp; Idler
+
+    This is an OAS 3.0 special conversion for Salesforce.
+  contact:
+    email: wteeter@ppi-global.com
+  version: 1.4.1
+servers:
+  - url: https://dev-precision-open-api.azurewebsites.net/
+  - url: https://prod-precision-open-api.azurewebsites.net/
+security:
+  - api_auth: []
+paths:
+  /order:
+    put:
+      tags:
+        - Order
+      summary: Create an order
+      description: |-
+        This creates an order in the PPI system. If any exception to order processing is encountered after being ingested, a PPI representative will contact the order requester via the input payload&apos;s `contactName`
+
+        Regarding purchase orders, `purchaseOrder.number` is always required. `purchaseOrder.url` will be used if available, otherwise submit `purchaseOrder.documentType` and `purchaseOrder.document`, the latter of which is a base64 encoded document. If all three are submitted, `purchaseOrder.url` will be used and the other two parameters are ignored.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: &apos;#/components/schemas/Order&apos;
+      responses:
+        &apos;202&apos;:
+          description: Order was dispatched for processing
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        &apos;400&apos;:
+          description: Invalid request input received
+          content:
+            application/json:
+              schema:
+                $ref: &apos;#/components/schemas/InvalidRequest&apos;
+        &apos;401&apos;:
+          description: Unauthorized to endpoint
+          content:
+            application/json:
+              schema:
+                $ref: &quot;#/components/schemas/UnauthorizedRequest&quot;
+  /order/salesforce/{externalID}/invoice:
+    get:
+      tags:
+        - Order
+      summary: Retrieve an invoice document
+      description: |-
+        This returns a base64 encoded PDF document. 
+
+        Same result and logic as /order/{orderNumber}/{orderDate}/invoice. Modified to handle SalesForce&apos;s external ID as one path parameter
+      parameters:
+        - in: path
+          name: externalID
+          required: true
+          schema:
+            type: string
+            description: Should be in the format &apos;&lt;orderNumber&gt;&lt;orderDate&gt;&apos; where orderNumber is zero padded to six digits
+      responses:
+        &apos;200&apos;:
+          description: Invoice found and returned
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+            application/json:
+              schema:
+                type: object
+                properties:
+                  invoicePDF: 
+                    type: string
+                    format: base64
+        &apos;400&apos;:
+          description: Invalid request input received
+          content:
+            application/json:
+              schema:
+                $ref: &apos;#/components/schemas/InvalidRequest&apos;
+        &apos;401&apos;:
+          description: Unauthorized to endpoint
+          content:
+            application/json:
+              schema:
+                $ref: &quot;#/components/schemas/UnauthorizedRequest&quot;
+        &apos;404&apos;:
+          description: Invoice not found
+          content:
+            application/json:
+              schema:
+                $ref: &apos;#/components/schemas/InvalidRequest&apos;
+  /order/{orderNumber}/{orderDate}/invoice:
+    get:
+      tags:
+        - Order
+      summary: Retrieve an invoice document
+      description: This returns a base64 encoded PDF document
+      parameters:
+        - in: path
+          name: orderNumber
+          required: true
+          schema:
+            $ref: &quot;#/components/schemas/OrderNumber&quot;
+        - in: path
+          name: orderDate
+          required: true
+          schema:
+            type: string
+            format: date
+      responses:
+        &apos;200&apos;:
+          description: Invoice found and returned
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+            application/json:
+              schema:
+                type: object
+                properties:
+                  invoicePDF: 
+                    type: string
+                    format: base64
+        &apos;400&apos;:
+          description: Invalid request input received
+          content:
+            application/json:
+              schema:
+                $ref: &apos;#/components/schemas/InvalidRequest&apos;
+        &apos;401&apos;:
+          description: Unauthorized to endpoint
+          content:
+            application/json:
+              schema:
+                $ref: &quot;#/components/schemas/UnauthorizedRequest&quot;
+        &apos;404&apos;:
+          description: Invoice not found
+          content:
+            application/json:
+              schema:
+                $ref: &apos;#/components/schemas/InvalidRequest&apos;
+  /item/{itemNumber}/inventory:
+    get:
+      tags:
+        - Item
+      summary: Retrieves inventory information for one item
+      description: |-
+        Do **_not_** use this endpoint to determine if a collection of items with a non-null `quantityAvailableToAssemble` can come out of one warehouse. Use `/availableToAssemble` for this purpose. An explanation can be found in the description of that endpoint.
+
+        This will return an array of objects where each object holds the availability of the item as well as the warehouse where that availability exists.
+
+        `quantityAvailable` will be `null` iff `quantityAvailableToAssemble` is not `null`, and `quantityAvailableToAssemble` will be `null` iff `quantityAvailable` is not `null`. This is true across all warehouses for any particular item.
+      parameters:
+        - in: path
+          name: itemNumber
+          required: true
+          schema:
+            $ref: &quot;#/components/schemas/ItemNumber&quot;
+      responses:
+        &apos;200&apos;:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    warehouse:
+                      $ref: &quot;#/components/schemas/Warehouse&quot;
+                    quantityAvailable:
+                      type: integer
+                    quantityAvailableToAssemble:
+                      type: integer
+              example:
+                - quantityAvailable: 0
+                  quantityAvailableToAssemble: null
+                  warehouse:
+                    id: &quot;1&quot;
+                    name: Pella
+                    address: 
+                      contact: null
+                      street1: 300 S.E. 14TH STREET
+                      street2: P.O. BOX 287
+                      city: PELLA
+                      state: IA
+                      zip: 50219
+                - quantityAvailable: 0
+                  quantityAvailableToAssemble: null
+                  warehouse:
+                    id: &quot;U&quot;
+                    name: Midwest Service Center
+                    address:
+                      contact: null
+                      street1: 2254 AVENUE OF INDUSTRY
+                      street2: &quot;&quot;
+                      city: CORNING
+                      state: IA
+                      zip: 50841
+        &apos;400&apos;:
+          description: Invalid request input received
+          content:
+            application/json:
+              schema:
+                $ref: &apos;#/components/schemas/InvalidRequest&apos;
+        &apos;401&apos;:
+          description: Unauthorized to endpoint
+          content:
+            application/json:
+              schema:
+                $ref: &quot;#/components/schemas/UnauthorizedRequest&quot;
+  /item/{itemNumber}/pricing/{customerNumber}:
+    get:
+      tags:
+        - Item
+      summary: Returns pricing on an item for the specified PPI customer
+      description: |-
+        Selling price is returned here. If the `sellingPrice` is `null`, we are not able to offer pricing with this method.
+
+        If many items require price to be checked, up to 75 items can be checked simultaneously with the `POST /item/pricing` endpoint.
+      parameters:
+        - in: path
+          name: itemNumber
+          required: true
+          schema:
+            $ref: &quot;#/components/schemas/ItemNumber&quot;
+        - in: path
+          name: customerNumber
+          required: true
+          schema:
+            $ref: &quot;#/components/schemas/CustomerNumber&quot;
+        - in: query
+          name: indirectCustomerID
+          required: false
+          description: Optional indirect customer to determine pricing for. Reference `/customer/{customerNumber}` for a list of indirect customers.
+          schema:
+            $ref: &quot;#/components/schemas/IndirectCustomerID&quot;
+      responses:
+        &apos;200&apos;:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  itemNuumber:
+                    $ref: &quot;#/components/schemas/ItemNumber&quot;
+                  listPrice:
+                    type: number
+                  sellPrice:
+                    type: number
+                    nullable: true
+        &apos;400&apos;:
+          description: Invalid request input received
+          content:
+            application/json:
+              schema:
+                $ref: &apos;#/components/schemas/InvalidRequest&apos;
+        &apos;401&apos;:
+          description: Unauthorized to endpoint
+          content:
+            application/json:
+              schema:
+                $ref: &quot;#/components/schemas/UnauthorizedRequest&quot;
+        &apos;404&apos;:
+          description: Item not found
+          content:
+            application/json:
+              schema:
+                $ref: &quot;#/components/schemas/InvalidRequest&quot;
+  /item/pricing/{customerNumber}:
+    post:
+      tags:
+        - Item
+      summary: Returns pricing for a list of items
+      description: |-
+        This is a `POST` route due to the potential amount of data required to be sent with this endpoint. No creation or modification of data happens with this route. It is effectively a `GET` with a payload.
+
+        This has the same usage as `/item/{itemNumber}/pricing/{customerNumber}`, but can be used to derive pricing once for many items.
+
+        If `sellingPrice` is `null`, we are not able to offer pricing with this method.
+
+        The number of items is capped at 75 items per request. If more than 75 are sent, the endpoint will return an error 400.
+
+        If there was an error getting pricing for an item, it will not be returned in the `items` array, but rather an error message will be placed in the `errors` array
+      parameters:
+        - in: path
+          name: customerNumber
+          required: true
+          schema:
+            $ref: &quot;#/components/schemas/CustomerNumber&quot;
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              maxItems: 75
+              items:
+                type: object
+                properties:
+                  itemNumber:
+                    $ref: &quot;#/components/schemas/ItemNumber&quot;
+                    
+      responses:
+        &apos;200&apos;:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: &quot;string&quot;
+                  items:
+                    type: array
+                    items:
+                      properties:
+                        itemNumber:
+                          $ref: &quot;#/components/schemas/ItemNumber&quot;
+                        listPrice:
+                          type: number
+                        sellPrice:
+                          type: number
+                          nullable: true
+        &apos;400&apos;:
+          description: Invalid request input received
+          content:
+            application/json:
+              schema:
+                $ref: &apos;#/components/schemas/InvalidRequest&apos;
+        &apos;401&apos;:
+          description: Unauthorized to endpoint
+          content:
+            application/json:
+              schema:
+                $ref: &quot;#/components/schemas/UnauthorizedRequest&quot;
+  /availableToAssemble:
+    post:
+      tags:
+        - Item
+      summary: Determines if the items passed can be fulfilled with one order
+      description: |-
+        This is a `POST` route due to the potential amount of data required to be sent with this endpoint. No creation or modification of data happens with this route. It is effectively a `GET` with a payload.
+
+        Some PPI product is stocked as components which are assembled upon order. There can be cases where two different PPI products share the same sub-component so the independent `/item/{itemNumber}/inventory` check isn&apos;t sufficient for more than one assembled item. 
+
+        This endpoint takes in a list of PPI products and determines if a PPI warehouse can fulfill all products from at least one warehouse. If PPI can fulfill all products, the warehouses that are eligible for fulfillment are also returned here.
+
+        If a non-assembled component is passed here, the endpoint will check the individual&apos;s availability (not availability to assemble) which is the same as the value from `/item/{itemNumber}/inventory`. 
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                shippingAddress:
+                  $ref: &quot;#/components/schemas/Address&quot;
+                items:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      itemNumber:
+                        $ref: &quot;#/components/schemas/ItemNumber&quot;
+                      quantity:
+                        type: number
+                    
+      responses:
+        &apos;200&apos;:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  canFulfill:
+                    type: boolean
+                  fulfillmentWarehouses:
+                    type: array
+                    items:
+                      $ref: &quot;#/components/schemas/Warehouse&quot;
+        &apos;400&apos;:
+          description: Invalid request input received
+          content:
+            application/json:
+              schema:
+                $ref: &apos;#/components/schemas/InvalidRequest&apos;
+        &apos;401&apos;:
+          description: Unauthorized to endpoint
+          content:
+            application/json:
+              schema:
+                $ref: &quot;#/components/schemas/UnauthorizedRequest&quot;
+  /contact/{customerNumber}/{email}:
+    put:
+      tags:
+        - Contacts
+      summary: Upserts contact information
+      description: Upserts contact information
+      parameters:
+        - in: path
+          name: customerNumber
+          required: true
+          schema:
+            $ref: &quot;#/components/schemas/CustomerNumber&quot;
+        - in: path
+          name: email
+          required: true
+          schema:
+            type: string
+            format: email
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  maxLength: 30
+      responses:
+        &apos;201&apos;:
+          description: Contact was successfully updated or created
+          content:
+            application/json:
+              schema:
+                type: string
+        &apos;400&apos;:
+          description: Invalid request input received
+          content:
+            application/json:
+              schema:
+                $ref: &apos;#/components/schemas/InvalidRequest&apos;
+        &apos;401&apos;:
+          description: Unauthorized to endpoint
+          content:
+            application/json:
+              schema:
+                $ref: &quot;#/components/schemas/UnauthorizedRequest&quot;
+  /customer/{customerNumber}:
+    get:
+      tags: 
+        - Customer
+      summary: Information about a PPI customer
+      parameters:
+        - in: path
+          name: customerNumber
+          required: true
+          schema:
+            $ref: &quot;#/components/schemas/CustomerNumber&quot;
+      responses:
+        &apos;200&apos;: 
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: &quot;#/components/schemas/Customer&quot;
+        &apos;400&apos;:
+          description: Invalid request input received
+          content:
+            application/json:
+              schema:
+                $ref: &quot;#/components/schemas/InvalidRequest&quot;
+        &apos;401&apos;:
+          description: Unauthorized to endpoint
+          content:
+            application/json:
+              schema:
+                $ref: &quot;#/components/schemas/UnauthorizedRequest&quot;
+        &apos;404&apos;:
+          description: Customer not found
+          content:
+            application/json:
+              schema:
+                $ref: &quot;#/components/schemas/InvalidRequest&quot;
+components:
+  securitySchemes:
+    api_auth:
+      type: apiKey
+      in: header
+      name: x-api-key
+  schemas:
+    Address:
+      type: object
+      properties:
+        contact:
+          type: string
+        street1:
+          type: string
+        street2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+    DefaultResponse:
+       type: object
+       properties:
+         statusCode:
+            description: HTTP status code. Repeated from the header.
+            type: integer
+            examples:
+              - 200
+         statusMessage:
+            description: The HTTP status code title
+            type: string
+            examples:
+              - &quot;OK&quot;
+         message:
+            oneOf:
+              - type: string
+              - type: number
+              - type: object
+              - type: array
+                items: {}
+              - type: boolean
+              - type: integer
+            examples:
+              -
+    Customer:
+      type: object
+      properties:
+        billingAddress:
+          $ref: &quot;#/components/schemas/Address&quot;
+        customerNumber:
+          $ref: &quot;#/components/schemas/CustomerNumber&quot;
+        name:
+          type: string
+          maxLength: 35
+        indirectCustomers:
+          type: array
+          items: 
+            $ref: &quot;#/components/schemas/IndirectCustomer&quot;
+      
+    CustomerNumber:
+      type: string
+      description: Fully qualified customer number
+      maxLength: 11
+      pattern: &apos;^\d{1,8}-\d{1,2}$&apos;
+    ItemNumber:
+      type: string
+      description: PPI Item number
+      maxLength: 15
+    LineItem:
+      type: object
+      properties:
+        lineNumber:
+          type: integer
+          minimum: 1
+          maximum: 999
+        quantity:
+          type: integer
+          minimum: -9999999.999
+          maximum: 9999999.999
+        itemNumber:
+          $ref: &quot;#/components/schemas/ItemNumber&quot;
+        unitPrice:
+          type: number
+          description: Individual net price for the item
+          format: currency
+          minimum: -999999999999.999
+          maximum: 999999999999.999
+        tag:
+          type: string
+          description: Tag to add to the product
+    Order:
+      type: object
+      properties:
+        customerNumber:
+            $ref: &quot;#/components/schemas/CustomerNumber&quot;
+        orderTime:
+          type: string
+          format: date-time
+        createdBy:
+          type: object
+          properties:
+            name:
+              type: string
+            email:
+              type: string
+              format: email
+        currency:
+          type: string
+          enum:
+            - USD
+            - CAD
+            - CLP
+        referenceOrder:
+          type: string
+        purchaseOrder:
+          type: object
+          properties:
+            number:
+              type: string
+            url:
+              type: string
+              format: url
+            documentType:
+              type: string
+              enum:
+                - PDF
+                - XLSX
+                - XLS
+            document:
+              type: string
+              format: binary
+        lineItems:
+          type: array
+
+          items:
+            $ref: &apos;#/components/schemas/LineItem&apos;
+        shipping:
+          type: object
+          properties:
+            shipVia:
+              type: string
+            requestedShipDate:
+              type: string
+              format: date-time
+            carrier:
+              type: string
+            carrierAccountNumber:
+              type: string
+            delivery:
+              type: string
+              enum:
+                - &quot;Standard&quot;
+                - &quot;No later than&quot;
+                - &quot;Do not ship before&quot;
+            shippingAddress:
+              $ref: &quot;#/components/schemas/Address&quot;
+            freightBillingAddress:
+              $ref: &quot;#/components/schemas/Address&quot;
+            shippingInstructions:
+              type: string
+        allowSplitShipments:
+          type: boolean
+          description: If `true`, PPI may split this into multiple shipments. If this is required, or an option, and `false`, PPI may contact the `createdBy` person to determine best options on how to handle this order
+    OrderNumber:
+      type: number
+      maximum: 999999
+      minimum: 0
+      description: PPI Order number
+    Warehouse:
+      type: object
+      properties:
+        id:
+          description: Warehouse identifier
+          type: string
+          maxLength: 1
+        name:
+          description: Warehouse name
+          type: string
+        address:
+          $ref: &quot;#/components/schemas/Address&quot;
+    IndirectCustomer:
+      type: object
+      properties:
+        indirectCustomerID: 
+          $ref: &quot;#/components/schemas/IndirectCustomerID&quot;
+        name:
+          type: string
+          maxLength: 20
+    IndirectCustomerID:
+      type: number
+      maximum: 99
+      minumum: 0
+      description: The Indirect Customer ID for the PPI Customer number specified. Retrieve a list of values from the `GET /customer/{customerNumber}` endpoint
+    InvalidRequest:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          description: HTTP status code. Repeated from the header.
+        error:
+          type: string
+          description: General error
+        message: 
+          type: string
+          description: More detailed error
+    UnauthorizedRequest:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          description: HTTP status code. Repeated from the header.
+        error:
+          type: string
+          description: General error
+        message: 
+          type: string
+          description: More detailed error
+</schema>
+    <schemaType>OpenApi3</schemaType>
+    <serviceBinding>{&quot;host&quot;:&quot;dev-precision-open-api.azurewebsites.net&quot;,&quot;basePath&quot;:&quot;/&quot;,&quot;allowedSchemes&quot;:[&quot;HTTPS&quot;],&quot;requestMediaTypes&quot;:[],&quot;responseMediaTypes&quot;:[],&quot;compatibleMediaTypes&quot;:{},&quot;integrationFlags&quot;:null,&quot;extensions&quot;:{}}</serviceBinding>
+    <status>Complete</status>
+    <systemVersion>8</systemVersion>
+</ExternalServiceRegistration>

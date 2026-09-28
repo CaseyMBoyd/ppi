@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <description>Order Confirmation</description>
+    <isExposed>true</isExposed>
+    <masterLabel>Order Confirmation</masterLabel>
+    <targets>
+        <target>lightningCommunity__Default</target>
+        <target>lightningCommunity__Page</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="headerText" type="String" label="Header Text" default="Thank you for your order!"/>
+            <property name="displayConfirmationNumber" type="Boolean" label="Show SF Confirmation Number? " default="true"/>
+            <property name="confirmationNumberText" type="String" label="Confirmation Number Text" default="Confirmation Number:"/>
+            <property name="bodyText" type="String" label="Body Text" default="We will send an email with your order confirmation shortly."/>
+            <property name="salesmanText" type="String" label="Sales Person Text" default="If you have questions regarding your order please contact {0}" description="Append to Body Text, might include {0} merge field that will inject the Salesman from Account if not empty"/>
+            <property name="continueShoppingButtonText" type="String" label="Continue Shopping Button Text" default="Continue Shopping"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

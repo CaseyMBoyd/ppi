@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Inventory Location Mapping</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Inventory Location Mappings</value>
+    </caseValues>
+    
+    
+    
+    
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

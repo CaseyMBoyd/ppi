@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Materials for default materials for bushings separated by &apos;;&apos; from the highest priority --></help>
+        <label><!-- List Of Default Materials For Bushings --></label>
+        <name>List_Of_Default_Materials_For_Bushings__c</name>
+    </CustomFieldTranslation>

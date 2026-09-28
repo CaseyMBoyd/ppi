@@ -1,0 +1,23 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Checkout Po Number -->
+<template>
+  <template lwc:if={canCheckout}>
+    <lightning-input
+      lwc:ref="poNumber"
+      type="text"
+      label={label}
+      disabled={isSummary}
+      value={poNumber}
+      max-length={maxLength}
+      onchange={handlePoNumberChange}
+      required
+    ></lightning-input>
+  </template>
+
+  <template lwc:else>
+    <div class="slds-text-color_error">
+      You may not checkout with your current permissions.
+    </div>
+  </template>
+</template>

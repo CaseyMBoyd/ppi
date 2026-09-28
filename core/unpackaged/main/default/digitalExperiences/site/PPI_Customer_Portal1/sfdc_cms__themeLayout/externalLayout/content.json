@@ -1,0 +1,22 @@
+{
+  "type" : "sfdc_cms__themeLayout",
+  "title" : "External Layout",
+  "contentBody" : {
+    "component" : {
+      "attributes" : { },
+      "children" : [ {
+        "id" : "e9869661-2a8b-4dff-a929-f6540b36fab8",
+        "name" : "header",
+        "type" : "region"
+      }, {
+        "id" : "df25da78-1b7e-4854-8bd4-70aaf70dc896",
+        "name" : "footer",
+        "type" : "region"
+      } ],
+      "definition" : "commerce:layoutSite",
+      "id" : "fa6afcc4-e992-48f6-ad90-5d07b1598da4",
+      "type" : "component"
+    }
+  },
+  "urlName" : "external-layout"
+}

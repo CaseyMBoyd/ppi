@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Order_Number_Relationships__c</fullName>
+    <description>Stores the relationship between Opportunity order numbers, quote numbers, and PO numbers as JSON maintained by the Opportunity Number Matcher component.</description>
+    <inlineHelpText>Structured JSON mapping of order numbers to quote numbers and PO numbers.</inlineHelpText>
+    <label>Order / Quote / PO Relationships</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>8</visibleLines>
+</CustomField>

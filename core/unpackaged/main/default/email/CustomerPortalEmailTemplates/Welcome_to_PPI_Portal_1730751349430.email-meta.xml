@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email to get new PPI Portal Beta Tester set up</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Welcome to PPI Portal</name>
+    <relatedEntityType>Contact</relatedEntityType>
+    <style>none</style>
+    <subject>Welcome to the PPI Customer Portal</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

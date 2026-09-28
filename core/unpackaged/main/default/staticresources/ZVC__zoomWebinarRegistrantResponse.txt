@@ -1,0 +1,1 @@
+{"registrants": [{"first_name": "lead reg","email": "lead@lead.com","join_url": "https://example.com/j/11111","registrant_id": "-rOym-zdTHOdbT3A7u7u5g","create_time": "2023-02-16T09:42:31Z"},{"first_name": "lead reg","email": "contact@contact.com","join_url": "https://example.com/j/11112","registrant_id": "-rOym-zdTHOdbT3A7u7u4h","create_time": "2023-02-16T09:42:31Z"}]}

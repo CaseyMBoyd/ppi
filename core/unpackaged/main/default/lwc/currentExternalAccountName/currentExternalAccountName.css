@@ -1,0 +1,8 @@
+.account-name {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--com-c-my-account-user-profile-login-link-color, var(--dxp-s-link-text-color));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

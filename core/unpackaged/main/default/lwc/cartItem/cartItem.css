@@ -1,0 +1,62 @@
+/* Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. */
+
+.quantity-input {
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+    display: inline-block;
+    max-width: 50px;
+    border: 1px solid var(--dxp-g-neutral-1);
+    border-right: 0;
+    vertical-align: center;
+    margin-top: 1px;
+    margin-bottom: -1px;
+}
+
+.text-bolder {
+    font-weight: bolder;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.product-image {
+    width: auto;
+    max-height: 100px;
+    margin: 0 auto;
+}
+
+.cart-item-border {
+    border-bottom: 2px solid ;
+    border-color: #d6d2c4;
+}
+
+.quantity-width {
+    margin-left: auto;
+    display: inline-block;
+    min-width: 100px;
+}
+
+.text-area-font-size {
+    font-size: .8rem !important;
+}
+
+.spinner-overlay {
+    background: rgba(123, 123, 123, .05);
+}
+
+.field-definition {
+    font-size: .8rem;
+}
+
+.field-definition-label {
+    font-size: .8rem;
+}
+
+.spinner {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}

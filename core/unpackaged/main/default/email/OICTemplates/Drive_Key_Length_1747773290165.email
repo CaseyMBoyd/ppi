@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">
+<p>Hello&nbsp;{{{Recipient.FirstName}}},</p>
+
+<p>Thank you for your recent order!</p>
+
+<p>We are currently reviewing this order for the&nbsp;<em>x</em>&nbsp;Drive Pulley Assembly. Before we can begin production, we need to gather some additional information as highlighted below:<br />
+1. Drive Key Length<br />
+<br />
+*Key Length Pic will appear here in Live*</p>
+
+<p>If you could kindly confirm this information and send me the required dimensions, we’ll be able to proceed. In the meantime, we will begin building the pulley, but the shaft will remain “on hold” until we receive your confirmation.</p>
+
+<p>Thank you in advance for your prompt response!<br />
+<br />
+Best Regards,&nbsp;<br />
+{{{Sender.Signature}}}</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

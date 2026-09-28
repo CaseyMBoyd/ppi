@@ -1,0 +1,18 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+
+<!-- Reorder Modal -->
+<template>
+    <lightning-spinner if:true={isLoading} size="large" variant="brand" alternative-text="Loading"></lightning-spinner>
+    <lightning-modal-body>
+        <h1 class="slds-text-align_center slds-p-around_small slds-text-heading_large">All items were added to cart</h1>
+        <lightning-layout class="slds-m-top_medium">
+            <lightning-layout-item size=6 class="slds-align_absolute-center slds-p-vertical_small slds-button_full-width">
+                <lightning-button variant="brand-outline" label="View Cart" onclick={handleViewCart}></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item size=6 class="slds-align_absolute-center slds-p-vertical_small slds-button_full-width">
+                <lightning-button variant="brand" label="Continue Shopping" onclick={handleContinueShopping}></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-modal-body>
+</template>

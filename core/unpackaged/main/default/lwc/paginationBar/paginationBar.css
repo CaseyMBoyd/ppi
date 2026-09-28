@@ -1,0 +1,18 @@
+/* Copyright (c) 2021 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. */
+
+.active-page {
+    font-weight: bold;
+}
+
+.inactive-pages {
+    cursor: pointer;
+}
+
+.m-left4 {
+    margin-left: 4px;
+}
+
+.page {
+    padding: 5px;
+    border-color: var(--lwc-colorBorder);
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Discount_Reason__c</fullName>
+    <description>Please select any values that apply.</description>
+    <inlineHelpText>Gain Market Share – Strategic discount to secure or grow business.
+Courtesy Credit – Customer satisfaction gesture (no error by PPI).
+PPI Error – Internal mistake identified before shipping.
+Samples – Products provided free of charge</inlineHelpText>
+    <label>Discount Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Gain Market Share</fullName>
+                <default>false</default>
+                <label>Gain Market Share</label>
+            </value>
+            <value>
+                <fullName>Courtesy Credit</fullName>
+                <default>false</default>
+                <label>Courtesy Discount</label>
+            </value>
+            <value>
+                <fullName>PPI Error</fullName>
+                <default>false</default>
+                <label>PPI Error</label>
+            </value>
+            <value>
+                <fullName>Samples</fullName>
+                <default>false</default>
+                <label>Samples</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

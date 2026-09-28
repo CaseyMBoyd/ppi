@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_To_Idler_Estimating</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Send To Idler Estimating</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/lightning/o/Task/new?defaultFieldValues=OwnerId=00GSu0000023X7x,Status=Open,Subject=Quote: {!Opportunity.Quote_Number__c},Type=Estimating,WhatId={!Opportunity.Id},ActivityDate={!TEXT(TODAY() + 2)}</url>
+</WebLink>

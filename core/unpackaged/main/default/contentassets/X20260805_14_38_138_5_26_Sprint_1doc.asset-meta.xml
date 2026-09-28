@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentAsset xmlns="http://soap.sforce.com/2006/04/metadata">
+    <isVisibleByExternalUsers>false</isVisibleByExternalUsers>
+    <language>en_US</language>
+    <masterLabel>X20260805_14_38_138_5_26_Sprint_1doc</masterLabel>
+    <originNetwork>PPI Customer Portal</originNetwork>
+    <relationships>
+        <network>
+            <access>VIEWER</access>
+            <name>PPI Customer Portal</name>
+        </network>
+        <workspace>
+            <access>INFERRED</access>
+            <isManagingWorkspace>true</isManagingWorkspace>
+            <name>sfdc_asset_company_assets</name>
+        </workspace>
+    </relationships>
+    <versions>
+        <version>
+            <number>1</number>
+            <pathOnClient>2026-08-05 14_38_13-8_5_26 Sprint 1.docx  -  Read-Only - Word.jpg</pathOnClient>
+        </version>
+    </versions>
+</ContentAsset>

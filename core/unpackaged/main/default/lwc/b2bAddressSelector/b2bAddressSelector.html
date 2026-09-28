@@ -1,0 +1,185 @@
+<template>
+
+<div class="slds-box slds-theme_default">
+    <div class="slds-grid slds-wrap slds-gutters slds-m-bottom_medium">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_7-of-12">
+            <lightning-input name="search" label="Search Address" type="search"
+                placeholder="Search by name, street or city..." onchange={handleSearchChange}>
+            </lightning-input>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+            <lightning-combobox name="sort" label="Sort By" value={sortBy} options={sortOptions}
+                onchange={handleSortChange}>
+            </lightning-combobox>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-12 slds-align-middle slds-m-top_small">
+            <lightning-button label="New" variant="brand" onclick={handleNewAddress}>
+            </lightning-button>
+        </div>
+    </div>
+    <template if:true={addresses.length}>
+        <div class="slds-grid slds-wrap slds-gutters">
+            <template for:each={displayedAddresses} for:item="addr">
+                <div key={addr.Id} class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-m-bottom_small">
+                    <div class="slds-card slds-card_boundary">
+
+                        <div class="slds-grid slds-grid_vertical-align-start slds-p-around_small">
+                            <template if:false={selectedDisplayMode}>
+                                <div class="slds-m-right_small">
+                                    <input
+                                        type="radio"
+                                        name="selectedAddress"
+                                        value={addr.Id}
+                                        data-id={addr.Id}
+                                        checked={addr.isSelected}
+                                        onchange={handleAddressSelect}/>
+                                </div>
+                            </template>
+
+                            <div class="slds-grow" style="min-width:0">
+                                <!--<div class="slds-text-heading_small slds-truncate">
+                                    <b>{addr.Name}</b>
+                                </div>-->
+
+                                <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+                                    <div class="slds-text-heading_small slds-truncate">
+                                        <b>{addr.Name}</b>
+                                    </div>
+
+                                    <template if:true={addr.IsDefault}>
+                                        <span class="default-badge">
+                                                Default
+                                            </span>
+                                    </template>
+                                </div>
+
+                                <div class="slds-text-body_regular slds-m-top_x-small">
+                                    <p>{addr.Street}</p>
+                                    <p>{addr.City}, {addr.State} - {addr.PostalCode}</p>
+                                    <p>{addr.Country}</p>
+                                </div>
+
+                                <div class="slds-m-top_small address-actions">
+                                    <a href="javascript:void(0);" data-id={addr.Id} onclick={handleEdit}>
+                                        Edit
+                                    </a>
+
+                                    <template if:true={selectedDisplayMode}>
+                                        <a href="javascript:void(0);" class="slds-m-left_medium" data-id={addr.Id}
+                                            onclick={handleDelete}>
+                                            Delete
+                                        </a>
+                                    </template>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <template if:true={hasMoreAddresses}>
+            <div class="slds-align_absolute-center slds-p-around_medium">
+                <lightning-button label="Load More" variant="neutral" onclick={handleLoadMore}>
+                </lightning-button>
+            </div>
+        </template>
+    </template>
+    <template if:false={addresses.length}>
+        <div class="slds-align_absolute-center slds-p-around_large text-empty">
+            <p>No shipping addresses found.</p>
+        </div>
+    </template>
+    <template if:true={showAddressModal}>
+        <section class="slds-modal slds-fade-in-open"
+            role="dialog"
+            tabindex="-1"
+            aria-modal="true"
+            aria-labelledby="modal-heading">
+        <div class="slds-modal__container">
+        <template if:true={isLoading}>
+            <div class="loader-overlay">
+                <lightning-spinner
+                    alternative-text="Loading..."
+                    size="medium">
+                </lightning-spinner>
+            </div>
+        </template>
+        <header class="slds-modal__header">
+            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                    title="Close"
+                    onclick={handleCancel}>
+                <lightning-icon
+                    icon-name="utility:close"
+                    size="small"
+                    alternative-text="Close">
+                </lightning-icon>
+            </button>
+            <h2 id="modal-heading" class="slds-modal__title">
+                Add New Address
+            </h2>
+        </header>
+        <div class="slds-modal__content slds-p-around_medium modal-content">
+            <lightning-input
+                label="Name"
+                required
+                data-field="name"
+                value={newAddress.name}
+                onchange={handleFieldChange}>
+            </lightning-input>
+            <div class="slds-form-element">
+                <label class="slds-form-element__label slds-m-left_xx-small">
+                    Address Search
+                </label>
+                <lightning-input-address
+                    style="margin-top:-25px;"
+                    show-address-lookup
+                    street-label="Address 1"
+                    city-label="City"
+                    country-label="Country"
+                    province-label="State/Province"
+                    postal-code-label="ZIP/Postal Code"
+                    street={newAddress.street}
+                    city={newAddress.city}
+                    province={newAddress.state}
+                    country={newAddress.country}
+                    postal-code={newAddress.postalCode}
+                    onchange={handleAddressChange}
+                    variant="label-hidden"
+                    required>
+                </lightning-input-address>
+            </div>
+            <lightning-input
+                type="checkbox"
+                label="Is Default Address"
+                data-field="isDefault"
+                checked={newAddress.isDefault}
+                onchange={handleFieldChange}>
+            </lightning-input>
+        </div>
+        <footer class="slds-modal__footer">
+            <lightning-button
+                label="Cancel"
+                variant="neutral"
+                onclick={handleCancel}>
+            </lightning-button>
+            <lightning-button
+                label="Save Address"
+                variant="brand"
+                class="slds-m-left_small"
+                onclick={handleSaveAddress}>
+            </lightning-button>
+        </footer>
+    </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>
+</div>
+    <template if:true={isEdit}>
+        <div class="slds-m-top_small">
+            <c-b2b-ship-to-address-card record-id={selectedAddressId} onaddressupdated={handleAddressUpdated}
+                onaddresscancel={handleAddressCancel}>
+            </c-b2b-ship-to-address-card>
+        </div>
+    </template>
+</template>

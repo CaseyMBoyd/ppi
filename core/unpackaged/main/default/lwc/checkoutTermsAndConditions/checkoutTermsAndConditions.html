@@ -1,0 +1,21 @@
+<!-- Copyright (c) 2023 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Checkout Terms And Conditions -->
+<template>
+    <div>
+        <input
+          type="checkbox"
+          id="termsandconditions"
+          name="terms"
+          checked={checked}
+          disabled={disableCheckbox}
+          onchange={handleChange}
+        ></input>
+        <label class="slds-p-left_x-small" for="termsandconditions">
+            I accept the <a href={privacyLink}>Privacy Policy</a>, <a href={termsAndConditionLink}>Terms and Conditions</a>, and <a href={websitePrivacyLink}>Website Policy</a>
+        </label>
+    </div>
+    <label if:true={showError} class="slds-text-color_error">
+        {error}
+    </label>
+</template>

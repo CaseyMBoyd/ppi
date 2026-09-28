@@ -1,0 +1,14 @@
+/* Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. */
+
+b {
+    color: rgb(76, 149, 65);
+    font-size: 18px;
+}
+
+strong {
+    font-size: 14px;
+}
+
+.text-value {
+    font-size: 0.875rem;
+}

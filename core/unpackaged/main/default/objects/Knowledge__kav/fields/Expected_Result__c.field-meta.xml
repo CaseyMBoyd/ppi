@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expected_Result__c</fullName>
+    <description>Displays the expected result of the knowledge article</description>
+    <inlineHelpText>Describe what success looks like after completing the steps.</inlineHelpText>
+    <label>Expected Result</label>
+    <length>32768</length>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+</CustomField>

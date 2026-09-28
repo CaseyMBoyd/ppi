@@ -1,0 +1,39 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<apex:component id="orderConfirmationEmailItems" controller="OrderConfirmationEmailItemsController" access="global">
+
+    <apex:attribute id="orderSummaryId" assignTo="{!orderSummaryId}"
+                    name="sumId" type="ID" description="Order Summary Id"/>
+
+    <apex:attribute id="communityName" assignTo="{!communityName}"
+                    name="comName" type="String" description="Order Summary Id"/>
+
+    <table cellpadding="0" cellspacing="0"
+           style="padding: 16px; border-bottom: 1px solid #ecebea; border-radius: 0.25rem; margin: 0 auto; border-collapse: collapse; width: 100%;">
+        <tr>
+            <td><div style="text-align: left"><b>PRODUCT</b></div></td>
+            <td><div style="width: 40px; padding: 5px; text-align: center"><b>QTY</b></div></td>
+            <td><div style="width: 40px; padding: 5px; text-align: center"><b>WT.</b></div></td>
+            <td><div style="padding: 5px; text-align: right"><b>TOTAL</b></div></td>
+        </tr>
+        <apex:repeat value="{!emailOrderItemList}" var="orderItem">
+            <apex:outputPanel >
+                <tr class="product-list">
+                    <td style="padding: 5px; text-align: left" class="beginning">
+                        <b>{!orderItem.Name}</b>
+                    </td>
+                    <td style="width: 40px; padding: 5px; text-align: center" class="beginning">
+                        {!orderItem.Quantity}
+                    </td>
+                    <td style="width: 40px; padding: 5px; text-align: center" class="beginning">
+                        {!orderItem.Weight}
+                    </td>
+                    <td style="padding: 5px; text-align: right;" class="beginning">
+                        ${!orderItem.Total}
+                    </td>
+                </tr>
+            </apex:outputPanel>
+        </apex:repeat>
+    </table>
+
+</apex:component>

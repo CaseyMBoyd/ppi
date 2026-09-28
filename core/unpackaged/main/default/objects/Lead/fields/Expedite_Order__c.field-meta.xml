@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expedite_Order__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checked if the order has expedite terminology in the subject line of incoming lead email request</description>
+    <inlineHelpText>Checked if the order has expedite terminology in the subject line of incoming lead email request</inlineHelpText>
+    <label>Expedite Order</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,32 @@
+<!-- Copyright (c) 2021 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Pagination Bar -->
+<template>
+    <div if:true={hasRecords} class="slds-m-top_medium">
+        <span class="inactive-pages m-left4" if:true={hasPrevious} onclick={previousHandler}>{labels.prev}</span>
+        <template for:each={pages} for:item="page">
+			<span key={page.id}>
+				<span if:true={page.isDots}>...</span>
+				<span if:true={page.isActive} class="active-page m-left4">{page.number}</span>
+				<span class="inactive-pages m-left4" if:false={page.isActive} onclick={setPage} data-page={page.number}>
+					{page.number}
+				</span>
+			</span>
+        </template>
+        <span class="inactive-pages m-left4" if:true={hasNext} onclick={nextHandler}>{labels.next}</span>
+        
+        <div class="slds-float_right">
+            <label class="slds-m-right_small" for="sizeOptions">{labels.pageSize}</label>
+            <select class="page" name="size" id="sizeOptions" onchange={pageSizeChanged}>
+                <option
+                        for:each={sizeOptions}
+                        for:item="option"
+                        value={option.size}
+                        key={option.size}
+                        selected={option.isActive}>
+                    {option.size}
+                </option>
+            </select>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PPI_Cart_Compact</fullName>
+    <fields>AccountId</fields>
+    <fields>Carrier__c</fields>
+    <fields>Name</fields>
+    <fields>GrandTotalAmount</fields>
+    <fields>PoNumber</fields>
+    <fields>Status</fields>
+    <label>PPI Cart Compact</label>
+</CompactLayout>

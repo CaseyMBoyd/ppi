@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_Creation_Quote_Number</fullName>
+    <active>true</active>
+    <description>Require Quote Number on stages including and after Quote Development.</description>
+    <errorConditionFormula>AND(
+OR(
+ISPICKVAL(StageName, "Quote Development"),
+ISPICKVAL(StageName, "Quote Complete"),
+ISPICKVAL(StageName, "Quote Adjustments"),
+ISPICKVAL(StageName, "Closed Won")
+),
+ISBLANK( Quote_Number__c )
+)</errorConditionFormula>
+    <errorDisplayField>Quote_Number__c</errorDisplayField>
+    <errorMessage>A Quote Number is required before continuing to further stages.</errorMessage>
+</ValidationRule>

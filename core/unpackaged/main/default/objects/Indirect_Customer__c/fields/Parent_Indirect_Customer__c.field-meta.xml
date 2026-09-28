@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Parent_Indirect_Customer__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <inlineHelpText>This is help text</inlineHelpText>
+    <label>Parent Indirect Customer</label>
+    <referenceTo>Indirect_Customer__c</referenceTo>
+    <relationshipLabel>Child Indirect Customers</relationshipLabel>
+    <relationshipName>Indirect_Customers</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

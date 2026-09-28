@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>To be used when Approval Print has been with customer past 60 days</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Approval Print Final Notice</name>
+    <relatedEntityType>Account</relatedEntityType>
+    <style>none</style>
+    <subject>Action Required: Final Notice for signed Approval Print</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

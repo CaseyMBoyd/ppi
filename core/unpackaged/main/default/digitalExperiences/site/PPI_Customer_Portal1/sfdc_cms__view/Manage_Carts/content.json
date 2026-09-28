@@ -1,0 +1,66 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Manage Carts",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"61de3255-5a64-4ca0-b74c-649fdd13b523\",\"columns\":[{\"UUID\":\"e59e133b-b6a7-480c-9354-6e19a66c8c8c\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "dxpStyle" : { }
+              },
+              "definition" : "c:manageCarts",
+              "id" : "50b710a7-3a3b-4eef-9582-54e23a10ec4a",
+              "type" : "component"
+            } ],
+            "id" : "e59e133b-b6a7-480c-9354-6e19a66c8c8c",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "61de3255-5a64-4ca0-b74c-649fdd13b523",
+          "type" : "component"
+        } ],
+        "id" : "7ffb652b-c85d-4391-8877-d6ba358b27ee",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "",
+            "description" : "",
+            "dxpStyle" : { },
+            "pageTitle" : "Manage Carts",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "beef5cfa-1dc2-4226-ab0c-cbea5fd3b2be",
+          "type" : "component"
+        } ],
+        "id" : "bc923a23-89d5-4337-b00c-a726ca218b26",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "bab84d11-407c-44e7-835c-de7b281816aa",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "Inner",
+    "viewType" : "custom-manage-carts"
+  },
+  "urlName" : "manage-carts"
+}

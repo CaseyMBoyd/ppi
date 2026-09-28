@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Order_Dollar_Amount__c</fullName>
+    <description>Order Dollar Amount</description>
+    <inlineHelpText>Please enter the dollar amount of the order</inlineHelpText>
+    <label>Order Dollar Amount</label>
+    <precision>12</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <type>Currency</type>
+</CustomField>

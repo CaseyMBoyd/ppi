@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;"><span style="font-family:Arial,Helvetica,sans-serif;">Dear Shipping Department,&nbsp;</span><br />
+<br />
+<span style="font-family:Arial,Helvetica,sans-serif;">Could I please get a frieght quote for quote # {{{Opportunity.Quote_Number__c}}}?<br />
+Mode: Ocean/Air<br />
+Incoterm: CIF<br />
+Ship From: PPI 300 SE 14TH STREET PELLA, IA 50219<br />
+Ship to: Port San Antonio, Chile<br />
+Value for Insurance (USD):<br />
+Dimensions (Inches):<br />
+Total Skids:<br />
+Total Weight (lbs):<br />
+20 Free Storage Days:Yes (if available)<br />
+-Please include transit time with quote.<br />
+-Please include insurance cost with quote.&nbsp;<br />
+<br />
+<br />
+Thank you for your assistance!&nbsp; </span></body>
+</html>

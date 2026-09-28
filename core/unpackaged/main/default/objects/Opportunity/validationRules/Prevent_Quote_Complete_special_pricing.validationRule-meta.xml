@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Quote_Complete_special_pricing</fullName>
+    <active>true</active>
+    <description>Prevent the procession to quote complete until special pricing has been approved or denied</description>
+    <errorConditionFormula>AND(
+  ISCHANGED(StageName),
+  ISPICKVAL(StageName, "Quote Complete"),
+  OR(
+    ISPICKVAL(Special_Pricing_Status__c, "Submitted"),
+    ISPICKVAL(Special_Pricing_Status__c, "Pending")
+  )
+)</errorConditionFormula>
+    <errorMessage>Can not advance to Quote Complete Stage when special pricing has not been Approved or Denied</errorMessage>
+</ValidationRule>

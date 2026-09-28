@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Decline_To_Quote__c</fullName>
+    <description>Choose the best reason for why PPI is not quoting request from customer</description>
+    <inlineHelpText>Manufacturing Limitations- Product Requirements and/or requested build fall outside of manufacturing capabilities;
+
+Material Constraints- Material specified is not one we currently support or source;
+
+Use Environment or Location Limitations-  Intended application or environmental conditions exceed our products tested performance range or compliance standards</inlineHelpText>
+    <label>Decline To Quote</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Manufacturing Limitations</fullName>
+                <default>false</default>
+                <label>Manufacturing Limitations</label>
+            </value>
+            <value>
+                <fullName>Material Constraints</fullName>
+                <default>false</default>
+                <label>Material Constraints</label>
+            </value>
+            <value>
+                <fullName>Use Location Restrictions</fullName>
+                <default>false</default>
+                <label>Use Environment or  Location Limitations</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

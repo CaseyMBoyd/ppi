@@ -1,0 +1,93 @@
+<!--
+  @description       : 
+  @author            : Owen He
+  @group             : 
+  @last modified on  : 02-06-2025
+  @last modified by  : winnie.tian@zoom.us
+  Modifications Log
+  Ver   Date         Author    Modification
+  1.0   10-16-2023   Owen He   Initial Version
+-->
+<apex:page controller="ZVC.OauthCallbackController">
+
+    <html>
+        <head>
+            <style>
+                .content-wrapper {
+                    width: 100%;
+                    height: 100vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }
+                .main-title {
+                    font-size: 2rem;
+                }
+                .sub-title {
+                    
+                }
+                #result {
+                    color: red;
+                    font-size: 1.5rem;
+                }
+                .hide{
+                    visibility: hidden;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="content-wrapper" >
+                <h2 class="main-title">Waiting for Authorization...</h2>
+                <h3 class="sub-title"></h3>
+                <div id="errorResult"></div>
+                <div id="successResult" class="hide" style = "position:absolute; top:20%; margin:auto 0;">
+                    <img src="{!URLFOR($Resource.svg, 'success.svg')}" style = "margin-left:25%;"></img>
+                    <div style = "font-size:16px">Contact Center successfully enabled on your Salesforce instance!</div>
+                </div>
+            </div>
+            
+        </body>
+        <script>
+            
+            !(function() {
+                setTimeout(() => {
+                    let params = {
+                        code: getCodeFromUrl(),
+                        stateToken : getStateFromUrl()
+                    }
+                    if (params && params.code && params.stateToken) {
+                        Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.OauthCallbackController.getUserEmailByOauthAccessToken_new}',
+                                                                    params, 
+                                                                    handleSaveZoomTokenResult);
+                    }
+                }, 500)
+            })();
+
+            function handleSaveZoomTokenResult(result, event) {
+                if (result.success) {
+                    var mainTitle = document.getElementsByTagName('h2')[0];
+                    mainTitle.classList.add('hide');
+                    var successResult = document.getElementById('successResult');
+                    successResult.classList.remove('hide');
+                } else {
+                    document.getElementsByClassName("main-title").innerText = "Oauth Failure!"
+                    document.getElementById("errorResult").innerText = result.errorMessage;
+                }
+                var state = result.body;
+                window.opener.postMessage(JSON.stringify(result),state.originLocation);
+            }
+
+            function getCodeFromUrl(){
+                var reg = new RegExp("(^|&)" + 'code' + "=([^&]*)(&|$)"); 
+                var r = window.location.search.substr(1).match(reg);  
+                if (r != null) return unescape(r[2]); return null; 
+            }
+            function getStateFromUrl(){
+                var reg = new RegExp("(^|&)" + 'state' + "=([^&]*)(&|$)"); 
+                var r = window.location.search.substr(1).match(reg);  
+                if (r != null){ return unescape(r[2]);} return null; 
+            }
+        </script>
+    </html>
+</apex:page>

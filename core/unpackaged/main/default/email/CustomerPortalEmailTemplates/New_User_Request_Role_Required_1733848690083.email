@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">Hello&nbsp;{{{Recipient.FirstName}}},<br />
+<br />
+Thank you for reaching out to request access to the PPI Customer Portal.&nbsp;<br />
+<br />
+The Portal offers several user roles,each designed to support different levels of interaction:&nbsp;
+<ul>
+	<li>
+	<p><strong>Commerce Buyer Manager</strong>: Can create and activate buyer accounts, reset passwords, and view all carts created by buyers within the organization.</p>
+	</li>
+	<li>
+	<p><strong>Commerce Buyer</strong>: Has access to browse the store, create carts, view their carts only, and purchase products through the cart functionality.</p>
+	</li>
+	<li>
+	<p><strong>Commerce Viewer</strong>: Can view product details, pricing, and order-related documentation, as well as create saved carts. However, this role does not include the ability to complete the checkout process. This is ideal for team members who need access to pricing, cart management, and documentation but are not responsible for finalizing purchases.</p>
+	</li>
+</ul>
+
+<p>Please let me know which role is appropriate for this user and I will get him/her set up and email sent to set their password.<br />
+<br />
+Thank you,<br />
+Sandy Tyrrel<br />
+Business Analyst</p>
+</body>
+</html>

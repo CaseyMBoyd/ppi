@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Special_Pricing_Notes__c</fullName>
+    <description>Special Pricing Notes</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please type any notes for the Pricing Managers in this field.  A value is required in this field when Discount Percentage = Other.</inlineHelpText>
+    <label>Special Pricing Notes</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Warehouse__c</fullName>
+    <description>PPI Warehouse</description>
+    <inlineHelpText>Please select the PPI Warehouse</inlineHelpText>
+    <label>Warehouse</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>A - Algona</fullName>
+                <default>false</default>
+                <label>A - Algona</label>
+            </value>
+            <value>
+                <fullName>B - Sacramento</fullName>
+                <default>false</default>
+                <label>B - Sacramento</label>
+            </value>
+            <value>
+                <fullName>F - Dallas/Ft. Worth</fullName>
+                <default>false</default>
+                <label>F - Dallas/Ft. Worth</label>
+            </value>
+            <value>
+                <fullName>H - Humboldt</fullName>
+                <default>false</default>
+                <label>H - Humboldt</label>
+            </value>
+            <value>
+                <fullName>I - Cleveland</fullName>
+                <default>false</default>
+                <label>I - Cleveland</label>
+            </value>
+            <value>
+                <fullName>M - NE Service Center</fullName>
+                <default>false</default>
+                <label>M - NE Service Center</label>
+            </value>
+            <value>
+                <fullName>N - Alberta Canada</fullName>
+                <default>false</default>
+                <label>N - Alberta Canada</label>
+            </value>
+            <value>
+                <fullName>R - PPI Canada</fullName>
+                <default>false</default>
+                <label>R - PPI Canada</label>
+            </value>
+            <value>
+                <fullName>U - Midwest Service Center</fullName>
+                <default>false</default>
+                <label>U - Midwest Service Center</label>
+            </value>
+            <value>
+                <fullName>W - Maysville</fullName>
+                <default>false</default>
+                <label>W - Maysville</label>
+            </value>
+            <value>
+                <fullName>1 - Pella</fullName>
+                <default>false</default>
+                <label>1 - Pella</label>
+            </value>
+            <value>
+                <fullName>2 - Lenox</fullName>
+                <default>false</default>
+                <label>2 - Lenox</label>
+            </value>
+            <value>
+                <fullName>3 - Corning Idlers</fullName>
+                <default>false</default>
+                <label>3 - Corning Idlers</label>
+            </value>
+            <value>
+                <fullName>4 - Corning 1</fullName>
+                <default>false</default>
+                <label>4 - Corning 1</label>
+            </value>
+            <value>
+                <fullName>5 - Corning 2</fullName>
+                <default>false</default>
+                <label>5 - Corning 2</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

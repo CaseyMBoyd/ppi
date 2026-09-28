@@ -1,0 +1,2 @@
+<apex:page standardController="Lead" extensions="ZVC.AddToZoomWebinarInitController" recordSetVar="ld" action="{!redirectToLC}">
+</apex:page>

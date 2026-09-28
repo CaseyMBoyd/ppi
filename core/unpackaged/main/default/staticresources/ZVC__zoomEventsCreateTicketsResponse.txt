@@ -1,0 +1,1 @@
+{"tickets":[{"ticket_id":"aEby3laCRAOsxWMq-4FQ_Q","event_join_link":"https://devevents.zoomdev.us/ej/Ato5FhtSxtsXZngcOBBa-Aej6VqNqzhnQH8pojWLPf4x0fS0drAu~A4eX2rfkhZx9ksyK-j_U-U5Z8_r_ZpMrQ-5h_uUgH0L4PlLVJ5-uRJRQrK71-IggiIq-WJtPDV0I_W7cfyv8-fFb1v1QfXA","event_registration_link":"","email":"emaileee@zoom.us"}]}

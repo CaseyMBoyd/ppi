@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Special_Pricing_Approved</fullName>
+    <active>true</active>
+    <description>Stops editing of special pricing fields when special pricing is approved.</description>
+    <errorConditionFormula>IF( AND(ISPICKVAL( PRIORVALUE(Special_Pricing_Status__c) , 'Approved'),OR(
+ ISCHANGED( Special_Pricing_Status__c ),
+ ISCHANGED( Special_Pricing_Submitter__c ),
+ ISCHANGED( Discount_Percentage__c ),
+ ISCHANGED( Indirect_Customer__c ),
+ ISCHANGED( Competitor_Name__c )
+)) , true, false)</errorConditionFormula>
+    <errorMessage>Special pricing fields cannot be changed if a special pricing request has already been approved.</errorMessage>
+</ValidationRule>

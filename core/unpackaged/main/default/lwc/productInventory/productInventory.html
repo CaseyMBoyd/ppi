@@ -1,0 +1,44 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Product Inventory -->
+<template>
+  <div>
+    <h1 class="slds-m-bottom_medium dxp-text-heading-medium slds-p-vertical_none slds-p-horizontal_none">
+      <lightning-icon icon-name="custom:custom57" size="medium" class="slds-m-right_small"></lightning-icon>
+      <strong>Inventory</strong>
+    </h1>
+    <div lwc:if={isLoading} class="slds-grid">
+      <div class="loading-container slds-is-relative">
+        <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+      </div>
+      <div>
+        Availability Loading
+      </div>
+    </div>
+    <div lwc:else class="slds-region_narrow">
+      <template lwc:if={hasInventories} iterator:it={inventories}>
+        <div key={it.value.id}>
+          <dl class="slds-dl_horizontal">
+            <dt class="slds-dl_horizontal__label">Warehouse:</dt>
+            <dd class="slds-dl_horizontal__detail">
+              <!--{it.value.warehouse.name}-->
+              <c-b2b-lead-time-tooltip current-warehouse-code={it.value.warehouse.code} active-product-category={productCategory}
+                requested-quantity={it.value.quantity}>
+              
+                {it.value.warehouse.name}
+              
+              </c-b2b-lead-time-tooltip>
+            </dd>
+            <dt class="slds-dl_horizontal__label">Quantity:</dt>
+            <dd class="slds-dl_horizontal__detail">{it.value.quantity}</dd>
+          </dl>
+          <hr if:false={it.last} class="slds-m-vertical_small" />
+        </div>
+      </template>
+
+      <div lwc:else>
+        Item is Made to Order.
+      </div>
+    </div>
+  </div>
+</template>

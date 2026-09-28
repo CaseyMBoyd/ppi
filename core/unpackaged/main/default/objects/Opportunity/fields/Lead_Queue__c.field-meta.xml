@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Queue__c</fullName>
+    <inlineHelpText>Lead Queue responsible for managing assignment and follow up related to this opportunity. Queue is selected based off of email opportunity comes in from. Please ensure correct lead is chosen to help with proper routing and tracking of sales efforts.</inlineHelpText>
+    <label>Lead Queue</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Lead_Queue</valueSetName>
+    </valueSet>
+</CustomField>

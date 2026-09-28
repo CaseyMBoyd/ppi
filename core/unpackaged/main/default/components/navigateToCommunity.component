@@ -1,0 +1,63 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<apex:component id="navigateToCommunity"
+        controller="NavigateToCommunityController"
+        access="global"
+>
+    <apex:attribute assignTo="{!recordId}"
+            name="relatedToId"
+            description="Id of record"
+            type="String"
+    />
+
+    <apex:attribute name="relatedToLabel"
+            description="label of record"
+            type="String"
+    />
+
+    <apex:attribute assignTo="{!pageRoute}"
+            name="comPageRoute"
+            description="route to use after base url"
+            type="String"
+    />
+
+    <apex:attribute assignTo="{!communityName}"
+            name="comName"
+            type="String"
+            description="Community Name"
+    />
+
+    <apex:attribute assignTo="{!routeUsesTabset}"
+            name="useTabset"
+            type="Boolean"
+            description="Indicates whether or not the route requires tabsetId"
+    />
+
+    <apex:attribute assignTo="{!urlParams}"
+            name="params"
+            type="String"
+            description="Separate each param using ;"
+    />
+
+    <apex:attribute assignTo="{!isDetailPage}"
+            name="detailPage"
+            type="Boolean"
+            description="Is the link to a detail page?"
+    />
+
+      <apex:attribute assignTo="{!isButton}"
+                      name="button"
+                      type="Boolean"
+                      description="Show a button instead of a link"/>
+
+      <apex:outputLink value="{!CommunityUrl}"
+                       rendered="{!isButton}">
+        <button style="background-color: rgb(17, 61, 45); color: #FFFFFF; padding: 12px 16px; border: none; border-radius: 5px; font-weight: bold">
+          {!relatedToLabel}
+        </button>
+      </apex:outputLink>
+
+    <apex:outputLink style="color: #ef8632" value="{!CommunityUrl}" rendered="{!!isButton}">
+        {!relatedToLabel}
+    </apex:outputLink>
+</apex:component>

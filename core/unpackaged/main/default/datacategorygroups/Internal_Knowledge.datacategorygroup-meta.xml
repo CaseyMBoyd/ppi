@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>FAQs</label>
+                <name>FAQs</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Customer Relations</label>
+                <name>Customer_Relations</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Communication Templates</label>
+                <name>Communication_Templates</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Customer Forms</label>
+                <name>Customer_Forms</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Warranty &amp; Return Policies</label>
+                <name>Warranty_Return_Policies</name>
+            </dataCategory>
+            <label>Customer Support &amp; Service</label>
+            <name>Customer_Support_Service</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Troubleshooting Guides ISR</label>
+                <name>Troubleshooting_Guides_ISR</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Troubleshooting Guides Estimating</label>
+                <name>Troubleshooting_Guides_Estimating</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Pricing &amp; Discount Procedures</label>
+                <name>Pricing_Discount_Procedures</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Quote Procedures</label>
+                <name>Quote_Procedures</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Order Procedures</label>
+                <name>Order_Procedures</name>
+            </dataCategory>
+            <dataCategory>
+                <label>E-Orders</label>
+                <name>E_Orders</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Customer Account Management</label>
+                <name>Customer_Account_Management</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Lead Times</label>
+                <name>Lead_Times</name>
+            </dataCategory>
+            <dataCategory>
+                <label>PPI Contacts</label>
+                <name>PPI_Contacts</name>
+            </dataCategory>
+            <label>Sales Quote &amp; Order Management</label>
+            <name>Sales_Quote_Order_Management</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Idlers</label>
+                <name>Idlers</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Pulleys</label>
+                <name>Pulleys</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Take-Up Frames</label>
+                <name>Take_Up_Frames</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Bearings</label>
+                <name>Bearings</name>
+            </dataCategory>
+            <dataCategory>
+                <label>FAQs</label>
+                <name>Product_FAQs</name>
+            </dataCategory>
+            <dataCategory>
+                <label>User Manuals &amp; Installation Guides</label>
+                <name>User_Manuals_Installation_Guides</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Product Data Sheets</label>
+                <name>Product_Data_Sheets</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Safety</label>
+                <name>Safety</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Tech Standards</label>
+                <name>Tech_Standards</name>
+            </dataCategory>
+            <label>Product &amp; Technical Documentation</label>
+            <name>Product_Technical_Documentation</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Shipping &amp; Receiving</label>
+                <name>Shipping_Receiving</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Inventory Control</label>
+                <name>Inventory_Control</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Purchasing</label>
+                <name>Purchasing</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Manufacturing</label>
+                <name>Manufacturing</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Accounting</label>
+                <name>Accounting</name>
+            </dataCategory>
+            <dataCategory>
+                <label>I.T.</label>
+                <name>I_T</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Engineering</label>
+                <name>Engineering</name>
+            </dataCategory>
+            <label>Operations</label>
+            <name>Operations</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Standard Work</label>
+                <name>Standard_Work</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Freight Programs</label>
+                <name>Freight_Programs</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Pricing Forms</label>
+                <name>Pricing_Forms</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Rebates &amp; Corporate Agreements</label>
+                <name>Rebates_Corporate_Agreements</name>
+            </dataCategory>
+            <dataCategory>
+                <label>CEMA Reporting</label>
+                <name>CEMA_Reporting</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Price Change Management</label>
+                <name>Price_Change_Management</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Programmed Pricing</label>
+                <name>Programmed_Pricing</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Z Level</label>
+                <name>Z_Level</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Competitor Pricing</label>
+                <name>Competitor_Pricing</name>
+            </dataCategory>
+            <label>Pricing Management</label>
+            <name>Pricing_Management</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Pre-boarding</label>
+                <name>Pre_boarding</name>
+            </dataCategory>
+            <dataCategory>
+                <label>New Hire Schedule</label>
+                <name>New_Hire_Schedule</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Role-Specific Training</label>
+                <name>Role_Specific_Training</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Ongoing Support &amp; Development</label>
+                <name>Ongoing_Support_Development</name>
+            </dataCategory>
+            <label>Onboarding &amp; Training</label>
+            <name>Onboarding_Training</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <label>Internal Knowledge</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+        <object>SvcCatalogItemDef</object>
+    </objectUsage>
+</DataCategoryGroup>

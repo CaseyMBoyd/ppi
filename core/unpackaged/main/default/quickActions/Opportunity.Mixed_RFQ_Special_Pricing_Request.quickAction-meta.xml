@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Sends a task to Special Pricing Group</description>
+    <fieldOverrides>
+        <field>Description</field>
+        <formula>&quot;***All fields below are required for prompt response.&quot;+ BR() +
+&quot;Special Pricing has been requested for the following opportunity&quot;+ BR() +
+&quot;Quote Number: &quot; + Opportunity.Quote_Number__c + BR() +
+&quot;Indirect Customer (If Applicable): &quot;+ BR() +
+&quot;Requested Discount Percent: &quot;+ BR() +
+&quot;Competitor Name (If Applicable): &quot;+ BR() +
+
+&quot;Thank You!&quot;</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Priority</field>
+        <literalValue>Normal</literalValue>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Status</field>
+        <literalValue>Open</literalValue>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Subject</field>
+        <formula>&quot;Mixed Opportunity Special Pricing Request for Quote # &quot; +  Opportunity.Quote_Number__c</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Type</field>
+        <literalValue>Mixed Opportunity Special Pricing Request</literalValue>
+    </fieldOverrides>
+    <label>Mixed RFQ Special Pricing Request</label>
+    <optionsCreateFeedItem>true</optionsCreateFeedItem>
+    <quickActionLayout>
+        <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Description</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+        <quickActionLayoutColumns/>
+    </quickActionLayout>
+    <successMessage>Task has been successfully sent to Special Pricing</successMessage>
+    <targetObject>Task</targetObject>
+    <targetParentField>What</targetParentField>
+    <type>Create</type>
+</QuickAction>

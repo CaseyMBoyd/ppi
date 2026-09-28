@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Request Access",
+  "contentBody" : {
+    "activeViewId" : "Request_Access",
+    "configurationTags" : [ ],
+    "pageAccess" : "Public",
+    "routeType" : "custom-request-access",
+    "urlPrefix" : "request-access"
+  },
+  "urlName" : "request-access"
+}

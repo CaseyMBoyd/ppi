@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Pricing Member</label>
+    <permissionSets>Pricing_Member_Knowledge_Category_Access</permissionSets>
+    <permissionSets>View_Approval_Work_Items</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">Dear&nbsp;{{{Recipient.FirstName}}},<br />
+&nbsp;
+<p>Thank you for participating as a PPI Portal Beta Tester! Now that you have access and are using the portal, we’re eager to hear from you.</p>
+
+<p>As a Beta Tester, your feedback is essential to the portal’s success. We welcome any insights you’ve encountered—whether positive, constructive, or suggestions for enhancement.</p>
+
+<p>Please feel free to reply directly to this email with your feedback. If you’d prefer a Zoom call to discuss your experience in more detail, let me know, and I’ll be glad to share some available times for a conversation.<br />
+<br />
+Thank you,<br />
+Sandy Tyrrel<br />
+Business Analyst</p>
+</body>
+</html>

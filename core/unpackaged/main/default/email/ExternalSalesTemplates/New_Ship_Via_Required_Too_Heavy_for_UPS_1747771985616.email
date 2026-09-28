@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">&nbsp;Dear&nbsp;{{{Recipient.FirstName}}},&nbsp;<br />
+<br />
+We wanted to let you know that PO&nbsp;{{{Opportunity.PO_Number__c}}} exceeds the weight limit and/or dimensions for UPS as requested.<br />
+<br />
+Please advise an alternative LTL carrier and freight terms, or let us know if you would prefer we ship Best Way Prepaid and Add.<br />
+<br />
+We are happy to assist with any questions or help coordinate the best option.<br />
+<br />
+Thank you,&nbsp;<br />
+{{{Sender.Signature}}}</body>
+</html>

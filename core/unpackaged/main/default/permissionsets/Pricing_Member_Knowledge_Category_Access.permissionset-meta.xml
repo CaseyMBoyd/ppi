@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Gives access to knowledge articles related to Pricing Members</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Pricing Member Knowledge Category Access</label>
+</PermissionSet>

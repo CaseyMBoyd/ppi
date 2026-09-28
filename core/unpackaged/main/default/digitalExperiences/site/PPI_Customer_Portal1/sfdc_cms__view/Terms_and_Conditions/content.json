@@ -1,0 +1,74 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Terms and Conditions",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"107d7aee-d6d0-409a-9f1d-8395537b63cc\",\"columns\":[{\"UUID\":\"725b2610-670b-4a31-b701-1b5ca5f034d3\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "contentId" : "MCYBZA5JG4TVAYLBJXFN3RMLW5L4",
+                "dxpStyle" : {
+                  "margin" : {
+                    "bottom" : "50px",
+                    "left" : "50px",
+                    "right" : "50px",
+                    "top" : "50px"
+                  }
+                }
+              },
+              "definition" : "c:termsAndConditionsPagesContent",
+              "id" : "96c00f9e-0cc0-44da-8d7f-de4a57046325",
+              "type" : "component"
+            } ],
+            "id" : "725b2610-670b-4a31-b701-1b5ca5f034d3",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "107d7aee-d6d0-409a-9f1d-8395537b63cc",
+          "type" : "component"
+        } ],
+        "id" : "8d1f3524-f1c5-42d5-b81b-bb24de742d5c",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "",
+            "description" : "",
+            "dxpStyle" : { },
+            "pageTitle" : "Terms and Conditions",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "af66cc8e-d8e9-473f-ae6d-2c561ad5bd93",
+          "type" : "component"
+        } ],
+        "id" : "9b68b4a4-eaf1-4bbd-9559-983c54c6f014",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "7618a6c3-451b-44ba-8abf-4d9d43dabd69",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "Inner",
+    "viewType" : "custom-terms-and-conditions"
+  },
+  "urlName" : "terms-and-conditions"
+}

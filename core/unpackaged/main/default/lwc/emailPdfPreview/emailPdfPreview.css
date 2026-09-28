@@ -1,0 +1,16 @@
+.emptyState {
+    padding:1rem;
+}
+
+.previewToolbar {
+    display:flex;
+    justify-content:flex-end;
+    padding:0.5rem;
+}
+
+.pdfFrame {
+    width:100%;
+    height:300px;
+    border:1px solid #c9c9c9;
+    border-radius:0.25rem;
+}

@@ -1,0 +1,76 @@
+<template>
+<lightning-card title="Customer Request">
+
+    <template if:true={isLoading}>
+
+        <lightning-spinner alternative-text="Loading">
+        </lightning-spinner>
+
+    </template>
+
+
+    <template if:true={showProcessing}>
+
+        <div class="emptyState">
+
+            PDF generation is in progress...
+
+            <lightning-spinner size="small">
+            </lightning-spinner>
+
+        </div>
+
+    </template>
+
+
+    <template if:true={hasPdf}>
+
+        <div class="previewToolbar">
+
+            <lightning-button
+                label="Refresh"
+                onclick={refreshPdf}>
+            </lightning-button>
+
+
+            <lightning-button
+                class="slds-m-left_small"
+                label="Open Preview"
+                onclick={openPreview}>
+            </lightning-button>
+
+        </div>
+
+
+        <iframe
+            class="pdfFrame"
+            src={iframeSrc}
+            title="Generated PDF">
+        </iframe>
+
+    </template>
+
+
+    <template if:true={showEmpty}>
+
+<div class="emptyState">
+
+    <div>
+        PDF not generated.
+    </div>
+
+    <div class="slds-m-top_small">
+
+        <lightning-button
+            label="Refresh"
+            onclick={refreshPdf}>
+        </lightning-button>
+
+    </div>
+
+</div>
+
+</template>
+
+</lightning-card>
+</template>

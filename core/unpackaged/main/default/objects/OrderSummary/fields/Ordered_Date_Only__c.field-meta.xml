@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ordered_Date_Only__c</fullName>
+    <externalId>false</externalId>
+    <formula>MID(TEXT(OrderedDate), 6, 2) &amp; "/" &amp;
+MID(TEXT(OrderedDate), 9, 2) &amp; "/" &amp;
+LEFT(TEXT(OrderedDate), 4)</formula>
+    <label>Ordered Date Only</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

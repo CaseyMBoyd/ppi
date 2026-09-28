@@ -1,0 +1,231 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Shipping Method -->
+<template>
+  <section lwc:if={shouldRunFulfillmentCheck} class="fulfillment-check slds-m-bottom_medium">
+    <div
+      lwc:if={fulfillmentCheckNotRun}
+      class="slds-grid slds-grid_vertical-align-center"
+    >
+      <div style="margin-top: -2px">
+        <lightning-dynamic-icon
+          class="slds-m-right_x-small"
+          type="ellie"
+        ></lightning-dynamic-icon>
+      </div>
+      <small>Running fulfillment check...</small>
+    </div>
+    <template lwc:elseif={canFulfillOrder}> </template>
+    <div
+      lwc:else
+      class="slds-notify slds-notify_alert slds-alert_warning slds-p-around_medium slds-grid"
+      style="justify-content: start; display: block;"
+    >
+      <div
+        class="slds-text-align_center"
+        style="cursor: pointer"
+      >
+        <div class="slds-text-align_center slds-m-bottom_small">
+          Your order cannot be fulfilled complete, are you OK with split
+          shipments?
+        </div>
+        <div style="display: block">
+          <div
+            style={acceptSplitShipmentButtonStyles.yes}
+            onclick={handleAcceptSplitShipmentChange}
+            class="slds-m-left_small"
+            data-accept="yes"
+          >
+            <span class="slds-p-around_x-small" style="font-size: x-small"><b>Yes - Split Ship OK</b></span>
+          </div>
+          <div
+            style={acceptSplitShipmentButtonStyles.no}
+            onclick={handleAcceptSplitShipmentChange}
+            class="slds-m-left_small"
+            data-accept="no"
+          >
+            <span class="slds-p-around_x-small" style="font-size: x-small"><b>Contact Me with Options</b></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="delivery-methods">
+    <lightning-layout
+      for:each={deliveryMethods}
+      for:item="method"
+      key={method.id}
+      horizontal-align="space"
+      multiple-rows
+    >
+      <lightning-layout-item size="12">
+        <div class="slds-text-align_left">
+          <span class="slds-radio">
+            <input
+              type="radio"
+              name="default"
+              disabled={isSummary}
+              id={method.id}
+              checked={method.checked}
+              onchange={handleSelection}
+              data-id={method.id}
+            />
+            <label class="slds-radio__label" for={method.id}>
+              <span class="slds-radio_faux"></span>
+              <span class="slds-form-element__label">{method.name}</span>
+              <lightning-helptext content={method.helpText} lwc:if={method.helpText}></lightning-helptext>
+            </label>
+          </span>
+        </div>
+      </lightning-layout-item>
+      <lightning-layout-item
+        lwc:if={method.displayAddressInput}
+        size="12"
+        class="slds-m-top_medium"
+      >
+        <lightning-record-edit-form
+          object-api-name="User"
+          record-type-id={defaultRecordTypeId}
+          density="comfy"
+        >
+          <lightning-input
+            name="company"
+            label="Company Name"
+            value={thirdPartyAddress.company}
+            class="slds-form-element slds-form-element_stacked"
+            disabled={isSummary}
+            data-validate-input
+            required
+            onchange={handleInputChange}
+          ></lightning-input>
+          <lightning-input
+            name="street"
+            label="Street 1"
+            value={thirdPartyAddress.street}
+            class="slds-form-element slds-form-element_stacked"
+            disabled={isSummary}
+            data-validate-input
+            required
+            onchange={handleInputChange}
+          ></lightning-input>
+          <lightning-input
+            name="street2"
+            label="Street 2"
+            class="slds-form-element slds-form-element_stacked"
+            onchange={handleInputChange}
+            disabled={isSummary}
+            data-validate-input
+            value={thirdPartyAddress.street2}
+          ></lightning-input>
+          <div
+            class="slds-grid slds-wrap slds-grid_vertical-align-center slds-gutters_direct-xx-small"
+          >
+            <lightning-input
+              label="City"
+              name="city"
+              class="slds-col slds-size_1-of-1 slds-large-size_1-of-3"
+              value={thirdPartyAddress.city}
+              disabled={isSummary}
+              data-validate-input
+              required
+              onchange={handleInputChange}
+            ></lightning-input>
+            <div style="display: none">
+              <lightning-input-field
+                field-name="CountryCode"
+                value="US"
+                data-validate-input
+                aria-hidden
+              ></lightning-input-field>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3">
+              <label class="slds-form-element__label" for="stateCode">
+                <abbr class="slds-required" title="required">*</abbr>
+                State
+              </label>
+              <lightning-input-field
+                field-name="StateCode"
+                id="stateCode"
+                required
+                disabled={isSummary}
+                variant="label-hidden"
+                name="state"
+                onchange={handleInputChange}
+                data-validate-input
+                value={thirdPartyAddress.state}
+              ></lightning-input-field>
+            </div>
+            <lightning-input
+              label="Postal Code"
+              required
+              name="postalCode"
+              class="slds-col slds-size_1-of-1 slds-large-size_1-of-3"
+              disabled={isSummary}
+              onchange={handleInputChange}
+              data-validate-input
+              value={thirdPartyAddress.postalCode}
+            ></lightning-input>
+          </div>
+        </lightning-record-edit-form>
+      </lightning-layout-item>
+
+      <lightning-layout-item size="12" lwc:if={method.displayCarrierSelector}>
+        <hr class="slds-var-m-vertical_medium"/>
+        <lightning-layout multiple-rows vertical-align="start" class="slds-grid_pull-padded-x-small">
+          <!-- CRM-4423: inline heavy-item warning, shown directly above carrier + account number fields -->
+          <!--<lightning-layout-item
+            lwc:if={shouldRestrictCarrier}
+            size="12"
+            class="slds-p-horizontal_x-small"
+          >
+            <div
+              class="slds-notify slds-notify_alert slds-alert_warning slds-m-bottom_small"
+              role="alert"
+            >
+              <p>{heavyItemWarningMessage}</p>
+            </div>
+          </lightning-layout-item>-->
+          <lightning-layout-item size="12" large-device-size="6" class="slds-p-horizontal_x-small">
+            <c-dropdown-input
+              id="carrier"
+              options={carriers}
+              value=""
+              label="Carrier"
+              required
+              placeholder="Select or enter carrier..."
+              disabled={isSummary}
+              validity-error-message="Complete this field."
+              onchange={handleCarrierChange}
+              data-validate-input
+            ></c-dropdown-input>
+          </lightning-layout-item>
+          <lightning-layout-item size="12" large-device-size="6" class="slds-p-horizontal_x-small">
+            <lightning-input
+              type="text"
+              required={enforceCarrierAccountNumber}
+              label="Account Number"
+              onchange={handleAccountNumberChange}
+              disabled={isSummary}
+              data-validate-input
+            ></lightning-input>
+          </lightning-layout-item>
+        </lightning-layout>
+      </lightning-layout-item>
+      <lightning-layout-item size="12" lwc:if={method.displayLogisticsInformation}>
+        <hr class="slds-var-m-vertical_medium"/>
+        <lightning-layout multiple-rows vertical-align="start" class="slds-grid_pull-padded-x-small">
+          <lightning-layout-item size="12" class="slds-p-horizontal_x-small">
+            <lightning-textarea
+              max-length="2000"
+              label="Logistics Information"
+              onchange={handleLogisticsInformationChange}
+              disabled={isSummary}
+              required
+              value={logisticsInformation}
+            ></lightning-textarea>
+          </lightning-layout-item>
+        </lightning-layout>
+      </lightning-layout-item>
+    </lightning-layout>
+  </section>
+</template>

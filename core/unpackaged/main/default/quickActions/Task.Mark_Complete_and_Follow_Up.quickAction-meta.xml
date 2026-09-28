@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This action will mark the task complete and allows you to respond to the Task Creator</description>
+    <flowDefinition>Task_Estimating_Task_Completion_Follow_Up_Task</flowDefinition>
+    <label>Mark Complete and Respond</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>Flow</type>
+</QuickAction>

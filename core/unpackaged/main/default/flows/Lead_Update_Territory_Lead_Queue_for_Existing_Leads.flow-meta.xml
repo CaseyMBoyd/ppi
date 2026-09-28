@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Add_to_Update_Set</name>
+        <label>Add to Update Set</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_LeadsToUpdate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Leads</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Leads</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Compute_New_Queue</name>
+        <label>Compute New Queue</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>Loop_Leads.Lead_Queue__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>f_NewLeadQueue_Backfill</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Did_It_Change</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Old_Lead_Queue</name>
+        <label>Old Lead Queue</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_OldVal</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Leads.Lead_Queue__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Compute_New_Queue</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Did_It_Change</name>
+        <label>Did It Change?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Loop_Leads</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Change</defaultConnectorLabel>
+        <rules>
+            <name>Changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_Leads.Lead_Queue__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>var_OldVal</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_to_Update_Set</targetReference>
+            </connector>
+            <label>Changed</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>f_NewLeadQueue_Backfill</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  ISBLANK({!Loop_Leads.Account__c}),
+  /* Account blank → do nothing */
+  TEXT({!Loop_Leads.Lead_Queue__c}),
+  IF(
+    ISBLANK({!Loop_Leads.Account_Territory__c}),
+    /* Territory blank → do nothing */
+    TEXT({!Loop_Leads.Lead_Queue__c}),
+    /* Territory present → map; if not mapped → do nothing */
+    CASE(
+      {!Loop_Leads.Account_Territory__c},
+      35, &quot;West 35&quot;,
+      26, &quot;West 26&quot;,
+      15, &quot;West 15&quot;,
+       3, &quot;Central 3&quot;,
+       9, &quot;Central 9&quot;,
+      16, &quot;Central 16&quot;,
+      14, &quot;Central 14&quot;,
+      24, &quot;Central 24&quot;,
+       4, &quot;East 4&quot;,
+      21, &quot;East 21&quot;,
+      11, &quot;East 11&quot;,
+      33, &quot;East 33&quot;,
+      /* unmapped → do nothing */
+      TEXT({!Loop_Leads.Lead_Queue__c})
+    )
+  )
+)</expression>
+    </formulas>
+    <interviewLabel>Lead - Update Territory Lead Queue for Existing Leads {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead - Update Territory Lead Queue for Existing Leads</label>
+    <loops>
+        <name>Loop_Leads</name>
+        <label>Loop Leads</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_Leads_to_Route</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Old_Lead_Queue</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_Routed_Leads</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Leads_to_Route</name>
+        <label>Get Leads to Route</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Leads</targetReference>
+        </connector>
+        <filterLogic>3 AND (1 OR 2)</filterLogic>
+        <filters>
+            <field>Lead_Queue__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Pulley Daily</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Lead_Queue__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Idler Daily</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>IsConverted</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Lead</object>
+        <sortField>Id</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Routed_Leads</name>
+        <label>Update Routed Leads</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputReference>var_LeadsToUpdate</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Leads_to_Route</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>var_LeadsToUpdate</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Lead</objectType>
+    </variables>
+    <variables>
+        <description>used to hold original Lead_Queue__c for change detection.</description>
+        <name>var_OldVal</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

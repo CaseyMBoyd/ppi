@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>XA_Integrated__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>indicates if contact was successfully sent to XA</description>
+    <inlineHelpText>indicates if contact was successfully sent to XA</inlineHelpText>
+    <label>XA Integrated</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

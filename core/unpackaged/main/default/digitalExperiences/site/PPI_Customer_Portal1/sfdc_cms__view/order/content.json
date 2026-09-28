@@ -1,0 +1,114 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Order",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "maxContentWidth" : "800px",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"7df2adc1-a2a9-47dd-96ee-b5495aa79eb2\",\"columns\":[{\"UUID\":\"1bde06f3-afff-4eab-add5-93399d17f4c2\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "bodyText" : "We will send an email with your order confirmation shortly.",
+                "confirmationNumberText" : "Confirmation Number:",
+                "continueShoppingButtonText" : "Continue Shopping",
+                "displayConfirmationNumber" : false,
+                "dxpStyle" : {
+                  "padding" : {
+                    "bottom" : "",
+                    "left" : "",
+                    "right" : "",
+                    "top" : ""
+                  }
+                },
+                "headerText" : "Thank you for your order!",
+                "salesmanText" : "If you have questions regarding your order please contact {0}"
+              },
+              "definition" : "c:orderConfirmation",
+              "id" : "5bbd4b7e-ff87-43c2-b6d4-ef213b735297",
+              "type" : "component"
+            }, {
+              "attributes" : {
+                "dxpStyle" : { },
+                "orderNumber" : "{!orderNumber}"
+              },
+              "definition" : "c:customerSatisfactionSurvey",
+              "id" : "56ff56e5-0516-416f-9928-6d15d3017f5a",
+              "type" : "component"
+            } ],
+            "id" : "1bde06f3-afff-4eab-add5-93399d17f4c2",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "7df2adc1-a2a9-47dd-96ee-b5495aa79eb2",
+          "type" : "component"
+        }, {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"c24634c7-a69a-40e7-9ac7-01aed29ab6c2\",\"columns\":[{\"UUID\":\"49575426-4298-4cb0-a537-1455202e959b\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"6\",\"seedComponents\":null},{\"UUID\":\"d7410a6b-e011-4301-93dc-65f24d372d11\",\"columnName\":\"Column 2\",\"columnKey\":\"676bb\",\"columnWidth\":\"6\",\"seedComponents\":[]}]}"
+          },
+          "children" : [ {
+            "id" : "49575426-4298-4cb0-a537-1455202e959b",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          }, {
+            "id" : "d7410a6b-e011-4301-93dc-65f24d372d11",
+            "name" : "676bb",
+            "title" : "Column 2",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "c24634c7-a69a-40e7-9ac7-01aed29ab6c2",
+          "type" : "component"
+        } ],
+        "id" : "7694ea7e-9b7c-4e14-899a-a88b9f215db4",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "dxpStyle" : { },
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "5c6d9ed8-d96b-4515-90ed-347dc180d99f",
+          "type" : "component"
+        } ],
+        "id" : "958b8299-9a66-4e1b-9752-917ed0a50571",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "1167a9db-4462-4bf2-92ad-0a99e9ed90ea",
+      "type" : "component"
+    },
+    "dataProviders" : [ {
+      "definition" : "sfdc_cms__commerceOrderDetailDataProvider",
+      "sfdcExpressionKey" : "Order",
+      "attributes" : {
+        "recordId" : "{!Route.orderNumber}"
+      }
+    } ],
+    "themeLayoutType" : "Inner",
+    "viewType" : "order"
+  },
+  "urlName" : "order"
+}

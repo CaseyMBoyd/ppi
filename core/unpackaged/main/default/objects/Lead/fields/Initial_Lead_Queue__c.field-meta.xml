@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Initial_Lead_Queue__c</fullName>
+    <description>Stores the lead queue the lead was in when the lead was created</description>
+    <externalId>false</externalId>
+    <label>Initial Lead Queue</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

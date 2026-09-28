@@ -1,0 +1,51 @@
+<template>
+  <div class="picklist-cell" onfocusout={handleFocusOut}>
+    <button
+      class="slds-combobox__input slds-input_faux slds-combobox__input-value combobox-trigger"
+      type="button"
+      aria-haspopup="listbox"
+      aria-expanded={isOpen}
+      title={selectedLabel}
+      onclick={handleToggle}
+    >
+      <span class={selectedValueClass}>{selectedLabel}</span>
+      <lightning-icon
+        class="slds-input__icon slds-input__icon_right"
+        icon-name="utility:down"
+        size="xx-small"
+        alternative-text=""
+      ></lightning-icon>
+    </button>
+
+    <template if:true={isOpen}>
+      <div
+        class="slds-dropdown slds-dropdown_fluid slds-dropdown_length-5 picklist-dropdown"
+        style={dropdownStyle}
+      >
+        <ul class="slds-listbox slds-listbox_vertical" role="listbox">
+          <template for:each={options} for:item="option">
+            <li
+              key={option.value}
+              class="slds-listbox__item"
+              role="presentation"
+              data-value={option.value}
+              onmousedown={handleOptionMouseDown}
+            >
+              <div
+                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small"
+                role="option"
+                aria-selected={option.selected}
+              >
+                <span class="slds-media__body">
+                  <span class="slds-truncate" title={option.label}>
+                    {option.label}
+                  </span>
+                </span>
+              </div>
+            </li>
+          </template>
+        </ul>
+      </div>
+    </template>
+  </div>
+</template>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ERP_Location_Code__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Unique alphanumeric code returned by the ERP integration payload (e.g. SC_01). Used as the lookup key for portal display name translation.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>ERP Location Code</label>
+    <length>20</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

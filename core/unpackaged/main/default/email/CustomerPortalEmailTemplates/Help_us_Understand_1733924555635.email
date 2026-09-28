@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">Dear&nbsp;{{{Recipient.FirstName}}},<br />
+<br />
+We have noticed that your usage of the PPI Customer Portal has been lower than we expected, and we want to ensure that it's providing the value and convenience you need.<br />
+<br />
+At&nbsp;{{{Recipient.Company}}}, your satisifaction and success are our top priorities.&nbsp; Could you please take a few moments to share your thoughts on your experience with the portal? Specifically:<br />
+<br />
+1. Is the portal meeting your expectations?<br />
+2. Are there any features you find difficult to use or missing?<br />
+3. How could we make the portal more useful for you?<br />
+<br />
+Your feedback is invaluable and helps us improve the PPI Customer Portal to better serve you.<br />
+<br />
+Thank you for being a part of PPI.&nbsp; We look forward to hearing from you!<br />
+<br />
+Best regards,<br />
+Sandy Tyrrel<br />
+Business Analyst</body>
+</html>

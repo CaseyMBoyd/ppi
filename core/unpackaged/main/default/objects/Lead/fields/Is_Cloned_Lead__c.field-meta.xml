@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Cloned_Lead__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>This indicates if a Lead has been cloned from another lead.</inlineHelpText>
+    <label>Is Cloned Lead</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

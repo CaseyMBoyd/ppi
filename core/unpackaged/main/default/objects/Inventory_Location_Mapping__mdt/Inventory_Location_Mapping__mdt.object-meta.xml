@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Maps raw ERP inventory location codes to customer-friendly portal display names. Maintained by analysts in Salesforce Setup without code changes.</description>
+    <label>Inventory Location Mapping</label>
+    <pluralLabel>Inventory Location Mappings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

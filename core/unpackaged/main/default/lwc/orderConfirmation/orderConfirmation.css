@@ -1,0 +1,4 @@
+/* Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. */
+:host {
+    --slds-c-icon-color-background: var(--com-c-checkout-order-confirmation-icon-color, #2e844a);
+}

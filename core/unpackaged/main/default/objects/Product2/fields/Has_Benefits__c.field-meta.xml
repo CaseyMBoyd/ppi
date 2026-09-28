@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Has_Benefits__c</fullName>
+    <formula>NOT(AND(ISBLANK(Benefit_1__c), 
+ISBLANK(Benefit_2__c),
+ISBLANK(Benefit_3__c),
+ISBLANK(Benefit_4__c),
+ISBLANK(Benefit_5__c)))</formula>
+    <label>Has Benefits</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

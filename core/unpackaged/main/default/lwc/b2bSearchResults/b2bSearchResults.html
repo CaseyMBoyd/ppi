@@ -1,0 +1,62 @@
+<!-- Copyright (c) 2022 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Search Results B2B -->
+
+<template>
+  <div class="topmost-div"></div>
+
+  <lightning-spinner lwc:if={showSpinner} class=spinner-overlay variant="brand"></lightning-spinner>
+
+  <div class="slds-p-horizontal_x-large">
+    <div class="slds-border_bottom">
+      <lightning-layout multiple-rows="true" vertical-align="stretch">
+        <lightning-layout-item size="12" medium-device-size="6" large-device-size="6" small-device-size="12"
+          class="slds-align-middle">
+          <h3 class="slds-text-heading_medium slds-m-vertical_medium">
+            {paginationInfoString}
+          </h3>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" medium-device-size="6" large-device-size="6" small-device-size="12"
+          alignment-bump="right">
+          <slot name="Sort-Region">Sort By</slot>
+        </lightning-layout-item>
+      </lightning-layout>
+    </div>
+    <div class="slds-m-bottom_xx-large">
+      <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" small-device-size="12" medium-device-size="2" class="slds-float_right">
+          <div class="standard-filter">
+            <slot name="Filters-Region">Filters Region</slot>
+          </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" class="slds-m-top_x-small" small-device-size="12" medium-device-size="9">
+          <lightning-layout multiple-rows="true">
+            <lightning-layout-item size="12" for:each={products} for:item="product" key={product.sfid}
+              class="slds-border_bottom" lwc:if={products.length}>
+              <div class="product-parent-container">
+                <div class="product-pad">
+                  <c-b2b-search-result-detail product={product} category-id={searchFilters.categoryId}>
+                  </c-b2b-search-result-detail>
+                </div>
+              </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" lwc:elseif={noResultsFound}>
+              <slot name="No-Results-Region">No Results Found</slot>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" lwc:else>
+              <lightning-spinner class=spinner-overlay variant="brand"></lightning-spinner>
+            </lightning-layout-item>
+          </lightning-layout>
+        </lightning-layout-item>
+      </lightning-layout>
+      <div class="slds-m-top_large">
+        <lightning-layout>
+          <lightning-layout-item size="12">
+            <c-pagination-bar if:true={showPaginationBar} pagination={pagination} page-size-options={pageSizeOptions}
+              onpaginationchange={handlePaginationChange}></c-pagination-bar>
+          </lightning-layout-item>
+        </lightning-layout>
+      </div>
+    </div>
+  </div>
+</template>

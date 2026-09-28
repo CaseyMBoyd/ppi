@@ -1,0 +1,12 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Checkout Button -->
+<template>
+    <lightning-button
+        label="Checkout"
+        variant="brand"
+        onclick={handleCheckout}
+        stretch="true"
+        lwc:if={canCheckout}
+    ></lightning-button>
+</template>

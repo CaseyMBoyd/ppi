@@ -1,0 +1,231 @@
+<template>
+  <lightning-card
+    title="Order / Quote / PO Matcher"
+    icon-name="standard:opportunity"
+  >
+    <div class="slds-p-around_medium slds-is-relative">
+      <template if:true={isBusy}>
+        <lightning-spinner
+          alternative-text="Loading order, quote, and PO number relationships"
+          size="small"
+        >
+        </lightning-spinner>
+      </template>
+
+      <p class="slds-text-body_small slds-m-bottom_medium">{introMessage}</p>
+
+      <template if:true={loadError}>
+        <div
+          class="slds-box slds-theme_error slds-m-bottom_medium"
+          role="alert"
+        >
+          {loadError}
+        </div>
+      </template>
+
+      <template if:true={parseWarning}>
+        <div
+          class="slds-box slds-theme_warning slds-theme_alert-texture slds-m-bottom_medium"
+          role="alert"
+        >
+          {parseWarning}
+        </div>
+      </template>
+
+      <template if:true={showRefreshNotice}>
+        <div
+          class="slds-box slds-theme_info slds-theme_alert-texture slds-m-bottom_medium"
+          role="status"
+        >
+          The saved relationship field no longer lines up with the current order
+          numbers. Review the proposed rows and confirm to resync it.
+        </div>
+      </template>
+
+      <div class="source-grid slds-m-bottom_large">
+        <section class="source-section">
+          <h2 class="slds-text-title_caps slds-m-bottom_x-small">
+            Order Numbers
+          </h2>
+          <template if:true={hasOrderNumbers}>
+            <div class="badge-list">
+              <template for:each={orderNumberItems} for:item="item">
+                <span key={item.key} class="slds-badge source-badge">
+                  {item.value}
+                </span>
+              </template>
+            </div>
+          </template>
+          <template if:false={hasOrderNumbers}>
+            <p class="empty-text">No order numbers found.</p>
+          </template>
+        </section>
+
+        <section class="source-section">
+          <h2 class="slds-text-title_caps slds-m-bottom_x-small">
+            Quote Numbers
+          </h2>
+          <template if:true={hasQuoteNumbers}>
+            <div class="badge-list">
+              <template for:each={quoteNumberItems} for:item="item">
+                <span key={item.key} class="slds-badge source-badge">
+                  {item.value}
+                </span>
+              </template>
+            </div>
+          </template>
+          <template if:false={hasQuoteNumbers}>
+            <p class="empty-text">No quote numbers found.</p>
+          </template>
+        </section>
+
+        <section class="source-section">
+          <h2 class="slds-text-title_caps slds-m-bottom_x-small">PO Numbers</h2>
+          <template if:true={hasPoNumbers}>
+            <div class="badge-list">
+              <template for:each={poNumberItems} for:item="item">
+                <span key={item.key} class="slds-badge source-badge">
+                  {item.value}
+                </span>
+              </template>
+            </div>
+          </template>
+          <template if:false={hasPoNumbers}>
+            <p class="empty-text">No PO numbers found.</p>
+          </template>
+        </section>
+      </div>
+
+      <template if:true={showEmptyState}>
+        <div class="slds-box slds-theme_default">
+          No order numbers were found on this Opportunity. Add order numbers to
+          create matches, or save now to clear any stale relationships.
+        </div>
+      </template>
+
+      <template if:true={showMatcher}>
+        <div class="matcher-frame">
+          <template for:each={rows} for:item="row" for:index="index">
+            <div key={row.key} class="matcher-row">
+              <div class="matcher-summary-row">
+                <div class="matcher-summary-content">
+                  <div class="summary-item">
+                    <span class="summary-label">Order Number</span>
+                    <div class="order-pill">{row.orderNumber}</div>
+                  </div>
+                  <div class="summary-item">
+                    <span class="summary-label">Quote Numbers</span>
+                    <span class="summary-value">{row.quoteSummaryText}</span>
+                  </div>
+                  <div class="summary-item">
+                    <span class="summary-label">PO Numbers</span>
+                    <span class="summary-value">{row.poSummaryText}</span>
+                  </div>
+                </div>
+                <lightning-button
+                  class="editor-toggle"
+                  variant="neutral"
+                  label={row.toggleEditorLabel}
+                  icon-name={row.toggleEditorIcon}
+                  icon-position="right"
+                  data-index={index}
+                  onclick={handleToggleEditor}
+                >
+                </lightning-button>
+              </div>
+              <template if:true={row.isExpanded}>
+                <div class="matcher-editor-grid">
+                  <div class="matcher-cell">
+                    <div class="mobile-label">Quote Numbers</div>
+                    <lightning-dual-listbox
+                      class="selection-control"
+                      label="Quote Numbers"
+                      data-index={index}
+                      data-field-name="quoteNumbers"
+                      options={quoteOptions}
+                      value={row.quoteNumbers}
+                      source-label="Available Quote Numbers"
+                      selected-label="Selected Quote Numbers"
+                      disable-reordering
+                      onchange={handleSelectionChange}
+                    >
+                    </lightning-dual-listbox>
+                  </div>
+                  <div class="matcher-cell">
+                    <div class="mobile-label">PO Numbers</div>
+                    <lightning-dual-listbox
+                      class="selection-control"
+                      label="PO Numbers"
+                      data-index={index}
+                      data-field-name="poNumbers"
+                      options={poOptions}
+                      value={row.poNumbers}
+                      source-label="Available PO Numbers"
+                      selected-label="Selected PO Numbers"
+                      disable-reordering
+                      onchange={handleSelectionChange}
+                    >
+                    </lightning-dual-listbox>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </template>
+        </div>
+      </template>
+
+      <template if:true={showAutoMatchedSummary}>
+        <div class="auto-match-box slds-m-top_medium" role="status">
+          <h2 class="slds-text-title_caps slds-m-bottom_x-small">
+            {autoMatchHeading}
+          </h2>
+          <div class="auto-match-list">
+            <template for:each={rows} for:item="row">
+              <div key={row.key} class="auto-match-row">
+                <div class="summary-item">
+                  <span class="summary-label">Order Number</span>
+                  <div class="order-pill">{row.orderNumber}</div>
+                </div>
+                <div class="summary-item">
+                  <span class="summary-label">Quote Numbers</span>
+                  <span class="summary-value">{row.quoteSummaryText}</span>
+                </div>
+                <div class="summary-item">
+                  <span class="summary-label">PO Numbers</span>
+                  <span class="summary-value">{row.poSummaryText}</span>
+                </div>
+              </div>
+            </template>
+          </div>
+          <template if:true={autoMatchMessage}>
+            <p class="slds-text-body_small slds-m-top_x-small">
+              {autoMatchMessage}
+            </p>
+          </template>
+        </div>
+      </template>
+
+      <div class="footer slds-m-top_medium">
+        <p class="slds-text-body_small">{statusMessage}</p>
+        <template if:true={showFooterActions}>
+          <div class="footer-actions">
+            <lightning-button
+              label="Reset"
+              onclick={handleReset}
+              disabled={disableReset}
+            >
+            </lightning-button>
+            <lightning-button
+              class="slds-m-left_x-small"
+              variant="brand"
+              label={confirmButtonLabel}
+              onclick={handleSave}
+              disabled={disableSave}
+            >
+            </lightning-button>
+          </div>
+        </template>
+      </div>
+    </div>
+  </lightning-card>
+</template>

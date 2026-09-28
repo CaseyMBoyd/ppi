@@ -1,0 +1,13 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">Dear&nbsp;{{{Recipient.FirstName}}},<br />
+<br />
+Please see attached Quote&nbsp;{{{Opportunity.Quote_Number__c}}} containing current pricing for your PO&nbsp;{{{Opportunity.PO_Number__c}}}.&nbsp;<br />
+<br />
+If you can please respond that we may proceed per quote&nbsp;{{{Opportunity.Quote_Number__c}}} or please provide us with an updated PO that reflects the current pricing.&nbsp; Either way we do require a response so we can proceed with your order.<br />
+<br />
+Thank you,<br />
+{{{Sender.Signature}}}</body>
+</html>

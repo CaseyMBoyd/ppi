@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <description>Checkout Product Weight Notice</description>
+    <isExposed>true</isExposed>
+    <masterLabel>Checkout Product Weight Notice</masterLabel>
+    <targets>
+        <target>lightningCommunity__Default</target>
+        <target>lightningCommunity__Page</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property label="Label" name="label" type="String" default="Total Weight of Cart Items:" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

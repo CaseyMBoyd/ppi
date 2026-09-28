@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Website Policy",
+  "contentBody" : {
+    "activeViewId" : "Website_Policy",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-website-policy",
+    "urlPrefix" : "website-policy"
+  },
+  "urlName" : "website-policy"
+}

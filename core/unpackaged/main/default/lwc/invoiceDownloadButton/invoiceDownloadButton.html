@@ -1,0 +1,18 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Invoice Download Button -->
+<template>
+  <lightning-spinner variant="brand" lwc:if={isLoading}></lightning-spinner>
+  <div
+    class="slds-grid slds-grid_vertical-align-center slds-gutters_direct-medium slds-grid_align-end slds-p-horizontal_x-large"
+  >
+    <lightning-button
+      class="slds-m-right_medium"
+      disabled={disabled}
+      variant="brand"
+      label="Download Invoice"
+      onclick={downloadInvoice}
+    ></lightning-button>
+    <slot name="content"></slot>
+  </div>
+</template>

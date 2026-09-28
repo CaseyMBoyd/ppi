@@ -1,0 +1,149 @@
+{
+  "type" : "sfdc_cms__themeLayout",
+  "title" : "Checkout Layout",
+  "contentBody" : {
+    "component" : {
+      "attributes" : { },
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "dxpStyle" : {
+              "padding" : {
+                "bottom" : "5px",
+                "left" : "5px",
+                "right" : "5px",
+                "top" : "5px"
+              }
+            }
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "alignment" : "center",
+                "dxpStyle" : { },
+                "imageInfo" : "{\"imageInfoV1\":{\"url\":\"/sfsites/c/cms/delivery/media/MCCA5G2KCHOVH7XBPUGLEGQRK6WM?lastModifiedDate=Thu Jan 11 17:05:40 GMT 2024\",\"altText\":\"\",\"contentKey\":\"MCCA5G2KCHOVH7XBPUGLEGQRK6WM\",\"contentType\":null}}",
+                "logoWidth" : 120
+              },
+              "definition" : "dxp_content_layout:siteLogo",
+              "id" : "c06de6d2-9939-48af-a167-e4e33beec6b8",
+              "type" : "component"
+            } ],
+            "id" : "187bcb50-d096-4d54-baca-f5ef567313eb",
+            "name" : "storeLogo",
+            "title" : "Store Logo",
+            "type" : "region"
+          }, {
+            "children" : [ {
+              "attributes" : {
+                "countType" : "TotalProductCount",
+                "dxpStyle" : { },
+                "showCount" : false
+              },
+              "definition" : "commerce_builder:cartBadge",
+              "id" : "19314089-d2d2-4ac3-a276-d1d4c1a3e337",
+              "type" : "component"
+            } ],
+            "id" : "d8541d6a-37ad-4c0d-96cd-d7a0d2138bc1",
+            "name" : "cart",
+            "title" : "Cart",
+            "type" : "region"
+          } ],
+          "definition" : "commerce_unified_checkout:layoutHeader",
+          "id" : "783441cc-413c-4581-bf22-e30ffae19457",
+          "type" : "component"
+        } ],
+        "id" : "c3f39e80-4661-4b5f-a743-4ad5a228dfc4",
+        "name" : "header",
+        "title" : "Header",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "backgroundColor" : "rgb(17, 61, 45)",
+            "dxpStyle" : { }
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "backgroundImageConfig" : "",
+                "backgroundImageOverlay" : "rgba(0,0,0,0)",
+                "componentSpacerSize" : "",
+                "dxpStyle" : { },
+                "maxContentWidth" : "",
+                "sectionColumnGutterWidth" : "",
+                "sectionConfig" : "{\"UUID\":\"9f3a71a5-8d1b-425b-a0d1-c1870f0c6631\",\"columns\":[{\"UUID\":\"02c55ddc-5afd-4106-826c-16ab83f64735\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"2\",\"seedComponents\":null},{\"UUID\":\"1cc992fe-2d6c-4d35-bcab-5b408982b27d\",\"columnName\":\"Column 2\",\"columnKey\":\"col2\",\"columnWidth\":\"8\",\"seedComponents\":null},{\"UUID\":\"da60f61e-0b5f-4aec-bca1-335e821d3212\",\"columnName\":\"Column 3\",\"columnKey\":\"col3\",\"columnWidth\":\"2\",\"seedComponents\":null}]}"
+              },
+              "children" : [ {
+                "children" : [ {
+                  "attributes" : {
+                    "alignment" : "center",
+                    "dxpStyle" : { },
+                    "imageInfo" : "{\"imageInfoV1\":{\"url\":\"/sfsites/c/cms/delivery/media/MCCA5G2KCHOVH7XBPUGLEGQRK6WM?lastModifiedDate=Thu Jan 11 17:05:40 GMT 2024\",\"altText\":\"\",\"contentKey\":\"MCCA5G2KCHOVH7XBPUGLEGQRK6WM\",\"contentType\":null}}",
+                    "logoWidth" : 150
+                  },
+                  "definition" : "dxp_content_layout:siteLogo",
+                  "id" : "12ede95f-056f-420e-9e7e-209ea6e9d186",
+                  "type" : "component"
+                } ],
+                "id" : "02c55ddc-5afd-4106-826c-16ab83f64735",
+                "name" : "col1",
+                "title" : "Column 1",
+                "type" : "region"
+              }, {
+                "children" : [ {
+                  "attributes" : {
+                    "alignment" : "center",
+                    "dxpStyle" : { },
+                    "navigationMenuEditor" : "Footer_Links_Navigation",
+                    "showBackLabel" : true,
+                    "showHomeLink" : false
+                  },
+                  "customCssClasses" : "font-links-bold",
+                  "definition" : "commerce_builder:drilldownNavigation",
+                  "id" : "b8755351-c14c-4cf1-8bcf-3ef3ecfbf82c",
+                  "type" : "component"
+                }, {
+                  "attributes" : {
+                    "dxpStyle" : { },
+                    "richTextValue" : "<div style=\"text-align: center; font-weight: bold\">\n    <p>© 2023 PRECISION PULLEY AND IDLER (PPI). ALL RIGHTS RESERVED.</p><br>\n    <p>WE USE COOKIES TO IMPROVE YOUR EXPERIENCE. BY YOUR CONTINUED USE OF THIS SITE YOU ACCEPT SUCH USE.</p>\n</div>"
+                  },
+                  "definition" : "community_builder:htmlEditor",
+                  "id" : "add62cc3-859a-477a-ae15-af3a3080f517",
+                  "type" : "component"
+                } ],
+                "id" : "1cc992fe-2d6c-4d35-bcab-5b408982b27d",
+                "name" : "col2",
+                "title" : "Column 2",
+                "type" : "region"
+              }, {
+                "id" : "da60f61e-0b5f-4aec-bca1-335e821d3212",
+                "name" : "col3",
+                "title" : "Column 3",
+                "type" : "region"
+              } ],
+              "definition" : "community_layout:section",
+              "id" : "9f3a71a5-8d1b-425b-a0d1-c1870f0c6631",
+              "scopedBrandingSetId" : "Footer_Theme",
+              "type" : "component"
+            } ],
+            "id" : "3d7d2730-37d6-4097-a665-ed2cd980c437",
+            "name" : "content",
+            "title" : "Content",
+            "type" : "region"
+          } ],
+          "definition" : "commerce_builder:layoutFooter",
+          "id" : "704e1511-c483-44b5-8fdd-0bf4f20c9a1c",
+          "type" : "component"
+        } ],
+        "id" : "ce392d6d-3171-4e23-98f4-2e32ab8f9e42",
+        "name" : "footer",
+        "title" : "Footer",
+        "type" : "region"
+      } ],
+      "definition" : "commerce:layoutSite",
+      "id" : "13d11605-4f24-47f6-9d79-7f3dd564989d",
+      "type" : "component"
+    }
+  },
+  "urlName" : "checkout-layout"
+}

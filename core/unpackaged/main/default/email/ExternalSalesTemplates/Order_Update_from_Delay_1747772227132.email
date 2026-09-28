@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">
+<p>Dear&nbsp;{{{Recipient.FirstName}}},</p>
+
+<p>We’re pleased to let you know that the materials required for your order have been received, and your order has now progressed through our production facility and is being prepared for shipment.</p>
+
+<p>Our team has prioritized processing to minimize any delays, and we are working diligently to complete and ship your order as quickly as possible. You will receive tracking information as soon as your order is in transit.</p>
+
+<p>We truly appreciate your patience and understanding as we navigated the material delay, and we thank you for your continued partnership.</p>
+
+<p>If you have any questions, please don’t hesitate to reach out — we’re here to help.</p>
+
+<p>Best regards,<br />
+{{{Sender.Signature}}}</p>
+</body>
+</html>

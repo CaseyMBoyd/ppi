@@ -1,0 +1,18 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<template>
+    <lightning-accordion allow-multiple-sections-open
+                         onsectiontoggle={handleSectionToggle}
+                         active-section-name="orderItems">
+        <lightning-accordion-section name="orderItems" label={accordionSectionLabel} class="slds-m-top_medium">
+            <div class="slds-p-left_medium slds-p-vertical_medium slds-border_bottom">
+                Shipping method: {shippingMethodName}
+            </div>
+            <template if:true={orderItems}>
+                <template for:each={orderItems} for:item="orderItem">
+                    <c-order-item-position key={orderItem.Id} order-item={orderItem}></c-order-item-position>
+                </template>
+            </template>
+        </lightning-accordion-section>
+    </lightning-accordion>
+</template>

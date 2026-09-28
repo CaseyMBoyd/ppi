@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <description>Order Item List</description>
+    <isExposed>true</isExposed>
+    <masterLabel>Order Item List</masterLabel>
+    <targets>
+        <target>lightningCommunity__Default</target>
+        <target>lightningCommunity__Page</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="recordId" default="{!recordId}" type="String" label="Order Summary ID"/>
+            <property name="fieldsJson" default="[{&quot;field&quot;:&quot;PPI_Part_Number__c&quot;,&quot;label&quot;:&quot;PPI Part Number&quot;},{&quot;field&quot;:&quot;Displayed_Description__c&quot;,&quot;label&quot;:&quot;Description&quot;},{&quot;field&quot;:&quot;Product2.Pretty_Description__c&quot;,&quot;label&quot;:&quot;&quot;},{&quot;field&quot;:&quot;Quantity&quot;,&quot;label&quot;:&quot;Quantity Ordered&quot;},{&quot;field&quot;:&quot;ProductCode&quot;,&quot;label&quot;:&quot;Product Sku&quot;}]" type="String" label="Fields to display JSON"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

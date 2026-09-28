@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PPI_Order_Number__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+    ISBLANK(Order_External_Id__c),
+    OrderNumber,
+    TRIM(LEFT(Order_External_Id__c, 6))
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>PPI Order Number</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

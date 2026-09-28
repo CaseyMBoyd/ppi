@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">
+<p>Hello&nbsp;{{{Recipient.FirstName}}}</p>
+
+<p>Thank you for your recent order!&nbsp;&nbsp;</p>
+
+<p>We are currently reviewing your order and require more information on your shaft.&nbsp;&nbsp;Before we can finalize our production prints, we need to verify one important detail: the&nbsp;<b>Drill and Tap Size.&nbsp; &nbsp;</b>The drill and tap is specified by the diameter and number of threads per inch (example: 1/2-13 UNC is 1/2" diameter with 13 threads per inch).&nbsp;<br />
+<br />
+If you can please advise on the Tapped Hole size and Depth.<br />
+<br />
+*D&amp;T Pic will be here in Live*</p>
+
+<p>Please confirm the&nbsp;<strong>Drill and Tap Size</strong>&nbsp;at your earliest convenience. We will proceed with building the pulley, but the shaft will remain on hold until we receive your confirmation.</p>
+
+<p>Thank you in advance for your prompt response!</p>
+
+<p>Best regards,<br />
+{{{Sender.Signature}}}</p>
+</body>
+</html>

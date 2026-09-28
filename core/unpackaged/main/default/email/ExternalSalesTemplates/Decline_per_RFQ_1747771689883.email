@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">Dear&nbsp;{{{Recipient.FirstName}}},<br />
+<br />
+Thank you for reaching out to us.&nbsp; Unfortunately, we are unable to produce the product you've request. we truly appreciate the opportunity and your consideration, but will have to respectfully decline at this time.<br />
+<br />
+Thank you again for keeping us in mind.<br />
+<br />
+Best regards,<br />
+{{{Sender.Signature}}}<br />
+<br />
+{{{Opportunity.Email_Content__c}}}</body>
+</html>

@@ -1,0 +1,74 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Website Policy",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"e137b754-be2e-4944-a29b-ddd2b6d405ae\",\"columns\":[{\"UUID\":\"491394ba-82c6-43f9-9fb2-5c03cb9b7704\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "contentId" : "MC5QNFNXTJINGGPABMEFUE3UHPY4",
+                "dxpStyle" : {
+                  "margin" : {
+                    "bottom" : "50px",
+                    "left" : "50px",
+                    "right" : "50px",
+                    "top" : "50px"
+                  }
+                }
+              },
+              "definition" : "c:termsAndConditionsPagesContent",
+              "id" : "51dc5935-97b5-4d46-be53-a857ded6a941",
+              "type" : "component"
+            } ],
+            "id" : "491394ba-82c6-43f9-9fb2-5c03cb9b7704",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "e137b754-be2e-4944-a29b-ddd2b6d405ae",
+          "type" : "component"
+        } ],
+        "id" : "b3e383d2-c573-4c4c-86d4-2440d51a4c56",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "",
+            "description" : "",
+            "dxpStyle" : { },
+            "pageTitle" : "Website Policy",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "e60dd082-d7db-41ca-bff9-db72b5595bac",
+          "type" : "component"
+        } ],
+        "id" : "0ae4072d-1b69-4c5d-91fd-38fbb9dac61b",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "e1c3ccb8-6f3f-43d7-93c7-9de3075a9805",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "Inner",
+    "viewType" : "custom-website-policy"
+  },
+  "urlName" : "website-policy"
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Order_External_Id__c</fullName>
+    <externalId>false</externalId>
+    <formula>OriginalOrder.External_Id__c</formula>
+    <label>Order External Id</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

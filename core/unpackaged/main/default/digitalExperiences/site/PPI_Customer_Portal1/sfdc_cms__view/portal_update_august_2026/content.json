@@ -1,0 +1,70 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "portal-update-august-2026",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"c0fcf9a6-cdc5-4ac7-bd28-e71a668d3b77\",\"columns\":[{\"UUID\":\"f1c39c38-8a16-41ee-86b4-b95e524ea7e3\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "imageInfos" : "",
+                "richTextValue" : "<p><strong style=\"font-size: 24px; color: rgb(24, 86, 64);\">Portal Update: New Features to Improve Your Ordering Experience</strong></p><p><strong style=\"font-size: 11pt; color: rgb(99, 101, 105);\">August 2026</strong></p><p><br></p><p><span style=\"font-size: 11pt;\">We've rolled out several improvements to the PPI Customer Portal this month to make it faster and easier to place and manage your orders. Here's what's new:</span></p><p><br></p><p><strong style=\"font-size: 20px; color: rgb(24, 86, 64);\">1. Shipping Carrier Selection for Heavy Items</strong></p><p><span style=\"font-size: 11pt;\">We're updating carrier selection in the Portal to help prevent shipping issues on heavier items and keep your orders moving smoothly.</span></p><p><br></p><p><strong style=\"font-size: 11pt; color: rgb(24, 86, 64);\">What's Changing</strong></p><p class=\"ql-indent-1\">•<span style=\"font-size: 7pt; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=\"font-size: 11pt;\">FedEx Ground, UPS Ground, and UPS NDA cannot be used for any individual item weighing 140 lbs or more, and are not recommended for shipments of 140 lbs or more, since these carriers have package weight limits.</span></p><p class=\"ql-indent-1\">•<span style=\"font-size: 7pt; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=\"font-size: 11pt;\">This applies when Collect or 3rd Party Bill To is selected as the delivery method. If a qualifying item is in your order, those carrier options will be grayed out and unavailable to select.</span></p><p class=\"ql-indent-1\">•<span style=\"font-size: 7pt; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=\"font-size: 11pt;\">Hovering over a grayed-out carrier name will show a message explaining why the option isn't available and what to do instead.</span></p><p><br></p><p><strong style=\"font-size: 11pt; color: rgb(24, 86, 64);\">What to Do Instead</strong></p><p><span style=\"font-size: 11pt;\">If your order is at or above 140 lbs (with no individual item at or above 140 lbs) and you'd like it shipped in multiple packages, select Will Advise as your delivery method and note your request in the Shipping Instructions field.</span></p><p><br></p><p><strong style=\"font-size: 20px; color: rgb(24, 86, 64);\">2. Easier Ship-To Address Management</strong></p><p><span style=\"font-size: 11pt;\">Finding and managing Ship-To addresses at checkout and in My Account is now faster and simpler.</span></p><p class=\"ql-indent-1\">•<span style=\"font-size: 7pt; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=\"font-size: 11pt;\">A new search bar lets you quickly find a Ship-To address by name, company, street, city, state, or postal code.</span></p><p class=\"ql-indent-1\">•<span style=\"font-size: 7pt; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=\"font-size: 11pt;\">Sort your address list by name, city, state, most recently used, or default address.</span></p><p class=\"ql-indent-1\">•<span style=\"font-size: 7pt; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=\"font-size: 11pt;\">Available in both the checkout Shipping Address step and the My Account address page.</span></p><p class=\"ql-indent-1\">•<span style=\"font-size: 7pt; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=\"font-size: 11pt;\">The address form now uses a single Name field in place of separate First Name, Last Name, and Company Name fields. Your existing addresses will update automatically to the new format — no re-entry required, and no address information will be lost.</span></p><p><br></p><p><strong style=\"font-size: 20px; color: rgb(24, 86, 64);\">﻿3. Smarter Inventory &amp; Lead Time Visibility</strong></p><p><span style=\"font-size: 11pt;\">It's now easier to know what's available and when it will ship, right from the product listing page.</span></p><p class=\"ql-indent-1\">•<span style=\"font-size: 7pt; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=\"font-size: 11pt;\">The old “Check Inventory” label is replaced with a direct availability status on every product: In Stock, Low Stock, or Made to Order.</span></p><p class=\"ql-indent-1\">•<span style=\"font-size: 7pt; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=\"font-size: 11pt;\">Hover over a product's status to see the exact quantity available and which service center it's stocked at.</span></p><p class=\"ql-indent-1\">•<span style=\"font-size: 7pt; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=\"font-size: 11pt;\">Hovering over a service center location now also shows expected lead time guidance for that location, by product type and quantity, so you can plan around fulfillment timing before you order.</span></p><p><br></p><p><strong style=\"font-size: 20px; color: rgb(24, 86, 64);\">4. Clearer Service Center Names</strong></p><p><span style=\"font-size: 11pt;\">Inventory locations will now display using clear City/State naming (for example, “Corning, IA”) instead of internal warehouse codes. These friendly names will appear anywhere inventory locations show up in the Portal, including product availability and order details — no more guessing what a warehouse code stands for.</span></p><p><br></p><p><strong style=\"font-size: 20px; color: rgb(24, 86, 64);\">What You Need to Do</strong></p><p><span style=\"font-size: 11pt;\">Nothing. All of these updates apply automatically — there's no setup, re-entry, or action required on your part. You'll see the changes the next time you browse products, check out, or visit My Account.</span></p><p><br></p><p><em style=\"font-size: 11pt; color: rgb(99, 101, 105);\">If you have questions about any of these updates, or about availability, lead times, or shipping on a specific order, your PPI representative is always ready to help — or reach out to the Digital Customer Experience team.</em></p>"
+              },
+              "definition" : "community_builder:richTextEditor",
+              "id" : "698135c0-ba30-4757-9f0a-9d2064634960",
+              "type" : "component"
+            } ],
+            "id" : "f1c39c38-8a16-41ee-86b4-b95e524ea7e3",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "c0fcf9a6-cdc5-4ac7-bd28-e71a668d3b77",
+          "type" : "component"
+        } ],
+        "id" : "288d7e1e-f0bd-4e26-90da-a752a669baba",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "",
+            "description" : "",
+            "pageTitle" : "portal-update-august-2026",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "86b9bf6a-e57b-4343-aa9f-a168ea865a6a",
+          "type" : "component"
+        } ],
+        "id" : "368c1a13-bfaa-4c35-8ec1-b52ca944f204",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "bfcf0353-e6af-4e4b-8067-4d93cc48bfc1",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "Inner",
+    "viewType" : "lightningOut2"
+  },
+  "urlName" : "portal-update-august-2026"
+}

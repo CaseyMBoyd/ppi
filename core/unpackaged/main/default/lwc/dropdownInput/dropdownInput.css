@@ -1,0 +1,50 @@
+/* Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. */
+
+.search {
+    z-index: 1;
+    position: relative;
+}
+
+input:focus ~ .dropdown {
+    display: block;
+}
+
+input:focus ~ .slds-form-element__help {
+    display: none;
+}
+
+.dropdown {
+    position: absolute;
+    left: 0;
+    right: 0;
+    border: 1px solid lightgray;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: none;
+    background-color: #fff;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.dropdown-item {
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    text-decoration: none;
+    background-color: #E5E5E5;
+}
+
+/* CRM-4423: disabled option styling. Placed AFTER .dropdown-item:hover so the
+   disabled hover override wins on equal specificity (source order). */
+.dropdown-item--disabled {
+    color: #c9c7c5;
+    cursor: not-allowed;
+    background-color: #f3f2f2;
+}
+
+.dropdown-item--disabled:hover {
+    background-color: #f3f2f2;
+    text-decoration: none;
+}

@@ -1,0 +1,142 @@
+<messaging:emailTemplate subject="Here is your PPI order acknowledgement!"
+                         renderUsingSystemContextWithoutSharing="true"
+                         recipientType="User"
+                         relatedToType="OrderSummary">
+    
+    <messaging:htmlEmailBody >
+    
+    <c:b2bCommerceEmailStyles />
+    
+        <body>
+            <center>
+
+                <table cellpadding="0" cellspacing="0" style="margin: 0 auto; border-collapse: collapse; width: 600px" width="600">
+                
+
+                    <!-- HEADER -->
+                    <tr>
+                        <td>
+                            <div style="background-color: #FFFFFF; min-height: 20px">&nbsp;</div>
+                            <div style="background-color: #FFFFFF; text-align: center; padding: 20px;">
+                                <c:emailImage comName="PPI_Customer_Portal1" imgName="PPI_logo" altText="PPI Logo"/>
+                            </div>
+                            <div style="background-color: #FFFFFF; min-height: 20px">&nbsp;</div>
+                        </td>
+                    </tr>
+                    <!-- /HEADER -->
+                    <!-- BODY -->
+                    <tr>
+                        <td>
+                            <table cellpadding="0" cellspacing="0" style="background-color: #fff; margin: 0 auto; border-collapse: collapse; width: 600px" width="600">
+                                <tr><!-- Spacer --><td><div style="padding: 4px 0">&nbsp;</div></td></tr>                               
+                                <!-- ORDER SUMMARY -->
+                                <tr class="fields-section">
+                                    <td style="padding: 0px 25px 25px 25px">
+                                        <table cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+                                            <tr>
+                                                <td>
+                                                    <b>ORDERED:</b>&nbsp;<apex:outputField value="{!relatedTo.OrderedDate}"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr class="fields-section">
+                                    <td style="padding: 0px 25px 25px 25px">
+                                        <table cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+                                            <tr>
+                                                <td>
+                                                    <b>PO Number:</b>&nbsp;<apex:outputField value="{!relatedTo.PoNumber}"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr><!-- Spacer --><td style="padding: 0px 25px 25px 25px"><div style="height: 1px; background-color: #ecebea"></div></td></tr>
+                                <!-- BILLING AND SHIPPING INFORMATION -->
+                                <tr class="fields-section">
+                                    <td style="padding: 0px 25px 25px 25px">
+                                        <table cellpadding="0" cellspacing="0" style="border-collapse: collapse; padding: 0; width: 100%;">
+                                            <tr>
+                                                <td>
+                                                    <apex:repeat value="{!relatedTo.OrderDeliveryGroupSummaries}" var="deliveryGroup">
+                                                        <b style="padding-bottom: 5px;">SHIPPING INFORMATION</b>
+                                                        <br/>
+                                                        <div>{!deliveryGroup.Company__c}</div>
+                                                        <div>{!deliveryGroup.DeliverToStreet}</div>
+                                                        <div>{!deliveryGroup.DeliverToCity}, {!deliveryGroup.DeliverToState} {!deliveryGroup.DeliverToPostalCode}</div>
+                                                        <div>{!deliveryGroup.DeliverToCountry}</div>
+                                                        <br/>
+                                                    </apex:repeat>
+                                                </td>
+                                                <td>
+                                                    <b style="padding-bottom: 5px;">BILLING INFORMATION</b>
+                                                    <br/>
+                                                    <div>{!relatedTo.BillingStreet}</div>
+                                                    <div>{!relatedTo.BillingCity}, {!relatedTo.BillingState} {!relatedTo.BillingPostalCode}</div>
+                                                    <div>{!relatedTo.BillingCountry}</div>
+                                                    <br/>
+                                                </td>
+                                            </tr>
+                                            <tr><!-- Spacer --><td><div style="padding: 2px 0">&nbsp;</div></td></tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr class="fields-section">
+                                    <!-- ORDER ITEM -->
+                                    <td style="padding: 0px 25px 25px 25px">
+                                        <c:orderConfirmationEmailItems sumId="{!relatedTo.Id}"
+                                                                       comName="PPI Customer Portal"/>
+                                    </td>
+                                </tr>
+                                <tr class="fields-section">
+                                    <td style="padding: 0px 25px 25px 25px">
+                                        <!-- GRAND TOTALS -->
+                                        <table style="width: 100%;">
+                                            <tr style="text-align: right;">
+                                                <td style="padding-bottom: 8px;"><b>SUBTOTAL:</b>&nbsp;
+                                                    <apex:outputText value="{0, number, ###,###.00}">
+                                                        <apex:param value="{!relatedTo.TotalAdjustedProductAmount}" />
+                                                    </apex:outputText>
+                                                </td>
+                                            </tr>
+                                            <tr style="text-align: right;">
+                                                <td style="padding-bottom: 8px;"><b>TOTAL:</b>&nbsp;
+                                                    <apex:outputText value="{0, number, ###,###.00}">
+                                                        <apex:param value="{!relatedTo.GrandTotalAmount}" />
+                                                    </apex:outputText>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr class="fields-section">
+                                    <td style="padding: 0px 25px 25px 25px;" align="center">
+                                        <c:navigateToCommunity relatedToId="{!relatedTo.Id}"
+                                                               relatedToLabel="VIEW ORDER"
+                                                               comName="PPI_Customer_Portal1"
+                                                               comPageRoute="OrderSummary"
+                                                               useTabSet="false"
+                                                               params=""
+                                                               detailPage="true"
+                                                               button="true"/>
+                                    </td>
+                                </tr>
+                                <tr class="footer">
+                                    <!-- FOOTER -->
+                                    <td style="font-size: 12px; padding: 16px; width: 100%; text-align: center; background-color: rgb(17, 61, 45);">
+                                        <b style="color: white !important;">© 2023 PRECISION PULLEY AND IDLER (PPI). ALL RIGHTS RESERVED.</b>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                </table>
+            </center>
+        </body>
+
+    </messaging:htmlEmailBody>
+
+</messaging:emailTemplate>

@@ -1,0 +1,14 @@
+<template>
+    <lightning-spinner if:true={isLoading} variant="brand" size="small"></lightning-spinner>
+    <div class="slds-grid slds-grid_vertical-align-center slds-gutters_small">
+        <div class="slds-col">
+            <input type="file" accept=".csv" onchange={handleFileChange} class="slds-file-selector__input"/>
+        </div>
+        <div class="slds-col slds-no-flex">
+            <lightning-button label="Download Template" onclick={handleDownloadTemplate}></lightning-button>
+        </div>
+    </div>
+    <p class="slds-text-body_small slds-m-top_xx-small">
+        Required columns: Customer_Part_Number, PPI_Part_Number
+    </p>
+</template>

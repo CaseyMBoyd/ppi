@@ -1,0 +1,104 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Address List",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"49991410-6763-44cb-a7c3-884bac1e5b3e\",\"columns\":[{\"UUID\":\"dae70f7c-9ebe-4427-8ca3-89b9cb87c09b\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"10\",\"seedComponents\":null},{\"UUID\":\"550ea6e1-e46e-4771-a072-c8281bad0fa5\",\"columnName\":\"Column 2\",\"columnKey\":\"col2\",\"columnWidth\":\"2\",\"seedComponents\":null}]}"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "backgroundColor" : "",
+                "dxpStyle" : { },
+                "isLinkable" : false,
+                "linkAssistiveText" : "",
+                "paddingHorizontal" : "small",
+                "paddingVertical" : "xx-small",
+                "text" : "Address Management",
+                "textAlign" : "left",
+                "textDecoration" : "{\"bold\": true}",
+                "textDisplayInfo" : "{\"textStyle\": \"heading-medium\", \"headingTag\": \"h2\"}"
+              },
+              "definition" : "dxp_base:textBlock",
+              "id" : "2832936d-8419-49fd-852e-4168f7d2ce41",
+              "type" : "component"
+            } ],
+            "id" : "dae70f7c-9ebe-4427-8ca3-89b9cb87c09b",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          }, {
+            "id" : "550ea6e1-e46e-4771-a072-c8281bad0fa5",
+            "name" : "col2",
+            "title" : "Column 2",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "49991410-6763-44cb-a7c3-884bac1e5b3e",
+          "type" : "component"
+        }, {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"ca7291cc-f581-4a42-b8b1-cf5d246ed312\",\"columns\":[{\"UUID\":\"d145e224-a097-41f1-9440-72e467d7a86e\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":null}]}"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "displayMode" : "management"
+              },
+              "definition" : "c:b2bAddressSelector",
+              "id" : "309dd922-fb0b-450f-9bca-74d9d047df1f",
+              "type" : "component"
+            } ],
+            "id" : "d145e224-a097-41f1-9440-72e467d7a86e",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "ca7291cc-f581-4a42-b8b1-cf5d246ed312",
+          "type" : "component"
+        } ],
+        "id" : "488cdd3f-ec60-4677-8bd8-b11298f44596",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "dxpStyle" : { },
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "160a19fc-b71c-411c-be3d-65c30b849ec4",
+          "type" : "component"
+        } ],
+        "id" : "45b4b0c1-ce11-42d2-b96b-92130d3b37f3",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "5aa6f3fd-a399-4a39-a3f5-d8479cdd6e72",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "MyAccount",
+    "viewType" : "addresses"
+  },
+  "urlName" : "address-list"
+}

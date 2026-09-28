@@ -1,0 +1,48 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- Attach Cart Document -->
+<template>
+  <lightning-spinner lwc:if={isLoading} variant="brand"></lightning-spinner>
+
+  <template lwc:if={canCheckout}>
+    <label class="slds-form-element__label" for="fileInput">
+      <abbr lwc:if={required} class="slds-required" title="required">*</abbr>
+      {label}
+    </label>
+    <lightning-input
+      lwc:ref="fileInput"
+      id="fileInput"
+      type="file"
+      label={label}
+      variant="label-hidden"
+      accept={acceptedFormats}
+      onchange={handleUploadFinished}
+      disabled={isSummary}
+      multiple={allowMultiple}
+    ></lightning-input>
+    <div style="margin-top: -18px" if:false={isSummary}>
+      <span style="font-size: smaller">{acceptedFormatsLabel}</span>
+    </div>
+  </template>
+
+  <section class="slds-grid slds-wrap">
+    <div
+      for:each={attachedFiles}
+      for:item="file"
+      key={file.cartDocumentId}
+      class="slds-m-right_xx-small slds-m-bottom_xx-small"
+    >
+      <lightning-badge
+        lwc:if={isSummary}
+        label={file.name}
+      ></lightning-badge>
+      <lightning-pill
+        lwc:else
+        label={file.name}
+        data-cart-document-id={file.cartDocumentId}
+        name={index}
+        onremove={deleteCartDocument}
+      ></lightning-pill>
+    </div>
+  </section>
+</template>

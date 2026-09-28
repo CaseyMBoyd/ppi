@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Support Request",
+  "contentBody" : {
+    "activeViewId" : "Support_Request",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-support-request",
+    "urlPrefix" : "support-request"
+  },
+  "urlName" : "support-request"
+}

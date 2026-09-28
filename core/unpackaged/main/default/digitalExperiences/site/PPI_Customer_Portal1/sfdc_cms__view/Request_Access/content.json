@@ -1,0 +1,138 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Request Access",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"c43d3640-fc47-462e-a829-be9bdb7f6070\",\"columns\":[{\"UUID\":\"5c90d9d2-b029-410d-aa26-8658458e8873\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "backgroundColor" : "",
+                "dxpStyle" : { },
+                "isLinkable" : false,
+                "linkAssistiveText" : "",
+                "paddingHorizontal" : "none",
+                "paddingVertical" : "none",
+                "text" : "Request Access",
+                "textAlign" : "center",
+                "textDecoration" : "{}",
+                "textDisplayInfo" : "{\"textStyle\":\"heading-large\",\"headingTag\":\"h2\"}"
+              },
+              "definition" : "dxp_base:textBlock",
+              "id" : "5f99dc95-f590-4507-b218-1a55a382d08b",
+              "type" : "component"
+            }, {
+              "attributes" : {
+                "buttonAlignment" : "center",
+                "buttonSize" : "standard",
+                "buttonText" : "Submit",
+                "customFieldOneConfig" : "{\"fieldInputType\":\"Text\",\"fieldMaxLength\":80,\"fieldApiName\":\"SuppliedCompany\",\"isFieldInputTypeEditable\":true}",
+                "customFieldOneLabel" : "Company Name",
+                "customFieldOnePlaceholder" : "Enter Company Name",
+                "customFieldThreeConfig" : "{\"fieldInputType\":\"Text\",\"isFieldInputTypeEditable\":true,\"fieldMaxLength\":null,\"fieldApiName\":\"\"}",
+                "customFieldThreeLabel" : "Custom Field Label",
+                "customFieldThreePlaceholder" : "Custom Field Placeholder",
+                "customFieldTwoConfig" : "{\"fieldInputType\":\"Text\",\"fieldMaxLength\":255,\"fieldApiName\":\"Contact_Title__c\",\"isFieldInputTypeEditable\":true}",
+                "customFieldTwoLabel" : "Title of Role at Company",
+                "customFieldTwoPlaceholder" : "Enter Contact",
+                "descriptionFieldConfig" : "{\"fieldInputType\":\"Text\",\"isFieldInputTypeEditable\":false,\"fieldMaxLength\":null,\"fieldApiName\":\"Description\"}",
+                "descriptionLabel" : "Description",
+                "descriptionPlaceholder" : "Enter your description",
+                "dxpStyle" : { },
+                "emailFieldConfig" : "{\"fieldInputType\":\"Email\",\"isFieldInputTypeEditable\":false,\"fieldMaxLength\":null,\"fieldApiName\":\"SuppliedEmail\"}",
+                "emailLabel" : "Email",
+                "emailPlaceholder" : "Enter your email address",
+                "fullNameFieldConfig" : "{\"fieldInputType\":\"Text\",\"isFieldInputTypeEditable\":false,\"fieldMaxLength\":null,\"fieldApiName\":\"SuppliedName\"}",
+                "fullNameLabel" : "User Name",
+                "fullNamePlaceholder" : "Enter your name",
+                "isCustomFieldOneRequired" : true,
+                "isCustomFieldThreeRequired" : false,
+                "isCustomFieldTwoRequired" : true,
+                "isDescriptionRequired" : false,
+                "isEmailRequired" : true,
+                "isFullNameRequired" : true,
+                "isPhoneRequired" : true,
+                "isSubjectRequired" : false,
+                "phoneFieldConfig" : "{\"fieldInputType\":\"Phone\",\"isFieldInputTypeEditable\":false,\"fieldMaxLength\":null,\"fieldApiName\":\"SuppliedPhone\"}",
+                "phoneLabel" : "Phone",
+                "phonePlaceholder" : "Enter your phone number",
+                "position" : "center",
+                "showCustomFieldOne" : true,
+                "showCustomFieldThree" : false,
+                "showCustomFieldTwo" : true,
+                "showDescription" : false,
+                "showEmail" : true,
+                "showFormLabels" : true,
+                "showFullName" : true,
+                "showPhone" : true,
+                "showSubject" : false,
+                "showSubtitle" : false,
+                "showTitle" : false,
+                "subjectFieldConfig" : "{\"fieldInputType\":\"Text\",\"isFieldInputTypeEditable\":false,\"fieldMaxLength\":null,\"fieldApiName\":\"Subject\"}",
+                "subjectLabel" : "Name",
+                "subjectPlaceholder" : "Enter your Name",
+                "submitActionCustomErrorMessage" : "Looks like something went wrong.",
+                "submitActionRedirectURL" : "login",
+                "submitActionSuccessInlineMessage" : "Your request was successfully submitted!",
+                "submitActionSuccessInlineMessageFontSize" : "medium",
+                "submitActionSuccessInlineMessagePosition" : "center",
+                "submitActionType" : "inline",
+                "subtitle" : "Tell us how we can help.",
+                "title" : "Request Access",
+                "width" : 50
+              },
+              "definition" : "dxp_form:contactSupportForm",
+              "id" : "d26f03e8-9ac5-456f-ab94-8ddd4fd42447",
+              "type" : "component"
+            } ],
+            "id" : "5c90d9d2-b029-410d-aa26-8658458e8873",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "c43d3640-fc47-462e-a829-be9bdb7f6070",
+          "type" : "component"
+        } ],
+        "id" : "a53ebd2c-c090-4a03-aeb0-29fbe206e0a8",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "",
+            "description" : "",
+            "dxpStyle" : { },
+            "pageTitle" : "Request Access",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "6f465eb0-edc9-4445-a540-1d789ac9f340",
+          "type" : "component"
+        } ],
+        "id" : "175a1a92-7a6d-47c5-a270-c97721bf374e",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "0d66d9db-3cc1-4f67-ab91-4b8ca5d3d356",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "Inner",
+    "viewType" : "custom-request-access"
+  },
+  "urlName" : "request-access"
+}

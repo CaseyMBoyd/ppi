@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>WHSE U Return Idlers</label>
+    <protected>false</protected>
+    <values>
+        <field>Is_Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Is_Fallback__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Lead_Time_Display_Value__c</field>
+        <value xsi:type="xsd:string">Return Idler Lead Time</value>
+    </values>
+    <values>
+        <field>Location_Code__c</field>
+        <value xsi:type="xsd:string">U</value>
+    </values>
+    <values>
+        <field>Max_Quantity__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Min_Quantity__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Product_Category__c</field>
+        <value xsi:type="xsd:string">Return Idlers</value>
+    </values>
+</CustomMetadata>

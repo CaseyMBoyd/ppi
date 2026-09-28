@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Operations_Key_Account__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field denotes if an account is designated as a Sales Operations Key Account.  They are typically assigned to Territory 07 or 23.</description>
+    <inlineHelpText>Check this box if the account is a Sales Ops Key Account.</inlineHelpText>
+    <label>Sales Operations Key Account</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

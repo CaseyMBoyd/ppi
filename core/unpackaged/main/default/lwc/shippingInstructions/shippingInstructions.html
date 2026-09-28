@@ -1,0 +1,10 @@
+<template>
+    <lightning-textarea
+        max-length="2000"
+        onchange={handleChange}
+        value={shippingInstructions}
+        variant="label-hidden"
+        disabled={isSummary}
+        label="Shipping Instructions"
+    ></lightning-textarea>
+</template>

@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExternalServiceRegistration xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>XA proxy server schema definition</description>
+    <label>XaApiService</label>
+    <namedCredentialReference>XA_API</namedCredentialReference>
+    <operations>
+        <active>true</active>
+        <name>getorderinvoicebyordernumberandorderdate</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>putcontactbycustomernumberandemail</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>putorder</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>postavailabletoassemble</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>getordersalesforceinvoicebyexternalid</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>getiteminventorybyitemnumber</name>
+    </operations>
+    <registrationProviderType>Custom</registrationProviderType>
+    <schema>{
+  &quot;openapi&quot;: &quot;3.0.0&quot;,
+  &quot;info&quot;: {
+    &quot;title&quot;: &quot;Precision Pulley &amp; Idler Open API&quot;,
+    &quot;description&quot;: &quot;This is a general Open API to expose data and endpoints to execute business logic.\n\nRequest an API key from: TBD&lt;TBD&gt;&quot;,
+    &quot;contact&quot;: {
+      &quot;email&quot;: &quot;wteeter@ppi-global.com&quot;
+    },
+    &quot;version&quot;: &quot;1.3.0&quot;
+  },
+  &quot;servers&quot;: [{
+      &quot;url&quot;: &quot;https://dev-precision-open-api.azurewebsites.net/&quot;
+    },
+    {
+      &quot;url&quot;: &quot;https://prod-precision-open-api.azurewebsites.net/&quot;
+    }
+  ],
+  &quot;security&quot;: [{
+    &quot;api_auth&quot;: []
+  }],
+  &quot;paths&quot;: {
+    &quot;/order&quot;: {
+      &quot;put&quot;: {
+        &quot;tags&quot;: [
+          &quot;Order&quot;
+        ],
+        &quot;summary&quot;: &quot;Create an order&quot;,
+        &quot;description&quot;: &quot;This creates an order in the PPI system. If any exception to order processing is encountered after being ingested, a PPI representative will contact the order requester via the input payload&apos;s `contactName`\n\nRegarding purchase orders, `purchaseOrder.number` is always required. `purchaseOrder.url` will be used if available, otherwise submit `purchaseOrder.documentType` and `purchaseOrder.document`, the latter of which is a base64 encoded document. If all three are submitted, `purchaseOrder.url` will be used and the other two parameters are ignored.&quot;,
+        &quot;requestBody&quot;: {
+          &quot;required&quot;: true,
+          &quot;content&quot;: {
+            &quot;application/json&quot;: {
+              &quot;schema&quot;: {
+                &quot;$ref&quot;: &quot;#/components/schemas/Order&quot;
+              }
+            }
+          }
+        },
+        &quot;responses&quot;: {
+          &quot;202&quot;: {
+            &quot;description&quot;: &quot;Order was successfully received&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;object&quot;,
+                  &quot;properties&quot;: {
+                    &quot;message&quot;: {
+                      &quot;type&quot;: &quot;string&quot;
+                    }
+                  }
+                }
+              }
+            }
+          },
+          &quot;400&quot;: {
+            &quot;description&quot;: &quot;Invalid request input received&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/InvalidRequest&quot;
+                }
+              }
+            }
+          },
+          &quot;401&quot;: {
+            &quot;description&quot;: &quot;Unauthorized to endpoint&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/UnauthorizedRequest&quot;
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/order/salesforce/{externalID}/invoice&quot;: {
+      &quot;get&quot;: {
+        &quot;tags&quot;: [
+          &quot;Order&quot;
+        ],
+        &quot;summary&quot;: &quot;Retrieve an invoice document&quot;,
+        &quot;description&quot;: &quot;This returns a base64 encoded PDF document. \n\nSame result and logic as /order/{orderNumber}/{orderDate}/invoice. Modified to handle SalesForce&apos;s external ID as one path parameter&quot;,
+        &quot;parameters&quot;: [{
+          &quot;in&quot;: &quot;path&quot;,
+          &quot;name&quot;: &quot;externalID&quot;,
+          &quot;required&quot;: true,
+          &quot;schema&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;Should be in the format &apos;&lt;orderNumber&gt;&lt;orderDate&gt;&apos; where orderNumber is zero padded to six digits&quot;
+          }
+        }],
+        &quot;responses&quot;: {
+           &quot;200&quot;: {
+            &quot;description&quot;: &quot;Invoice found and returned&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;object&quot;,
+                  &quot;properties&quot;: {
+                    &quot;invoicePDF&quot;: {
+                      &quot;type&quot;: &quot;string&quot;,
+                      &quot;format&quot;: &quot;base64&quot;
+                    }
+                  }
+                }
+              }
+            }
+          },          
+          &quot;400&quot;: {
+            &quot;description&quot;: &quot;Invalid request input received&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/InvalidRequest&quot;
+                }
+              }
+            }
+          },
+          &quot;401&quot;: {
+            &quot;description&quot;: &quot;Unauthorized to endpoint&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/UnauthorizedRequest&quot;
+                }
+              }
+            }
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;Invoice not found&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/InvalidRequest&quot;
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/order/{orderNumber}/{orderDate}/invoice&quot;: {
+      &quot;get&quot;: {
+        &quot;tags&quot;: [
+          &quot;Order&quot;
+        ],
+        &quot;summary&quot;: &quot;Retrieve an invoice document&quot;,
+        &quot;description&quot;: &quot;This returns a base64 encoded PDF document&quot;,
+        &quot;parameters&quot;: [{
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;name&quot;: &quot;orderNumber&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/components/schemas/OrderNumber&quot;
+            }
+          },
+          {
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;name&quot;: &quot;orderDate&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;format&quot;: &quot;date&quot;
+            }
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Invoice found and returned&quot;,
+            &quot;content&quot;: {
+              &quot;application/pdf&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;string&quot;,
+                  &quot;format&quot;: &quot;binary&quot;
+                }
+              }
+            }
+          },
+          &quot;400&quot;: {
+            &quot;description&quot;: &quot;Invalid request input received&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/InvalidRequest&quot;
+                }
+              }
+            }
+          },
+          &quot;401&quot;: {
+            &quot;description&quot;: &quot;Unauthorized to endpoint&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/UnauthorizedRequest&quot;
+                }
+              }
+            }
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;Invoice not found&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/InvalidRequest&quot;
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/item/{itemNumber}/inventory&quot;: {
+      &quot;get&quot;: {
+        &quot;tags&quot;: [
+          &quot;Item&quot;
+        ],
+        &quot;summary&quot;: &quot;Retrieves inventory information for one item&quot;,
+        &quot;description&quot;: &quot;Do **_not_** use this endpoint to determine if a collection of items with a non-null `quantityAvailableToAssemble` can come out of one warehouse. Use `/availableToAssemble` for this purpose. An explanation can be found in the description of that endpoint.\n\nThis will return an array of objects where each object holds the availability of the item as well as the warehouse where that availability exists.\n\n`quantityAvailable` will be `null` iff `quantityAvailableToAssemble` is not `null`, and `quantityAvailableToAssemble` will be `null` iff `quantityAvailable` is not `null`. This is true across all warehouses for any particular item.&quot;,
+        &quot;parameters&quot;: [{
+          &quot;in&quot;: &quot;path&quot;,
+          &quot;name&quot;: &quot;itemNumber&quot;,
+          &quot;required&quot;: true,
+          &quot;schema&quot;: {
+            &quot;$ref&quot;: &quot;#/components/schemas/ItemNumber&quot;
+          }
+        }],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;successful operation&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;type&quot;: &quot;object&quot;,
+                    &quot;properties&quot;: {
+                      &quot;warehouse&quot;: {
+                        &quot;$ref&quot;: &quot;#/components/schemas/Warehouse&quot;
+                      },
+                      &quot;quantityAvailable&quot;: {
+                        &quot;type&quot;: &quot;integer&quot;
+                      },
+                      &quot;quantityAvailableToAssemble&quot;: {
+                        &quot;type&quot;: &quot;integer&quot;
+                      }
+                    }
+                  }
+                },
+                &quot;example&quot;: [{
+                    &quot;quantityAvailable&quot;: 0,
+                    &quot;quantityAvailableToAssemble&quot;: null,
+                    &quot;warehouse&quot;: {
+                      &quot;id&quot;: &quot;1&quot;,
+                      &quot;name&quot;: &quot;Pella&quot;,
+                      &quot;address&quot;: {
+                        &quot;contact&quot;: null,
+                        &quot;street1&quot;: &quot;300 S.E. 14TH STREET&quot;,
+                        &quot;street2&quot;: &quot;P.O. BOX 287&quot;,
+                        &quot;city&quot;: &quot;PELLA&quot;,
+                        &quot;state&quot;: &quot;IA&quot;,
+                        &quot;zip&quot;: 50219
+                      }
+                    }
+                  },
+                  {
+                    &quot;quantityAvailable&quot;: 0,
+                    &quot;quantityAvailableToAssemble&quot;: null,
+                    &quot;warehouse&quot;: {
+                      &quot;id&quot;: &quot;U&quot;,
+                      &quot;name&quot;: &quot;Midwest Service Center&quot;,
+                      &quot;address&quot;: {
+                        &quot;contact&quot;: null,
+                        &quot;street1&quot;: &quot;2254 AVENUE OF INDUSTRY&quot;,
+                        &quot;street2&quot;: &quot;&quot;,
+                        &quot;city&quot;: &quot;CORNING&quot;,
+                        &quot;state&quot;: &quot;IA&quot;,
+                        &quot;zip&quot;: 50841
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          &quot;400&quot;: {
+            &quot;description&quot;: &quot;Invalid request input received&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/InvalidRequest&quot;
+                }
+              }
+            }
+          },
+          &quot;401&quot;: {
+            &quot;description&quot;: &quot;Unauthorized to endpoint&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/UnauthorizedRequest&quot;
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/availableToAssemble&quot;: {
+      &quot;post&quot;: {
+        &quot;tags&quot;: [
+          &quot;Item&quot;
+        ],
+        &quot;summary&quot;: &quot;Determines if the items passed can be fulfilled with one order&quot;,
+        &quot;description&quot;: &quot;This is a `POST` route due to the potential amount of data required to be sent with this endpoint. No creation or modification of data happens with this route. It is effectively a `GET` with a payload.\n\nSome PPI product is stocked as components which are assembled upon order. There can be cases where two different PPI products share the same sub-component so the independent `/item/{itemNumber}/inventory` check isn&apos;t sufficient for more than one assembled item. \n\nThis endpoint takes in a list of PPI products and determines if a PPI warehouse can fulfill all products from at least one warehouse. If PPI can fulfill all products, the warehouses that are eligible for fulfillment are also returned here.\n\nIf a non-assembled component is passed here, the endpoint will check the individual&apos;s availability (not availability to assemble) which is the same as the value from `/item/{itemNumber}/inventory`. &quot;,
+        &quot;requestBody&quot;: {
+          &quot;required&quot;: true,
+          &quot;content&quot;: {
+            &quot;application/json&quot;: {
+              &quot;schema&quot;: {
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;properties&quot;: {
+                  &quot;shippingAddress&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/Address&quot;
+                  },
+                  &quot;items&quot;: {
+                    &quot;type&quot;: &quot;array&quot;,
+                    &quot;items&quot;: {
+                      &quot;type&quot;: &quot;object&quot;,
+                      &quot;properties&quot;: {
+                        &quot;itemNumber&quot;: {
+                          &quot;$ref&quot;: &quot;#/components/schemas/ItemNumber&quot;
+                        },
+                        &quot;quantity&quot;: {
+                          &quot;type&quot;: &quot;number&quot;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;successful operation&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;object&quot;,
+                  &quot;properties&quot;: {
+                    &quot;canFulfill&quot;: {
+                      &quot;type&quot;: &quot;boolean&quot;
+                    },
+                    &quot;fulfillmentWarehouses&quot;: {
+                      &quot;type&quot;: &quot;array&quot;,
+                      &quot;items&quot;: {
+                        &quot;$ref&quot;: &quot;#/components/schemas/Warehouse&quot;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          &quot;400&quot;: {
+            &quot;description&quot;: &quot;Invalid request input received&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/InvalidRequest&quot;
+                }
+              }
+            }
+          },
+          &quot;401&quot;: {
+            &quot;description&quot;: &quot;Unauthorized to endpoint&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/UnauthorizedRequest&quot;
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/contact/{customerNumber}/{email}&quot;: {
+      &quot;put&quot;: {
+        &quot;tags&quot;: [
+          &quot;Contacts&quot;
+        ],
+        &quot;summary&quot;: &quot;Upserts contact information&quot;,
+        &quot;description&quot;: &quot;Upserts contact information&quot;,
+        &quot;parameters&quot;: [{
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;name&quot;: &quot;customerNumber&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/components/schemas/CustomerNumber&quot;
+            }
+          },
+          {
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;name&quot;: &quot;email&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;format&quot;: &quot;email&quot;
+            }
+          }
+        ],
+        &quot;requestBody&quot;: {
+          &quot;required&quot;: true,
+          &quot;content&quot;: {
+            &quot;application/json&quot;: {
+              &quot;schema&quot;: {
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;properties&quot;: {
+                  &quot;name&quot;: {
+                    &quot;type&quot;: &quot;string&quot;,
+                    &quot;maxLength&quot;: 30
+                  }
+                }
+              }
+            }
+          }
+        },
+        &quot;responses&quot;: {
+          &quot;201&quot;: {
+            &quot;description&quot;: &quot;Contact was successfully updated or created&quot;,
+            &quot;content&quot;: {
+              &quot;text/plain&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+                }
+              }
+            }
+          },
+          &quot;400&quot;: {
+            &quot;description&quot;: &quot;Invalid request input received&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/InvalidRequest&quot;
+                }
+              }
+            }
+          },
+          &quot;401&quot;: {
+            &quot;description&quot;: &quot;Unauthorized to endpoint&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/UnauthorizedRequest&quot;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  &quot;components&quot;: {
+    &quot;securitySchemes&quot;: {
+      &quot;api_auth&quot;: {
+        &quot;type&quot;: &quot;apiKey&quot;,
+        &quot;in&quot;: &quot;header&quot;,
+        &quot;name&quot;: &quot;x-api-key&quot;
+      }
+    },
+    &quot;schemas&quot;: {
+      &quot;Address&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;contact&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          },
+          &quot;street1&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          },
+          &quot;street2&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          },
+          &quot;city&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          },
+          &quot;state&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          },
+          &quot;zip&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          }
+        }
+      },
+      &quot;ApiResponse&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;statusCode&quot;: {
+            &quot;description&quot;: &quot;HTTP status code. Repeated from the header.&quot;,
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;format&quot;: &quot;int32&quot;
+          },
+          &quot;statusMessage&quot;: {
+            &quot;description&quot;: &quot;General status message&quot;,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          &quot;message&quot;: {
+            &quot;oneOf&quot;: [{
+                &quot;type&quot;: &quot;string&quot;
+              },
+              {
+                &quot;type&quot;: &quot;number&quot;
+              },
+              {
+                &quot;type&quot;: &quot;object&quot;
+              },
+              {
+                &quot;type&quot;: &quot;array&quot;,
+                &quot;items&quot;: {}
+              },
+              {
+                &quot;type&quot;: &quot;boolean&quot;
+              },
+              {
+                &quot;type&quot;: &quot;integer&quot;
+              }
+            ]
+          }
+        }
+      },
+      &quot;CustomerNumber&quot;: {
+        &quot;type&quot;: &quot;string&quot;,
+        &quot;description&quot;: &quot;Fully qualified customer number&quot;,
+        &quot;maxLength&quot;: 11,
+        &quot;pattern&quot;: &quot;^\\d{1,8}-\\d{1,2}$&quot;
+      },
+      &quot;ItemNumber&quot;: {
+        &quot;type&quot;: &quot;string&quot;,
+        &quot;description&quot;: &quot;PPI Item number&quot;,
+        &quot;maxLength&quot;: 15
+      },
+      &quot;LineItem&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;lineNumber&quot;: {
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;minimum&quot;: 1,
+            &quot;maximum&quot;: 999
+          },
+          &quot;quantity&quot;: {
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;minimum&quot;: -9999999.999,
+            &quot;maximum&quot;: 9999999.999
+          },
+          &quot;itemNumber&quot;: {
+            &quot;$ref&quot;: &quot;#/components/schemas/ItemNumber&quot;
+          },
+          &quot;unitPrice&quot;: {
+            &quot;type&quot;: &quot;number&quot;,
+            &quot;description&quot;: &quot;Individual net price for the item&quot;,
+            &quot;format&quot;: &quot;currency&quot;,
+            &quot;minimum&quot;: -999999999999.999,
+            &quot;maximum&quot;: 999999999999.999
+          },
+          &quot;tag&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;Tag to add to the product&quot;
+          }
+        }
+      },
+      &quot;Order&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;customerNumber&quot;: {
+            &quot;$ref&quot;: &quot;#/components/schemas/CustomerNumber&quot;
+          },
+          &quot;indirectCustomerID&quot;: {
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;description&quot;: &quot;Indirect customer identifier&quot;
+          },
+          &quot;orderTime&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;format&quot;: &quot;date-time&quot;
+          },
+          &quot;createdBy&quot;: {
+            &quot;type&quot;: &quot;object&quot;,
+            &quot;properties&quot;: {
+              &quot;name&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;email&quot;: {
+                &quot;type&quot;: &quot;string&quot;,
+                &quot;format&quot;: &quot;email&quot;
+              }
+            }
+          },
+          &quot;currency&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;enum&quot;: [
+              &quot;USD&quot;,
+              &quot;CAD&quot;,
+              &quot;CLP&quot;
+            ]
+          },
+          &quot;referenceOrder&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          },
+          &quot;purchaseOrder&quot;: {
+            &quot;type&quot;: &quot;object&quot;,
+            &quot;properties&quot;: {
+              &quot;number&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;url&quot;: {
+                &quot;type&quot;: &quot;string&quot;,
+                &quot;format&quot;: &quot;url&quot;
+              },
+              &quot;documentType&quot;: {
+                &quot;type&quot;: &quot;string&quot;,
+                &quot;enum&quot;: [
+                  &quot;PDF&quot;,
+                  &quot;XLSX&quot;,
+                  &quot;XLS&quot;
+                ]
+              },
+              &quot;document&quot;: {
+                &quot;type&quot;: &quot;string&quot;,
+                &quot;format&quot;: &quot;binary&quot;
+              }
+            }
+          },
+          &quot;lineItems&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+              &quot;$ref&quot;: &quot;#/components/schemas/LineItem&quot;
+            }
+          },
+          &quot;shipping&quot;: {
+            &quot;type&quot;: &quot;object&quot;,
+            &quot;properties&quot;: {
+              &quot;shipVia&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;requestedShipDate&quot;: {
+                &quot;type&quot;: &quot;string&quot;,
+                &quot;format&quot;: &quot;date-time&quot;
+              },
+              &quot;carrier&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;carrierAccountNumber&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;delivery&quot;: {
+                &quot;type&quot;: &quot;string&quot;,
+                &quot;enum&quot;: [
+                  &quot;Standard&quot;,
+                  &quot;No later than&quot;,
+                  &quot;Do not ship before&quot;
+                ]
+              },
+              &quot;shippingAddress&quot;: {
+                &quot;$ref&quot;: &quot;#/components/schemas/Address&quot;
+              },
+              &quot;freightBillingAddress&quot;: {
+                &quot;$ref&quot;: &quot;#/components/schemas/Address&quot;
+              },
+              &quot;shippingInstructions&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              }
+            }
+          },
+          &quot;allowSplitShipments&quot;: {
+            &quot;type&quot;: &quot;boolean&quot;,
+            &quot;description&quot;: &quot;If `true`, PPI may split this into multiple shipments. If this is required, or an option, and `false`, PPI may contact the `createdBy` person to determine best options on how to handle this order&quot;
+          }
+        }
+      },
+      &quot;OrderNumber&quot;: {
+        &quot;type&quot;: &quot;number&quot;,
+        &quot;maximum&quot;: 999999,
+        &quot;minimum&quot;: 0,
+        &quot;description&quot;: &quot;PPI Order number&quot;
+      },
+      &quot;Warehouse&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;id&quot;: {
+            &quot;description&quot;: &quot;Warehouse identifier&quot;,
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;maxLength&quot;: 1
+          },
+          &quot;name&quot;: {
+            &quot;description&quot;: &quot;Warehouse name&quot;,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          &quot;address&quot;: {
+            &quot;$ref&quot;: &quot;#/components/schemas/Address&quot;
+          }
+        }
+      },
+      &quot;InvalidRequest&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;statusCode&quot;: {
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;description&quot;: &quot;HTTP status code. Repeated from the header.&quot;
+          },
+          &quot;error&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;General error&quot;
+          },
+          &quot;message&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;More detailed error&quot;
+          }
+        }
+      },
+      &quot;UnauthorizedRequest&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;statusCode&quot;: {
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;description&quot;: &quot;HTTP status code. Repeated from the header.&quot;
+          },
+          &quot;error&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;General error&quot;
+          },
+          &quot;message&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;More detailed error&quot;
+          }
+        }
+      }
+    }
+  }
+}</schema>
+    <schemaType>OpenApi3</schemaType>
+    <serviceBinding>{&quot;host&quot;:&quot;dev-precision-open-api.azurewebsites.net&quot;,&quot;basePath&quot;:&quot;/&quot;,&quot;allowedSchemes&quot;:[&quot;HTTPS&quot;],&quot;requestMediaTypes&quot;:[],&quot;responseMediaTypes&quot;:[],&quot;compatibleMediaTypes&quot;:{},&quot;integrationFlags&quot;:null,&quot;extensions&quot;:{}}</serviceBinding>
+    <status>Complete</status>
+    <systemVersion>5</systemVersion>
+</ExternalServiceRegistration>

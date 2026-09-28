@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PPI New Commerce User Request Support Process</fullName>
+    <description>Support Process to accomodate a new user request from the PPI Commerce Site</description>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Closed</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Escalated</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>In Progress</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>New</fullName>
+        <default>true</default>
+    </values>
+    <values>
+        <fullName>On Hold</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Waiting on Raise User Response</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Waiting on Vendor</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

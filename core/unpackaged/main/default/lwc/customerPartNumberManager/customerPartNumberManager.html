@@ -1,0 +1,52 @@
+<template>
+    <lightning-card title="My Part Numbers" icon-name="standard:product_item">
+        <template lwc:if={isEnabled}>
+            <div class="slds-p-horizontal_medium">
+                <!-- Bulk upload -->
+                <c-customer-part-number-uploader
+                    account-id={accountId}
+                    onuploadcomplete={handleUploadComplete}>
+                </c-customer-part-number-uploader>
+
+                <!-- Add single mapping -->
+                <div class="slds-grid slds-gutters_small slds-grid_vertical-align-end slds-m-top_medium">
+                    <div class="slds-col">
+                        <lightning-input label="Customer Part Number" value={newPartNumber}
+                                         onchange={handlePartNumberChange}></lightning-input>
+                    </div>
+                    <div class="slds-col">
+                        <lightning-input label="PPI SKU" value={newSku}
+                                         onchange={handleSkuChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-no-flex">
+                        <lightning-button variant="brand" label="Add" onclick={handleAdd}></lightning-button>
+                    </div>
+                </div>
+
+                <!-- Existing mappings -->
+                <div class="slds-m-top_medium">
+                    <template lwc:if={hasMappings}>
+                        <lightning-datatable
+                            key-field="Id"
+                            data={mappings}
+                            columns={columns}
+                            draft-values={draftValues}
+                            onsave={handleSave}
+                            onrowaction={handleRowAction}>
+                        </lightning-datatable>
+                    </template>
+                    <template lwc:else>
+                        <p class="slds-text-body_regular slds-p-vertical_medium">
+                            No part numbers yet. Add one above or upload a CSV.
+                        </p>
+                    </template>
+                </div>
+            </div>
+        </template>
+        <template lwc:else>
+            <div class="slds-p-around_medium slds-text-color_weak">
+                The Customer Part Number feature is not enabled for your account. Please reach out to the PPI Digital Customer Experience Team at 800-247-1228 with questions
+            </div>
+        </template>
+    </lightning-card>
+</template>

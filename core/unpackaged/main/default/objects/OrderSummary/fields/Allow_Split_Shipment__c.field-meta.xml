@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Allow_Split_Shipment__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>indicates if user agreed to split shipment his order if it couldn't be fulfilled complete</description>
+    <inlineHelpText>indicates if user agreed to split shipment his order if it couldn't be fulfilled complete</inlineHelpText>
+    <label>Allow Split Shipment</label>
+    <type>Checkbox</type>
+</CustomField>

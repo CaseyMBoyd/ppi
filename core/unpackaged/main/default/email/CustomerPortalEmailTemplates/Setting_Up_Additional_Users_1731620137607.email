@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">Dear&nbsp;{{{Recipient.FirstName}}},<br />
+<br />
+We hope you are enjoying the benefits of the Customer Portal. To enhance your experience further, we would like to assist you in setting up additional users for your company.<br />
+<br />
+You have two options to request new users:
+<ol>
+	<li>Through the Portal: Navigate to your portal account details, select "My Accounts," and choose "New User Request."</li>
+	<li>By Email: Send your request to styrrel@ppi-global.com and imoore@ppi-global.com</li>
+</ol>
+Please include the following information for each new user:
+
+<ul>
+	<li>Full name</li>
+	<li>Email address</li>
+	<li>Contact Title: Choose from Buyer Manager, Buyer, or Viewer.</li>
+</ul>
+For your convenience here is a summary of each user role:
+
+<ul>
+	<li>Commerce Buyer Manager: Can create and activate buyer accounts, reset passwords, and view all carts created by buyers within the organization</li>
+	<li>Commerce Buyer: Can browse the store, create and view their own carts, and purchase products.</li>
+	<li>Commerce Viewer: Can view product details, pricing, and order documentation and create saved carts. However, this role does not include the ability to complete the checkout process, making it ideal for team members who need access to pricing and cart management but do not handle final purchases.</li>
+</ul>
+Please let us know if you have any questions or need further assistance.&nbsp; We look forward to helping you make the most of your Customer Portal Experience.<br />
+<br />
+Warm regards,<br />
+Sandy Tyrrel<br />
+Business Analyst</body>
+</html>

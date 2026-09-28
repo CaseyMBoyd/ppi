@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ISA_Same_Day_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>ISA Same Day</label>
+    <queue>ISA_Same_Day</queue>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

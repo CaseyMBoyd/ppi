@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>To use when order that was delayed due to material availability is now ready to go</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Order Update from Delay</name>
+    <relatedEntityType>Opportunity</relatedEntityType>
+    <style>none</style>
+    <subject>Update on your Order for PO {{{Opportunity.PO_Number__c}}}, Order #{{{Opportunity.Order_Number__c}}}</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

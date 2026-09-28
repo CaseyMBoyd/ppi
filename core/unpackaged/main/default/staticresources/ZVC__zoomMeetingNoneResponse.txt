@@ -1,0 +1,1 @@
+{"uuid":null,"id":null,"host_id":null,"type":null,"topic":null,"user_name":"dev prdmeeting","user_email":null,"start_time":null,"join_url": "https://zoomdev.us/j/95331715166?pwd=Fk6XDgcaUT9jtoDFWaKTxmcPd08JEj.1","end_time":null,"duration":null,"total_minutes":null,"participants_count":null,"dept":"","source":"Zoom"}

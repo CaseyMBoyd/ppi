@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <description>Checkout Po Number</description>
+    <isExposed>true</isExposed>
+    <masterLabel>Checkout Po Number</masterLabel>
+    <targets>
+        <target>lightningCommunity__Default</target>
+        <target>lightningCommunity__Page</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+                    name="label"
+                    type="String"
+                    description="Displayed Label"
+                    label="Label"
+                    default="P.O. Number"
+                    required="true"
+            />
+            <property
+                    name="maxLength"
+                    type="Integer"
+                    description="Maximum length of the PO number"
+                    label="Maximum Length"
+                    default="50"
+            />
+            <property
+                    name="checkoutDetails"
+                    type="String"
+                    description="Do not change!"
+                    label="Checkout Details Binding"
+                    default="{!Checkout.Details}"
+            />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

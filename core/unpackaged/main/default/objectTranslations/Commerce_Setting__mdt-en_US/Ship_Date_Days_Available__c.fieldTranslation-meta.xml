@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Number of days in the future for calendar on checkout to be available for ship date --></help>
+        <label><!-- Ship Date Days Available --></label>
+        <name>Ship_Date_Days_Available__c</name>
+    </CustomFieldTranslation>

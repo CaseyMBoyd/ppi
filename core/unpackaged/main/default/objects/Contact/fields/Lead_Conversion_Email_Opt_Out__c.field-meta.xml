@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Conversion_Email_Opt_Out__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field determines if a contact has chosen to opt out of the automated email sent when a lead is converted to an opportunity.</description>
+    <inlineHelpText>This field determines if a contact has chosen to opt out of the automated email sent when a lead is converted to an opportunity.</inlineHelpText>
+    <label>Lead Conversion Email Opt Out</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

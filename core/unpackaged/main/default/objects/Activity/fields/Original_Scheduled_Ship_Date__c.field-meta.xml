@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Original_Scheduled_Ship_Date__c</fullName>
+    <description>The date an order was scheduled to ship when the order was placed in PPI's Systems</description>
+    <inlineHelpText>Please enter the date the order was scheduled to ship when the order was placed in PPI's Systems</inlineHelpText>
+    <label>Original Scheduled Ship Date</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

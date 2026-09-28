@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Pulley</fullName>
+        <default>false</default>
+        <label>Pulley</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Idler</fullName>
+        <default>false</default>
+        <label>Idler</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Unit</fullName>
+        <default>false</default>
+        <label>Unit</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Mixed</fullName>
+        <default>false</default>
+        <label>Mixed</label>
+    </standardValue>
+</StandardValueSet>

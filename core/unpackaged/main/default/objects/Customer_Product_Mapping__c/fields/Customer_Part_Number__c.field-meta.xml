@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Part_Number__c</fullName>
+    <description>Customer-defined part number. Indexed via External ID for search translation performance. Uniqueness is enforced per account through Mapping_Composite_Key__c.</description>
+    <externalId>true</externalId>
+    <label>Customer Part Number</label>
+    <length>100</length>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

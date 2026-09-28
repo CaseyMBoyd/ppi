@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mapping_Composite_Key__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>AccountId + '_' + Customer_Part_Number__c. Unique (case-insensitive) External ID used as the upsert key for CSV bulk upload and cross-account copy. Populated by the trigger handler in before insert; not user-editable.</description>
+    <externalId>true</externalId>
+    <label>Mapping Composite Key</label>
+    <length>200</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

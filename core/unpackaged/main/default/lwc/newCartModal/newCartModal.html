@@ -1,0 +1,43 @@
+<!-- Copyright (c) 2022 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<!-- New Cart -->
+<template>
+  <lightning-spinner
+    if:true={isLoading}
+    variant="brand"
+    size="medium"
+  ></lightning-spinner>
+
+  <lightning-modal-header>
+    <h1 class="slds-text-heading_medium">New Cart</h1>
+  </lightning-modal-header>
+
+  <lightning-modal-body>
+    <lightning-input
+      type="text"
+      class="slds-m-vertical_x-large"
+      required="true"
+      max-length="255"
+      onchange={handleChange}
+      label="Cart Name"
+    ></lightning-input>
+  </lightning-modal-body>
+
+  <lightning-modal-footer>
+    <lightning-button
+      variant="brand"
+      class="slds-m-right_medium"
+      type="button"
+      label="Cancel"
+      onclick={closeModal}
+    ></lightning-button>
+
+    <lightning-button
+      variant="brand"
+      type="button"
+      label="Save"
+      disabled={invalidName}
+      onclick={createCart}
+    ></lightning-button>
+  </lightning-modal-footer>
+</template>

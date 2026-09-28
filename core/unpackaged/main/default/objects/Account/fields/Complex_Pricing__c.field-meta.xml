@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complex_Pricing__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Identifies iif an account has complex pricing.  Complex pricing means levels are deviated from standard daily multipliers.</description>
+    <inlineHelpText>Check the box if the account has pricing levels  that are deviated from standard daily multipliers.</inlineHelpText>
+    <label>Complex Pricing</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

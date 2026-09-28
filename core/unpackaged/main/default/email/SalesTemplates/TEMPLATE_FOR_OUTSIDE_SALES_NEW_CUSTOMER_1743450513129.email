@@ -1,0 +1,16 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;"><span style="font-family:Arial,Helvetica,sans-serif;">Dear Outside Salesman,<br />
+<br />
+{{{Recipient.Name}}}&nbsp;with [Company Name] in [City, State] has recently submitted a request for a quote to PPI. This company is not currently set up with us.<br />
+<br />
+Please reach out to {{{Recipient.Name}}} at {{{Recipient.Email}}} regarding this opportunity. Please advise us on which distributor to quote through or contact a PPI pricing manager.<br />
+<br />
+Let me know if you need any additional details.<br />
+<br />
+Thank you for your assistance!</span><br />
+<br />
+{{{Sender.Signature}}}</body>
+</html>

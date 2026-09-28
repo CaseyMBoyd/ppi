@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NavigationMenu xmlns="http://soap.sforce.com/2006/04/metadata">
+    <container>PPI Customer Portal</container>
+    <containerType>Network</containerType>
+    <label>Default Navigation</label>
+    <navigationMenuItem>
+        <label>Storefront Categories</label>
+        <position>1</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>StorefrontCategories</target>
+        <type>DataSourceDriven</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>What&apos;s New</label>
+        <menuItemBranding>
+            <tileImage>X20260805_14_38_138_5_26_Sprint_1doc</tileImage>
+        </menuItemBranding>
+        <position>2</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/portal-update-august-2026</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+</NavigationMenu>

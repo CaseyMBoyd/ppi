@@ -1,0 +1,38 @@
+<!-- Copyright (c) 2024 ForeFront, Inc. All Rights Reserved. Subject to ForeFront, Inc. licensing. -->
+
+<template>
+    <div class="slds-p-top_x-small slds-border_bottom">
+        <lightning-layout>
+            <lightning-layout-item size=2 class="slds-m-horizontal_medium">
+                <img src={imageUrl} />
+            </lightning-layout-item>
+            <lightning-layout-item size=9>
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item size=12 class="slds-p-vertical_small">
+                        <a lwc:if={productUrl} href={productUrl} target="_self">{orderItem.Name}</a>
+                        <span lwc:else>{orderItem.Name}</span>
+                    </lightning-layout-item>
+                    <lightning-layout-item size=6>
+                        <lightning-layout multiple-rows>
+                            <template for:each={orderItem.displayFields} for:item="field">
+                                <lightning-layout-item key={field.value} size=12 class="slds-p-bottom_xx-small">
+                                    <template lwc:if={field.label}>{field.label}:</template> {field.value}
+                                </lightning-layout-item>
+                            </template>
+                            <lightning-layout-item lwc:if={customerPartNumber} size=12 class="slds-p-bottom_xx-small">
+                                Customer Part Number: {customerPartNumber}
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </lightning-layout-item>
+                    <lightning-layout-item size=3 class="slds-text-align_right">
+                        Line Number: {orderItem.Padded_Line_Number__c}
+                    </lightning-layout-item>
+                    <lightning-layout-item size=3 class="slds-text-align_right">
+                        <lightning-formatted-number value={orderItem.TotalAmtWithTax} format-style="currency"
+                                                    currency-code="USD"></lightning-formatted-number>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>
